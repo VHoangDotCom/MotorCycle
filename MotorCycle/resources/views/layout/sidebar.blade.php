@@ -17,6 +17,11 @@
             <ul id="category-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{route('category.index')}}">
+                        <i class="bi bi-circle"></i><span>Product Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <i class="bi bi-circle"></i><span>Accessories for people</span>
                     </a>
                 </li>
