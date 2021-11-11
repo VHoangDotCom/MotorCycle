@@ -5,21 +5,28 @@
 
         <div class="pagetitle">
             <h1>Data Tables</h1>
-
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                    <li class="breadcrumb-item">Tables</li>
+                    <li class="breadcrumb-item active">Data</li>
+                </ol>
+            </nav>
         </div><!-- End Page Title -->
-
         <section class="section">
             <div class="row">
                 <div class="col-lg-12">
 
                     <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Product Category</h5>
                         @if($message = Session::get('success'))
                             <div class="alert alert-success">
                                 {{$message}}
                             </div>
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title">Datatables</h5>
+                            <h5 class="card-title"></h5>
                             <div class="col-lg-12 text-center" style="margin-top: 10px;margin-bottom: 10px;float: right" >
                                 <a href="{{route('category.create')}}" class="btn btn-success">Add</a>
                             </div>
@@ -38,6 +45,7 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Content</th>
                                     <th scope="col">Status</th>
+
                                     <th scope="col">More</th>
 
                                 </tr>
@@ -51,6 +59,7 @@
                                         <td>{{$category->title}}</td>
                                         <td>{{$category->content}}</td>
                                         <td>{{$category->status}}</td>
+
                                         <td>
                                             <form action="{{route('category.destroy',$category->id)}}" method="post">
 
@@ -69,12 +78,12 @@
                                 </tr>
                                 </tbody>
                             </table>
-                                @else
-                                    <div class="alert alert-alert">Start Adding to the Database</div>
                             @endif
                             {!! $categories->links() !!}
                             <!-- End Table with stripped rows -->
 
+
+                            </div>
                         </div>
                     </div>
                     </div>

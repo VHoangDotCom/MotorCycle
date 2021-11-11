@@ -40,6 +40,21 @@ Route::get('/categories',function (){
 });
 Route::resource('category',\App\Http\Controllers\categoryController::class);
 
+//Redirect to Product of people
+Route::get('/products of people',function (){
+    return redirect('/product');
+});
+Route::resource('productOfPeople',\App\Http\Controllers\productOfPeopleController::class);
+
+
+//Redirect to Product of motors
+Route::get('/products of motors',function (){
+    return redirect('/product');
+});
+Route::resource('productOfItems',\App\Http\Controllers\productOfItemController::class);
+
+
+
 //Redirect to Error
 Route::get('/error', function () {
     return view('error.500');

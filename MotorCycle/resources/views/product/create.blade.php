@@ -12,7 +12,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Add Product Category</h5>
+                            <h5 class="card-title">Add Product </h5>
 
                             @if($errors->any())
                                 <div class="alert aler-danger">
@@ -26,7 +26,7 @@
                                 </div>
                         @endif
 
-                            <!-- Multi Columns Form -->
+                        <!-- Multi Columns Form -->
                             <form class="row g-3" action="{{route('category.store')}}" method="post">
                                 @csrf
                                 <div class="col-md-12">
@@ -45,19 +45,19 @@
                                     <label for="inputAddress5" class="form-label">Status</label>
                                     <input type="text" class="form-control" id="inputAddres5s" placeholder="Enter the status" name="status">
                                 </div>
-                                <!--<div class="col-6">
+                                <div class="col-6">
                                     <label for="inputState" class="form-label " >Parent:</label>
                                     <select id="inputState" class="form-select" name="parent">
                                         <option selected>Choice...</option>
                                         <option value="Accessories for people">Accessories for people</option>
                                         <option value="Items for motors">Items for motors</option>
-                                    </select>-->
+                                    </select>
 
-                                <div class="text-center" style="margin-top: 10px">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <a href="{{route('category.index')}}" class="btn btn-primary">Back</a>
-                                </div>
+                                    <div class="text-center" style="margin-top: 10px">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                        <a href="{{route('category.index')}}" class="btn btn-primary">Back</a>
+                                    </div>
                             </form><!-- End Multi Columns Form -->
 
                         </div>
