@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class gallery extends Controller
+class galleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class gallery extends Controller
     public function index()
     {
         //
-        $galleries=gallery::latest()->paginate(5);
-        return view('gallery.index',compact('galleries'));
+        $galleries=galleryController::latest()->paginate(5);
+        return view('galleryController.index',compact('galleries'));
     }
 
     /**
@@ -26,6 +26,7 @@ class gallery extends Controller
     public function create()
     {
         //
+        return view('galleryController.create');
     }
 
     /**
@@ -37,6 +38,15 @@ class gallery extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'thumbnails'=>'required',
+            'image'=>'required',
+            'productID'=>'required',
+
+
+        ]);
+        galleryController::create($request->all());
+        return redirect()->route('galleryController.index',compact(gallery))->with('success','Add Successfully');
     }
 
     /**
@@ -56,9 +66,10 @@ class gallery extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(\App\Models\gallery $gallery)
     {
         //
+        return view('galleryController.edit');
     }
 
     /**
@@ -68,9 +79,19 @@ class gallery extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, galleryController $gallery)
     {
         //
+        $request->validate([
+            'thumbnails'=>'required',
+            'image'=>'required',
+            'productID'=>'required',
+
+
+        ]);
+        $gallery->update($request->all());
+        return redirect()->route('galleryController.index',compact(gallery))->with('success','Update Successfully');
+
     }
 
     /**
@@ -79,8 +100,10 @@ class gallery extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(galleryController $gallery)
     {
         //
+        $gallery->delete();
+        return redirect()->route('galleryController.index',compact(gallery))->with('success','Delete Successfully');
     }
 }

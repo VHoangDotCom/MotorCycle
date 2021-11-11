@@ -39,7 +39,7 @@
                                             <th scope="col">Product Name</th>
                                             <th scope="col">Quantity</th>
                                             <th scope="col">Price</th>
-                                            <th scope="col">Category Name</th>
+
                                             <th scope="col">Status</th>
                                             <th scope="col">More</th>
 
@@ -47,14 +47,14 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                        @foreach($categories as $category)
+                                        @foreach($products as $product)
                                             <tr>
                                             <tr>
                                                 <td>{{++$i}}</td>
                                                 <td>{{$product->productName}}</td>
                                                 <td>{{$product->quantity}}</td>
-                                                <td>{{$product->Price}}</td>
-                                                <td>{{$product->categoryID}}</td>
+                                                <td>{{$product->price}}</td>
+
                                                 <td>{{$product->status}}</td>
                                                 <td>
                                                     <form action="{{route('productOfPeople.destroy',$product->id)}}" method="post">

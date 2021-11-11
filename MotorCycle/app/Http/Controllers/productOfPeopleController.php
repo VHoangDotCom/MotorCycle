@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
 
+
 class productOfPeopleController extends Controller
 {
+    private $htmlSelect;
+public function __constructor(){
+    $this->htmlSelect;
+}
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,7 @@ class productOfPeopleController extends Controller
     public function index()
     {
         //$product=DB::table('products')->where('productType','0');
-        $products=product::latest()->where('productType','0')->paginate(10);
+        $products=product::latest()->where('productType','0')->paginate(5);
         return view('product.indexOfPeople',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
@@ -28,8 +35,18 @@ class productOfPeopleController extends Controller
     public function create()
     {
         //
-        return view('product.create');
+        $categories=category::all(['id','categoryCode']);
+        foreach ($categories as $dt) {
+            if ($dt['id'] > 0) {
+                $this->htmlSelect .= "<option value='{$dt["id"]}'>" . $dt["categoryCode"] . "</option>";
+            }
+        }
+
+
+        $htmlOption=$this->htmlSelect;
+        return view('product.create',compact('htmlOption'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -41,7 +58,7 @@ class productOfPeopleController extends Controller
     {
         //
         $request->validate([
-              'productCode'=> 'required',
+            'productCode'=> 'required',
             'productName'=> 'required',
             'title'=> 'required',
             'description'=> 'required',
@@ -49,13 +66,15 @@ class productOfPeopleController extends Controller
             'discount'=> 'required',
             'quantity'=> 'required',
             'warranty'=> 'required',
-            'createBy'=> 'required',
+            'createdBy'=> 'required',
             'categoryID'=> 'required',
             'productType'=> 'required',
         ]);
 
+
         product::create($request->all());
         return redirect()->route('product.indexOfPeople')->with('success','Add Product Successfully');
+
     }
 
     /**

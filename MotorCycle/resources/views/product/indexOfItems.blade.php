@@ -70,9 +70,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                @else
-                                    <div class="alert alert-alert">Start Adding to the Database</div>
-                            @endif
+
                             {!! $products->links() !!}
                             <!-- End Table with stripped rows -->
 

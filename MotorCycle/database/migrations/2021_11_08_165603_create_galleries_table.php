@@ -13,7 +13,7 @@ class CreateGalleriesTable extends Migration
      */
     public function up()
     {
-        //table gallery
+        //table galleryController
         Schema::create('galleries', function (Blueprint $table) {
             $table->increments('galleryID');
             $table->string('categoryCode', 200)->nullable();

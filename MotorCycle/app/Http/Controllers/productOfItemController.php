@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\product;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class productOfItemController extends Controller
 {
     /**
@@ -15,9 +17,9 @@ class productOfItemController extends Controller
     public function index()
     {
         //
-        //$product=DB::table('products')->where('productType','0');
-        $products=product::latest()->where('productType','1')->paginate(10);
-        return view('product.indexOfItems',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
+        $product=DB::table('products')->where('productType','0')->paginate(10);
+
+        return view('product.indexOfItems',compact('product'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
     /**

@@ -27,32 +27,71 @@
                         @endif
 
                         <!-- Multi Columns Form -->
-                            <form class="row g-3" action="{{route('category.store')}}" method="post">
+                            <form class="row g-3" action="{{route('product.store')}}" method="post">
                                 @csrf
                                 <div class="col-md-12">
-                                    <label for="inputName5" class="form-label">Category Name:</label>
-                                    <input type="text" class="form-control" id="inputName5" name="categoryCode" placeholder="Enter the category name">
+                                    <label for="inputName5" class="form-label">Product Code:</label>
+                                    <input type="text" class="form-control" id="inputName5" name="productCode" placeholder="Enter the Product Code">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="inputName5" class="form-label">Product Name:</label>
+                                    <input type="text" class="form-control" id="inputName5" name="productName" placeholder="Enter the Product name">
                                 </div>
                                 <div class="col-md-12">
                                     <label for="inputEmail5" class="form-label">Title:</label>
                                     <input type="text" class="form-control" id="inputEmail5" name="title" placeholder="Enter the title">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="inputPassword5" class="form-label">Content :</label>
-                                    <input type="text" class="form-control" id="inputPassword5" name="content" placeholder="Enter the content">
+                                    <label for="inputPassword5" class="form-label">Description :</label>
+                                    <input type="text" class="form-control" id="inputPassword5" name="description" placeholder="Enter the Description">
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputAddress5" class="form-label">Status</label>
-                                    <input type="text" class="form-control" id="inputAddres5s" placeholder="Enter the status" name="status">
+                                    <label for="inputAddress5" class="form-label">Price</label>
+                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Price" name="price">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputAddress5" class="form-label">Discount</label>
+                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Discount" name="discount">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputAddress5" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Quantity" name="quantity">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputAddress5" class="form-label">Warranty</label>
+                                    <input type="text" class="form-control" id="inputAddres5s" placeholder="Enter the Warranty" name="warranty">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputAddress5" class="form-label">Created By</label>
+                                    <input type="text" class="form-control" id="inputAddres5s" placeholder="Enter the Created By" name="createdBy">
+                                </div>
+                                <div  class="col-12" >
+                                    <label for="inputState" class="form-label " >Product Type:</label>
+                                    <div class="form-check"  >
+
+                                        <div >
+                                            <input class="form-check-input" type="radio" name="productType"  id="gridRadios1" value="0" >
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Accessories for people
+                                            </label>
+                                        </div>
+                                        <div >
+                                            <input class="form-check-input" type="radio"name="productType"  id="gridRadios1" value="1" >
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Items for motors
+                                            </label>
+                                        </div>
+
+
+                                    </div>
                                 </div>
                                 <div class="col-6">
-                                    <label for="inputState" class="form-label " >Parent:</label>
-                                    <select id="inputState" class="form-select" name="parent">
-                                        <option selected>Choice...</option>
-                                        <option value="Accessories for people">Accessories for people</option>
-                                        <option value="Items for motors">Items for motors</option>
+                                    <label for="inputState" class="form-label " >Category Name:</label>
+                                    <select id="inputState" class="form-select" name="categoryID">
+                                        <option value="0">Enter the product category</option>
+                                                   {!!$htmlOption !!} }
                                     </select>
-
+                                </div>
                                     <div class="text-center" style="margin-top: 10px">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-secondary">Reset</button>

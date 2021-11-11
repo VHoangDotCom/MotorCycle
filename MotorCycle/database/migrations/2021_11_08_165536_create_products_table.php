@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer('quantity')->nullable();
             $table->string('warranty',200);
             $table->string('createdBy',200);
-            $table->unsignedInteger('categoryID');
+            $table->Integer('categoryID');
 
             $table->timestamps();
 

@@ -47,11 +47,11 @@ Route::get('/products of people',function (){
 Route::resource('productOfPeople',\App\Http\Controllers\productOfPeopleController::class);
 
 
-//Redirect to Product of motors
-Route::get('/products of motors',function (){
-    return redirect('/product');
-});
-Route::resource('productOfItems',\App\Http\Controllers\productOfItemController::class);
+////Redirect to Product of motors
+//Route::get('/products of motors',function (){
+//    return redirect('/product');
+//});
+//Route::resource('productOfItems',\App\Http\Controllers\productOfItemController::class);
 
 
 
