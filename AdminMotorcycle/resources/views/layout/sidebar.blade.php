@@ -47,12 +47,12 @@
             </a>
             <ul id="blogs-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('news.create')}}">
+                    <a href="#">
                         <i class="bi bi-circle"></i><span>Design Blog</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('news.index')}}">
+                    <a href="#">
                         <i class="bi bi-circle"></i><span>List Blogs</span>
                     </a>
                 </li>
@@ -105,7 +105,7 @@
             </a>
             <ul id="error-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="pages-error-404.html">
+                    <a href="{{route('error.404')}}">
                         <i class="bi bi-circle"></i><span>Error 404</span>
                     </a>
                 </li>

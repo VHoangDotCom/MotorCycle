@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +31,7 @@ Route::get('/Admin Profile',function (){
 });
 Route::resource('profile',\App\Http\Controllers\profileController::class);
 
-Route::get('/Admin Profile', function () {
+Route::get('/Admin Profiles', function () {
     return view('profile.index');
 })->name('profile.index');
 
@@ -54,31 +57,22 @@ Route::get('/Sign in', function () {
     return view('login.login');
 })->name('login.login');
 
-//Redirect to news page
-//Route::get('/News in', function () {
-//    return view('news.index');
-//})->name('news.index');
+
+
+//////Redirect to the News Resource Controller
+//Route::get('/',function(){
+//   return redirect('/news');
+//});
+//Route::resource('news',NewsController::class);
 //
-//Route::get('/News design', function () {
-//    return view('news.create');
-//})->name('news.create');
-//
-//Route::get('/News den', function () {
-//    return view('news.show');
-//})->name('news.show');
-
-////Redirect to the News Resource Controller
-Route::get('/',function(){
-   return redirect('/news');
-});
-Route::resource('news',NewsController::class);
 
 
+///Redirect to the Blog Resource Controller
+//Route::get('/',function(){
+//    return redirect('/blogs');
+//});
+//Route::resource('blogs',BlogController::class);
 
 
-//TH trang admin trong views
-Route::get('/admin', function () {
-    return view('admin.profile');
-})->name('admin');
 
 
