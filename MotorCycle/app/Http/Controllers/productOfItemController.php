@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\DB;
 
 class productOfItemController extends Controller
 {
@@ -16,10 +15,8 @@ class productOfItemController extends Controller
      */
     public function index()
     {
-        //
-        $product=DB::table('products')->where('productType','0')->paginate(10);
-
-        return view('product.indexOfItems',compact('product'))->with('i',(\request()->input('page',1)-1)*5);
+        $products = product::latest()->where('productType', '1')->paginate(5);
+        return view('product.indexOfItems', compact('products'))->with('i', (\request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -30,7 +27,16 @@ class productOfItemController extends Controller
     public function create()
     {
         //
-        return view('product.create');
+        $categories=category::all(['id','categoryCode']);
+        foreach ($categories as $dt) {
+            if ($dt['id'] > 0) {
+                $this->htmlSelect .= "<option value='{$dt["id"]}'>" . $dt["categoryCode"] . "</option>";
+            }
+        }
+
+
+        $htmlOption=$this->htmlSelect;
+        return view('product.create',compact('htmlOption'));
     }
 
     /**
@@ -42,22 +48,23 @@ class productOfItemController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'productCode'=> 'required',
-            'productName'=> 'required',
-            'title'=> 'required',
-            'description'=> 'required',
-            'price'=> 'required',
-            'discount'=> 'required',
-            'quantity'=> 'required',
-            'warranty'=> 'required',
-            'createBy'=> 'required',
-            'categoryID'=> 'required',
-            'productType'=> 'required',
-        ]);
-
-        product::create($request->all());
-        return redirect()->route('product.indexOfItems')->with('success','Add Product Successfully');
+//        $request->validate([
+//            'productCode'=> 'required',
+//            'productName'=> 'required',
+//            'title'=> 'required',
+//            'description'=> 'required',
+//            'price'=> 'required',
+//            'discount'=> 'required',
+//            'quantity'=> 'required',
+//            'warranty'=> 'required',
+//            'createBy'=> 'required',
+//            'categoryID'=> 'required',
+//            'productType'=> 'required',
+//            'status',
+//        ]);
+//
+//        product::create($request->all());
+//        return redirect()->route('productOfItems.index')->with('success','Add Product Successfully');
     }
 
     /**
@@ -66,9 +73,10 @@ class productOfItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(product $product)
     {
         //
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -80,7 +88,16 @@ class productOfItemController extends Controller
     public function edit(product $product)
     {
         //
-        return view('product.update',compact('product'));
+        $categories=category::all(['id','categoryCode']);
+        foreach ($categories as $dt) {
+            if ($dt['id'] > 0) {
+                $this->htmlSelect .= "<option value='{$dt["id"]}'>" . $dt["categoryCode"] . "</option>";
+            }
+        }
+
+
+        $htmlOption=$this->htmlSelect;
+        return view('product.update',compact('htmlOption','product'));
 
     }
 
@@ -94,22 +111,23 @@ class productOfItemController extends Controller
     public function update(Request $request, product $product)
     {
         //
-        $request->validate([
-            'productCode'=> 'required',
-            'productName'=> 'required',
-            'title'=> 'required',
-            'description'=> 'required',
-            'price'=> 'required',
-            'discount'=> 'required',
-            'quantity'=> 'required',
-            'warranty'=> 'required',
-            'createBy'=> 'required',
-            'categoryID'=> 'required',
-            'productType'=> 'required',
-        ]);
-
-        $product->update($request->all());
-        return redirect()->route('product.indexOfItems')->with('success','Update Product Successfully');
+//        $request->validate([
+//            'productCode'=> 'required',
+//            'productName'=> 'required',
+//            'title'=> 'required',
+//            'description'=> 'required',
+//            'price'=> 'required',
+//            'discount'=> 'required',
+//            'quantity'=> 'required',
+//            'warranty'=> 'required',
+//            'createBy'=> 'required',
+//            'categoryID'=> 'required',
+//            'productType'=> 'required',
+//            'status'
+//        ]);
+//
+//        $product->update($request->all());
+//        return redirect()->route('productOfItems.index')->with('success','Update Product Successfully');
     }
 
     /**
@@ -121,8 +139,8 @@ class productOfItemController extends Controller
     public function destroy(product $product)
     {
         //
-        $product->delete();
-        return redirect()->route('product.indexOfItems')->with('success','Update Product Successfully');
+//        $product->delete();
+//        return redirect()->route('productOfItems.index')->with('success','Update Product Successfully');
 
     }
 }

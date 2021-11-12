@@ -12,7 +12,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Add Product Category</h5>
+                            <h5 class="card-title">Update Product Category</h5>
 
                             @if($errors->any())
                                 <div class="alert aler-danger">

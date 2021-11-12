@@ -20,7 +20,7 @@ class CreateAdminsTable extends Migration
             $table->string('password',200)->nullable();
             $table->string('fullName',200)->nullable();
             $table->string('company',255);
-            $table->string('job,255');
+            $table->string('job',255);
             $table->string('country',255);
             $table->string('address',255);
             $table->string('phone',255);

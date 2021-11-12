@@ -42,8 +42,10 @@
                                     <input type="text" class="form-control" id="inputEmail5" name="title" placeholder="Enter the title">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="inputPassword5" class="form-label">Description :</label>
-                                    <input type="text" class="form-control" id="inputPassword5" name="description" placeholder="Enter the Description">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Description:</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="description" placeholder="Enter description" class="form-control" id="inputEmail5" style="width: 950px"></textarea>
+                                    </div>
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Price</label>
@@ -90,6 +92,15 @@
                                     <select id="inputState" class="form-select" name="categoryID">
                                         <option value="0">Enter the product category</option>
                                                    {!!$htmlOption !!} }
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="inputState" class="form-label " >Status:</label>
+                                    <select id="inputState" class="form-select" name="status">
+                                        <option value="0">Enter the Product Status:</option>
+                                        <option value="still product">Still Product</option>
+                                        <option value="out of product">Out Of Product</option>
+
                                     </select>
                                 </div>
                                     <div class="text-center" style="margin-top: 10px">

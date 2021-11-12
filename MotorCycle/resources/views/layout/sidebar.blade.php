@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('productOfPeople.index')}}">
+                    <a href="{{route('product.index')}}">
                         <i class="bi bi-circle"></i><span>Accessories for people</span>
                     </a>
                 </li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class categoryController extends Controller
@@ -15,7 +16,7 @@ class categoryController extends Controller
     public function index()
     {
         //
-        $categories=Category::latest()->paginate(5);
+        $categories=category::latest()->paginate(5);
         return view('category.index',compact('categories'))->with('i',(\request()->input('page',1)-1)*5);
 
 
@@ -45,10 +46,10 @@ class categoryController extends Controller
             'categoryCode'=>'required',
             'title'=>'required',
             'content'=>'required',
-            'status'=>'required'
+            'status'=>'required',
         ]);
         category::create($request->all());
-        return redirect()->route('category.index')->with('success','Add Category Successfully');
+        return redirect()->route('category.index')->with('success','Add Gallery Successfully');
     }
 
     /**
@@ -85,6 +86,7 @@ class categoryController extends Controller
     {
         //
         $request->validate([
+
             'categoryCode'=>'required',
             'title'=>'required',
             'content'=>'required',
@@ -92,7 +94,7 @@ class categoryController extends Controller
 
         ]);
         $category->update($request->all());
-        return redirect()->route('category.index')->with('success','Update Category Successfully');
+        return redirect()->route('category.index')->with('success','Update Gallery Successfully');
     }
 
     /**
@@ -105,6 +107,6 @@ class categoryController extends Controller
     {
         //
         $category->delete();
-        return redirect()->route('category.index')->with('success','Delete Category Successfully');
+        return redirect()->route('category.index')->with('success','Delete Gallery Successfully');
     }
 }

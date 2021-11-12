@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class productOfPeopleController extends Controller
 {
-    private $htmlSelect;
+    private $htmlSelect ;
 public function __constructor(){
     $this->htmlSelect;
 }
@@ -25,6 +25,8 @@ public function __constructor(){
         $products=product::latest()->where('productType','0')->paginate(5);
         return view('product.indexOfPeople',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
     }
+
+
 
 
     /**
@@ -69,11 +71,13 @@ public function __constructor(){
             'createdBy'=> 'required',
             'categoryID'=> 'required',
             'productType'=> 'required',
+            'status'=>'required',
         ]);
 
 
         product::create($request->all());
-        return redirect()->route('product.indexOfPeople')->with('success','Add Product Successfully');
+        return redirect()->route('product.index')->with('success','Add Product Successfully');
+        return redirect()->route('productOfItems.index')->with('success','Add Product Successfully');
 
     }
 
@@ -83,9 +87,10 @@ public function __constructor(){
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(product $product)
     {
         //
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -96,8 +101,18 @@ public function __constructor(){
      */
     public function edit(product $product)
     {
+
         //
-        return view('product.update',compact('product'));
+        $categories=category::all(['id','categoryCode']);
+        foreach ($categories as $dt) {
+            if ($dt['id'] > 0) {
+                $this->htmlSelect .= "<option value='{$dt["id"]}'>" . $dt["categoryCode"] . "</option>";
+            }
+        }
+
+
+        $htmlOption=$this->htmlSelect;
+        return view('product.update',compact('htmlOption','product'));
     }
 
     /**
@@ -111,7 +126,7 @@ public function __constructor(){
     {
         //
         $request->validate([
-            'productCode'=> 'required',
+
             'productName'=> 'required',
             'title'=> 'required',
             'description'=> 'required',
@@ -119,12 +134,13 @@ public function __constructor(){
             'discount'=> 'required',
             'quantity'=> 'required',
             'warranty'=> 'required',
-            'createBy'=> 'required',
+            'createdBy'=> 'reqdired',
             'categoryID'=> 'required',
             'productType'=> 'required',
+            'status',
         ]);
         $product->update($request->all());
-        return redirect()->route('product.indexOfPeople')->with('success','Update Product successfully');
+        return redirect()->route('product.index')->with('success','Update Product successfully');
     }
 
     /**
@@ -137,6 +153,6 @@ public function __constructor(){
     {
         //
         $product->delete();
-        return redirect()->route('product.indexOfPeople')->with('success','Update Product successfully');
+        return redirect()->route('product.index')->with('success','Delete Product successfully');
     }
 }

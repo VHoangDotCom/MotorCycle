@@ -16,7 +16,7 @@ class CreateAboutsTable extends Migration
         //table about
         Schema::create('abouts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('aboutCode',200)->nullable()->unique();
+            $table->string('aboutCode',200)->unique();
             $table->string('header',200)->nullable();
             $table->string('container',200)->nullable();
             $table->string('footer',50)->nullable();

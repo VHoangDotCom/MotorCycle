@@ -17,8 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('categoryCode',200);
             $table->string('title',200);
-            $table->text('content');
-            $table->string('status',200);
+            $table->text('content')->nullable();
+            $table->string('status',200)->nullable();
             $table->timestamps();
         });
 

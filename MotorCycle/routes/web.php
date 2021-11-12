@@ -44,14 +44,14 @@ Route::resource('category',\App\Http\Controllers\categoryController::class);
 Route::get('/products of people',function (){
     return redirect('/product');
 });
-Route::resource('productOfPeople',\App\Http\Controllers\productOfPeopleController::class);
+Route::resource('product',\App\Http\Controllers\productOfPeopleController::class);
 
 
-////Redirect to Product of motors
-//Route::get('/products of motors',function (){
-//    return redirect('/product');
-//});
-//Route::resource('productOfItems',\App\Http\Controllers\productOfItemController::class);
+//Redirect to Product of motors
+Route::get('/products of motors',function (){
+    return redirect('/product');
+});
+Route::resource('productOfItems',\App\Http\Controllers\productOfItemController::class);
 
 
 

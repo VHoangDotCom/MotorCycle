@@ -4,6 +4,13 @@
 
         <div class="pagetitle">
             <h1>Product Of Motors</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                    <li class="breadcrumb-item">Tables</li>
+                    <li class="breadcrumb-item active">Data</li>
+                </ol>
+            </nav>
 
         </div><!-- End Page Title -->
 
@@ -20,7 +27,7 @@
                         <div class="card-body">
                             <h5 class="card-title"></h5>
                             <div class="col-lg-12 text-center" style="margin-top: 10px;margin-bottom: 10px;float: right" >
-                                <a href="{{route('productOfItems.create')}}" class="btn btn-success">Add</a>
+                                <a href="{{route('product.create')}}" class="btn btn-success">Add</a>
                             </div>
 
 
@@ -49,13 +56,13 @@
                                                 <td>{{++$i}}</td>
                                                 <td>{{$product->productName}}</td>
                                                 <td>{{$product->quantity}}</td>
-                                                <td>{{$product->Price}}</td>
+                                                <td>{{$product->price}}</td>
                                                 <td>{{$product->categoryID}}</td>
                                                 <td>{{$product->status}}</td>
                                                 <td>
-                                                    <form action="{{route('productOfItems.destroy',$product->id)}}" method="post">
-                                                        <a href="{{route('productOfItems.show',$product->id)}}" class="btn btn-info">Show More</a>
-                                                        <a href="{{route('productOfItems.edit',$product->id)}}" class="btn btn-primary">Edit</a>
+                                                    <form action="{{route('product.destroy',$product->id)}}" method="post">
+                                                        <a href="{{route('product.show',$product->id)}}" class="btn btn-info">Show More</a>
+                                                        <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary">Edit</a>
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger">Delete </button>
@@ -70,7 +77,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
+                                  @endif
                             {!! $products->links() !!}
                             <!-- End Table with stripped rows -->
 
