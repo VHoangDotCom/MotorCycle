@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{asset('niceadmin/assets/css/style.css')}}" rel="stylesheet">
+
 
     <!-- =======================================================
     * Template Name: NiceAdmin - v2.1.0

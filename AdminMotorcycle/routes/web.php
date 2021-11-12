@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Redirect to home
-Route::get('/', function () {
-    return view('home');
-});
+
 
 Route::get('/', function () {
     return view('home');
@@ -49,6 +48,33 @@ Route::get('/error', function () {
 Route::get('/login', function () {
     return view('login.faq');
 })->name('login.faq');
+
+//Redirect to login form
+Route::get('/Sign in', function () {
+    return view('login.login');
+})->name('login.login');
+
+//Redirect to news page
+//Route::get('/News in', function () {
+//    return view('news.index');
+//})->name('news.index');
+//
+//Route::get('/News design', function () {
+//    return view('news.create');
+//})->name('news.create');
+//
+//Route::get('/News den', function () {
+//    return view('news.show');
+//})->name('news.show');
+
+////Redirect to the News Resource Controller
+Route::get('/',function(){
+   return redirect('/news');
+});
+Route::resource('news',NewsController::class);
+
+
+
 
 //TH trang admin trong views
 Route::get('/admin', function () {

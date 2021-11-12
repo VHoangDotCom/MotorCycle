@@ -1,3 +1,7 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
 @extends('layout.index')
 @section('content')
     <main id="main" class="main">
@@ -647,6 +651,8 @@
         </section>
 
     </main><!-- End #main -->
-
+</html>
 
 @endsection
+
+

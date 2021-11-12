@@ -15,6 +15,12 @@
                 <i class="bi bi-basket"></i><span>Categories</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="category-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+                <li>
+                    <a href="{{route('category.index')}}">
+                        <i class="bi bi-circle"></i><span>Categories Management</span>
+                    </a>
+                </li>
                 <li>
                     <a href="{{route('category.index')}}">
                         <i class="bi bi-circle"></i><span>Accessories for people</span>
@@ -41,12 +47,12 @@
             </a>
             <ul id="blogs-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('profile.index')}}">
+                    <a href="{{route('news.create')}}">
                         <i class="bi bi-circle"></i><span>Design Blog</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('profile.index')}}">
+                    <a href="{{route('news.index')}}">
                         <i class="bi bi-circle"></i><span>List Blogs</span>
                     </a>
                 </li>
@@ -83,7 +89,7 @@
         </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-login.html">
+            <a class="nav-link collapsed" href="{{route('login.login')}}">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Login</span>
             </a>
