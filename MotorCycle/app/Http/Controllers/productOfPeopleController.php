@@ -77,7 +77,7 @@ public function __constructor(){
 
         product::create($request->all());
         return redirect()->route('product.index')->with('success','Add Product Successfully');
-        return redirect()->route('productOfItems.index')->with('success','Add Product Successfully');
+
 
     }
 
@@ -127,6 +127,7 @@ public function __constructor(){
         //
         $request->validate([
 
+
             'productName'=> 'required',
             'title'=> 'required',
             'description'=> 'required',
@@ -134,13 +135,15 @@ public function __constructor(){
             'discount'=> 'required',
             'quantity'=> 'required',
             'warranty'=> 'required',
-            'createdBy'=> 'reqdired',
+            'createdBy'=> 'required',
             'categoryID'=> 'required',
             'productType'=> 'required',
-            'status',
+            'status'=>'required',
         ]);
         $product->update($request->all());
         return redirect()->route('product.index')->with('success','Update Product successfully');
+
+
     }
 
     /**

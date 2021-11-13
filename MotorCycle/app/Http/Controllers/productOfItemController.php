@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class productOfItemController extends Controller
 {
+    private $htmlSelect ;
+    public function __constructor(){
+        $this->htmlSelect;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +40,7 @@ class productOfItemController extends Controller
 
 
         $htmlOption=$this->htmlSelect;
-        return view('product.create',compact('htmlOption'));
+        return view('product.create1',compact('htmlOption'));
     }
 
     /**
@@ -47,24 +51,25 @@ class productOfItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
-//        $request->validate([
-//            'productCode'=> 'required',
-//            'productName'=> 'required',
-//            'title'=> 'required',
-//            'description'=> 'required',
-//            'price'=> 'required',
-//            'discount'=> 'required',
-//            'quantity'=> 'required',
-//            'warranty'=> 'required',
-//            'createBy'=> 'required',
-//            'categoryID'=> 'required',
-//            'productType'=> 'required',
-//            'status',
-//        ]);
-//
-//        product::create($request->all());
-//        return redirect()->route('productOfItems.index')->with('success','Add Product Successfully');
+
+        $request->validate([
+            'productCode'=> 'required',
+            'productName'=> 'required',
+            'title'=> 'required',
+            'description'=> 'required',
+            'price'=> 'required',
+            'discount'=> 'required',
+            'quantity'=> 'required',
+            'warranty'=> 'required',
+            'createdBy'=> 'required',
+            'categoryID'=> 'required',
+            'productType'=> 'required',
+            'status'=>'required',
+        ]);
+
+
+        product::create($request->all());
+        return redirect()->route('productOfItems.index')->with('success','Add Product Successfully');
     }
 
     /**
@@ -97,7 +102,7 @@ class productOfItemController extends Controller
 
 
         $htmlOption=$this->htmlSelect;
-        return view('product.update',compact('htmlOption','product'));
+        return view('product.update1',compact('htmlOption','product'));
 
     }
 
@@ -110,24 +115,24 @@ class productOfItemController extends Controller
      */
     public function update(Request $request, product $product)
     {
-        //
-//        $request->validate([
-//            'productCode'=> 'required',
-//            'productName'=> 'required',
-//            'title'=> 'required',
-//            'description'=> 'required',
-//            'price'=> 'required',
-//            'discount'=> 'required',
-//            'quantity'=> 'required',
-//            'warranty'=> 'required',
-//            'createBy'=> 'required',
-//            'categoryID'=> 'required',
-//            'productType'=> 'required',
-//            'status'
-//        ]);
-//
-//        $product->update($request->all());
-//        return redirect()->route('productOfItems.index')->with('success','Update Product Successfully');
+
+        $request->validate([
+            'productCode'=> 'required',
+            'productName'=> 'required',
+            'title'=> 'required',
+            'description'=> 'required',
+            'price'=> 'required',
+            'discount'=> 'required',
+            'quantity'=> 'required',
+            'warranty'=> 'required',
+            'createdBy'=> 'required',
+            'categoryID'=> 'required',
+            'productType'=> 'required',
+            'status'=>'required',
+        ]);
+
+        $product->update($request->all());
+        return redirect()->route('productOfItems.index')->with('success','Update Product Successfully');
     }
 
     /**
@@ -138,9 +143,9 @@ class productOfItemController extends Controller
      */
     public function destroy(product $product)
     {
-        //
-//        $product->delete();
-//        return redirect()->route('productOfItems.index')->with('success','Update Product Successfully');
+
+        $product->delete();
+        return redirect()->route('productOfItems.index')->with('success','Update Product Successfully');
 
     }
 }
