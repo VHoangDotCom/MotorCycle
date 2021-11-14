@@ -632,7 +632,7 @@
             ],
             [
               8719,
-              'n-ary product'
+              'n-ary productOfPeople'
             ],
             [
               8743,

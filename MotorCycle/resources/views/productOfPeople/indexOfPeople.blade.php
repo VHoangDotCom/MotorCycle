@@ -30,7 +30,7 @@
                         <div class="card-body">
                             <h5 class="card-title"></h5>
                             <div class="col-lg-12 text-center" style="margin-top: 10px;margin-bottom: 10px;float: right" >
-                                <a href="{{route('product.create')}}" class="btn btn-success">Add</a>
+                                <a href="{{route('productOfPeople.create')}}" class="btn btn-success">Add</a>
                             </div>
 
 
@@ -64,9 +64,9 @@
 
                                                 <td>{{$product->status}}</td>
                                                 <td>
-                                                    <form action="{{route('product.destroy',$product->id)}}" method="post">
-                                                        <a href="{{route('product.show',$product->id)}}" class="btn btn-info">Show More</a>
-                                                        <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary">Edit</a>
+                                                    <form action="{{route('productOfPeople.destroy',$product->id)}}" method="post">
+                                                        <a href="{{route('productOfPeople.show',$product->id)}}" class="btn btn-info">Show More</a>
+                                                        <a href="{{route('productOfPeople.edit',$product->id)}}" class="btn btn-primary">Edit</a>
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger">Delete </button>

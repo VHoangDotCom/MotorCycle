@@ -12,7 +12,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Add Product </h5>
+                            <h5 class="card-title">Update Product 1 </h5>
 
                             @if($errors->any())
                                 <div class="alert aler-danger">
@@ -27,45 +27,43 @@
                         @endif
 
                         <!-- Multi Columns Form -->
-                            <form class="row g-3" action="{{route('product.store')}}" method="post">
+                            <form class="row g-3" action="{{route('productOfItems.update',$product->id)}}" method="post">
                                 @csrf
-                                <div class="col-md-12">
-                                    <label for="inputName5" class="form-label">Product Code:</label>
-                                    <input type="text" class="form-control" id="inputName5" name="productCode" placeholder="Enter the Product Code">
-                                </div>
+                                @method('PUT')
+
                                 <div class="col-md-12">
                                     <label for="inputName5" class="form-label">Product Name:</label>
-                                    <input type="text" class="form-control" id="inputName5" name="productName" placeholder="Enter the Product name">
+                                    <input type="text" class="form-control" id="inputName5" name="productName" placeholder="Enter the Product name" value="{{$product->productName}}">
                                 </div>
                                 <div class="col-md-12">
                                     <label for="inputEmail5" class="form-label">Title:</label>
-                                    <input type="text" class="form-control" id="inputEmail5" name="title" placeholder="Enter the title">
+                                    <input type="text" class="form-control" id="inputEmail5" name="title" placeholder="Enter the title" value="{{$product->title}}">
                                 </div>
                                 <div class="col-md-12">
                                     <label for="inputPassword" class="col-sm-2 col-form-label">Description:</label>
                                     <div class="col-sm-10">
-                                        <textarea name="description" placeholder="Enter description" class="form-control" id="inputEmail5" style="width: 950px"></textarea>
+                                        <textarea name="description" placeholder="Enter description" class="form-control" id="inputEmail5" style="width: 950px" value="{{$product->description}}"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Price</label>
-                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Price" name="price">
+                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Price" name="price" value="{{$product->price}}">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Discount</label>
-                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Discount" name="discount">
+                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Discount" name="discount" value="{{$product->discount}}">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Quantity</label>
-                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Quantity" name="quantity">
+                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Quantity" name="quantity" value="{{$product->quantity}}">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Warranty</label>
-                                    <input type="text" class="form-control" id="inputAddres5s" placeholder="Enter the Warranty" name="warranty">
+                                    <input type="text" class="form-control" id="inputAddres5s" placeholder="Enter the Warranty" name="warranty" value="{{$product->warranty}}">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Created By</label>
-                                    <input type="text" class="form-control" id="inputAddres5s" placeholder="Enter the Created By" name="createdBy">
+                                    <input type="text" class="form-control" id="inputAddres5s" placeholder="Enter the Created By" name="createdBy" value="{{$product->createdBy}}">
                                 </div>
                                 <div  class="col-12" >
                                     <label for="inputState" class="form-label " >Product Type:</label>
@@ -91,7 +89,7 @@
                                     <label for="inputState" class="form-label " >Category Name:</label>
                                     <select id="inputState" class="form-select" name="categoryID">
                                         <option value="0">Enter the product category</option>
-                                                   {!!$htmlOption !!} }
+                                        {!!$htmlOption !!} }
                                     </select>
                                 </div>
                                 <div class="col-6">
@@ -103,11 +101,11 @@
 
                                     </select>
                                 </div>
-                                    <div class="text-center" style="margin-top: 10px">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <button type="reset" class="btn btn-secondary">Reset</button>
-                                        <a href="{{route('category.index')}}" class="btn btn-primary">Back</a>
-                                    </div>
+                                <div class="text-center" style="margin-top: 10px">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                    <a href="{{route('productOfItems.index')}}" class="btn btn-primary">Back</a>
+                                </div>
                             </form><!-- End Multi Columns Form -->
 
                         </div>

@@ -21,13 +21,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('product.index')}}">
+                    <a href="{{route('productOfPeople.index')}}">
                         <i class="bi bi-circle"></i><span>Accessories for people</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('productOfItems.index')}}">
                         <i class="bi bi-circle"></i><span>Items for motors</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('gallery.index')}}">
+                        <i class="bi bi-circle"></i><span>Product Images</span>
                     </a>
                 </li>
                 <li>

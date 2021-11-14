@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\gallery;
 use Illuminate\Http\Request;
 
 class galleryController extends Controller
@@ -14,8 +14,8 @@ class galleryController extends Controller
     public function index()
     {
         //
-        $galleries=galleryController::latest()->paginate(5);
-        return view('galleryController.index',compact('galleries'));
+        $galleries=gallery::latest()->paginate(5);
+        return view('gallery.index',compact('galleries'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
     /**
@@ -26,7 +26,7 @@ class galleryController extends Controller
     public function create()
     {
         //
-        return view('galleryController.create');
+        return view('gallery.create');
     }
 
     /**

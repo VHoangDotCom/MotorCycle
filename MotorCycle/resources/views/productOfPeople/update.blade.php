@@ -27,7 +27,7 @@
                         @endif
 
                         <!-- Multi Columns Form -->
-                            <form class="row g-3" action="{{route('product.update',$product->id)}}" method="post">
+                            <form class="row g-3" action="{{route('productOfPeople.update',$product->id)}}" method="post">
                                 @csrf
                                 @method('PUT')
 
@@ -104,7 +104,7 @@
                                 <div class="text-center" style="margin-top: 10px">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <a href="{{route('category.index')}}" class="btn btn-primary">Back</a>
+                                    <a href="{{route('productOfPeople.index')}}" class="btn btn-primary">Back</a>
                                 </div>
                             </form><!-- End Multi Columns Form -->
 

@@ -21,9 +21,9 @@ public function __constructor(){
      */
     public function index()
     {
-        //$product=DB::table('products')->where('productType','0');
+        //$productOfPeople=DB::table('products')->where('productType','0');
         $products=product::latest()->where('productType','0')->paginate(5);
-        return view('product.indexOfPeople',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
+        return view('productOfPeople.indexOfPeople',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
 
@@ -46,7 +46,7 @@ public function __constructor(){
 
 
         $htmlOption=$this->htmlSelect;
-        return view('product.create',compact('htmlOption'));
+        return view('productOfPeople.create',compact('htmlOption'));
     }
 
 
@@ -76,7 +76,7 @@ public function __constructor(){
 
 
         product::create($request->all());
-        return redirect()->route('product.index')->with('success','Add Product Successfully');
+        return redirect()->route('productOfPeople.index')->with('success','Add Product Successfully');
 
 
     }
@@ -90,7 +90,7 @@ public function __constructor(){
     public function show(product $product)
     {
         //
-        return view('product.show',compact('product'));
+        return view('productOfPeople.show',compact('product'));
     }
 
     /**
@@ -112,7 +112,7 @@ public function __constructor(){
 
 
         $htmlOption=$this->htmlSelect;
-        return view('product.update',compact('htmlOption','product'));
+        return view('productOfPeople.update',compact('htmlOption','product'));
     }
 
     /**
@@ -125,6 +125,13 @@ public function __constructor(){
     public function update(Request $request, product $product)
     {
         //
+        $this->updateAll($request,$product);
+
+        return redirect()->route('productOfPeople.index')->with('success','Update Product successfully');
+
+
+    }
+    public function updateAll(Request $request,product $product){
         $request->validate([
 
 
@@ -141,9 +148,6 @@ public function __constructor(){
             'status'=>'required',
         ]);
         $product->update($request->all());
-        return redirect()->route('product.index')->with('success','Update Product successfully');
-
-
     }
 
     /**
@@ -156,6 +160,6 @@ public function __constructor(){
     {
         //
         $product->delete();
-        return redirect()->route('product.index')->with('success','Delete Product successfully');
+        return redirect()->route('productOfPeople.index')->with('success','Delete Product successfully');
     }
 }

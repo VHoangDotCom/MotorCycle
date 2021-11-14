@@ -13,7 +13,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        //table product
+        //table productOfPeople
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('productCode',200)->nullable();
@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->string('warranty',200);
             $table->string('createdBy',200);
             $table->unsignedInteger('categoryID');
-            $table->enum('status',['still product','out of product']);
+            $table->enum('status',['still productOfPeople','out of productOfPeople']);
             $table->enum('productType',['0','1']);
 
             $table->timestamps();

@@ -42,18 +42,22 @@ Route::resource('category',\App\Http\Controllers\categoryController::class);
 
 //Redirect to Product of people
 Route::get('/products of people',function (){
-    return redirect('/product');
+    return redirect('/productOfPeople');
 });
-Route::resource('product',\App\Http\Controllers\productOfPeopleController::class);
+Route::resource('productOfPeople',\App\Http\Controllers\productOfPeopleController::class);
 
 
 //Redirect to Product of motors
-Route::get('/products of motors',function (){
-    return redirect('/product');
+Route::get('/products of items',function (){
+    return redirect('/productOfItems');
 });
 Route::resource('productOfItems',\App\Http\Controllers\productOfItemController::class);
 
-
+//Redirect to gallery
+Route::get('/gallery',function (){
+    return redirect('/gallery');
+});
+Route::resource('gallery',\App\Http\Controllers\galleryController::class);
 
 //Redirect to Error
 Route::get('/error', function () {

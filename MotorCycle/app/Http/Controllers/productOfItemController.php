@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\productOfPeopleController;
 
 class productOfItemController extends Controller
 {
@@ -20,7 +21,7 @@ class productOfItemController extends Controller
     public function index()
     {
         $products = product::latest()->where('productType', '1')->paginate(5);
-        return view('product.indexOfItems', compact('products'))->with('i', (\request()->input('page', 1) - 1) * 5);
+        return view('productOfItems.indexOfItems', compact('products'))->with('i', (\request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -40,7 +41,7 @@ class productOfItemController extends Controller
 
 
         $htmlOption=$this->htmlSelect;
-        return view('product.create1',compact('htmlOption'));
+        return view('productOfItems.create1',compact('htmlOption'));
     }
 
     /**
@@ -81,7 +82,7 @@ class productOfItemController extends Controller
     public function show(product $product)
     {
         //
-        return view('product.show',compact('product'));
+        return view('productOfItems.show',compact('product'));
     }
 
     /**
@@ -102,7 +103,7 @@ class productOfItemController extends Controller
 
 
         $htmlOption=$this->htmlSelect;
-        return view('product.update1',compact('htmlOption','product'));
+        return view('productOfItems.update1',compact('htmlOption','product'));
 
     }
 
@@ -116,23 +117,10 @@ class productOfItemController extends Controller
     public function update(Request $request, product $product)
     {
 
-        $request->validate([
-            'productCode'=> 'required',
-            'productName'=> 'required',
-            'title'=> 'required',
-            'description'=> 'required',
-            'price'=> 'required',
-            'discount'=> 'required',
-            'quantity'=> 'required',
-            'warranty'=> 'required',
-            'createdBy'=> 'required',
-            'categoryID'=> 'required',
-            'productType'=> 'required',
-            'status'=>'required',
-        ]);
+        //
+       productOfPeopleController::updateAll($request,$product);
 
-        $product->update($request->all());
-        return redirect()->route('productOfItems.index')->with('success','Update Product Successfully');
+        return redirect()->route('productOfItems.index')->with('success','Update Product successfully');
     }
 
     /**
