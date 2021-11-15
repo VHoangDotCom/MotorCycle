@@ -3,10 +3,11 @@
 
 
 
+
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Product</h1>
+            <h1>Customers</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
@@ -30,7 +31,7 @@
                         <div class="card-body">
                             <h5 class="card-title"></h5>
                             <div class="col-lg-12 text-center" style="margin-top: 10px;margin-bottom: 10px;float: right" >
-                                <a href="{{route('productOfPeople.create')}}" class="btn btn-success">Add</a>
+                                <a href="{{route('customers.create')}}" class="btn btn-success">Add</a>
                             </div>
 
 
@@ -38,38 +39,33 @@
                             <div>
 
 
-                                @if(sizeof($products) > 0)
+                                @if(sizeof($customers) > 0)
                                     <table class="table datatable">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Status</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">username</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Show More</th>
 
-                                            <th scope="col">More</th>
 
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                        @foreach($products as $product)
-                                            <tr>
+                                        @foreach($customers as $customer)
                                             <tr>
                                                 <td>{{++$i}}</td>
-                                                <td><img src="/image/{{$product->image}}" title="Click image to download" style="width: 150px" class="img-fluid rounded-start" alt="..." ></td>
-                                                <td>{{$product->productName}}</td>
-                                                <td>{{$product->quantity}}</td>
-                                                <td>{{$product->price}}</td>
-
-                                                <td>{{$product->status}}</td>
+                                                <td>{{$customer->firstName}}</td>
+                                                <td>{{$customer->lastName}}</td>
+                                                <td>{{$customer->username}}</td>
+                                                <td>{{$customer->phone}}</td>
 
                                                 <td>
-                                                    <form action="{{route('productOfPeople.destroy',$product->id)}}" method="post">
-                                                        <a href="{{route('productOfPeople.show',$product->id)}}" class="btn btn-info">Show More</a>
-                                                        <a href="{{route('productOfPeople.edit',$product->id)}}" class="btn btn-primary">Edit</a>
+                                                    <form action="{{route('customers.destroy',$customer->id)}}" method="post">
+                                                        <a href="{{route('customers.show',$customer->id)}}" class="btn btn-info">Show More</a>
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger">Delete </button>
@@ -84,8 +80,8 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                @endif
-                            {!! $products->links() !!}
+                            @endif
+                            {!!$customers->links() !!}
                             <!-- End Table with stripped rows -->
 
                             </div>
@@ -97,4 +93,8 @@
 
     </main><!-- End #main -->
 
+
+
+
 @endsection
+

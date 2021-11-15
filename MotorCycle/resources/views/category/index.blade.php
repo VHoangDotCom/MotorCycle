@@ -54,8 +54,8 @@
                                 <tr>
                                 @foreach($categories as $category)
                                     <tr>
-                                        <th scope="row">{{++$i}}</th>
-                                        <td>{{$category->categoryCode}}</td>
+                                        <th  scope="row">{{++$i}}</th>
+                                        <td >{{$category->categoryCode}}</td>
                                         <td>{{$category->title}}</td>
                                         <td>{{$category->content}}</td>
                                         <td>{{$category->status}}</td>

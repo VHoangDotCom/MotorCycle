@@ -9,6 +9,12 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('customers.index')}}">
+                <i class="bi bi-person"></i>
+                <span>Customer</span>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#category-nav" data-bs-toggle="collapse" href="#">
@@ -44,7 +50,9 @@
             </ul>
         </li><!-- End Tables Nav -->
 
+
         <li class="nav-item">
+
             <a class="nav-link collapsed" data-bs-target="#blogs-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-pencil-square"></i>
                 <span>Blogs </span>

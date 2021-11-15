@@ -22,7 +22,7 @@ public function __constructor(){
     public function index()
     {
         //$productOfPeople=DB::table('products')->where('productType','0');
-        $products=product::latest()->where('productType','0')->paginate(5);
+        $products=product::latest()->where('productType','0')->paginate(45);
         return view('productOfPeople.indexOfPeople',compact('products'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
@@ -72,10 +72,19 @@ public function __constructor(){
             'categoryID'=> 'required',
             'productType'=> 'required',
             'status'=>'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $input = $request->all();
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }
 
-        product::create($request->all());
+
+        product::create($input);
         return redirect()->route('productOfPeople.index')->with('success','Add Product Successfully');
 
 
@@ -146,8 +155,20 @@ public function __constructor(){
             'categoryID'=> 'required',
             'productType'=> 'required',
             'status'=>'required',
+
         ]);
-        $product->update($request->all());
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+        $product->update($input);
+        return redirect()->route('productOfPeople.index')->with('success','Update Product successfully');
     }
 
     /**

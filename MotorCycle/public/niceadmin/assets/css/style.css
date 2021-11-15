@@ -22,7 +22,13 @@ a {
   color: #4154f1;
   text-decoration: none;
 }
+a.dataTable-sorter::after{
+    content: none !important;
+}
 
+a.dataTable-sorter::before{
+    content: none !important;
+}
 a:hover {
   color: #717ff5;
   text-decoration: none;

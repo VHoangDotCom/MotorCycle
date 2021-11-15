@@ -20,6 +20,7 @@ class product extends Model
         'createdBy',
         'categoryID',
         'productType',
-        'status'
+        'status',
+        'image'
     ]);
 }

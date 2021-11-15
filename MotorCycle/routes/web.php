@@ -59,6 +59,12 @@ Route::get('/gallery',function (){
 });
 Route::resource('gallery',\App\Http\Controllers\galleryController::class);
 
+//Redirect to Customer
+Route::get('/customers',function (){
+    return redirect('/customers');
+});
+Route::resource('customers',\App\Http\Controllers\customerController::class);
+
 //Redirect to Error
 Route::get('/error', function () {
     return view('error.500');

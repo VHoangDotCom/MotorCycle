@@ -27,7 +27,7 @@
                         @endif
 
                         <!-- Multi Columns Form -->
-                            <form class="row g-3" action="{{route('productOfPeople.store')}}" method="post">
+                            <form class="row g-3" action="{{route('productOfPeople.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="col-md-12">
                                     <label for="inputName5" class="form-label">Product Code:</label>
@@ -103,11 +103,20 @@
 
                                     </select>
                                 </div>
+
+                                <div class="col-12">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Image Upload</label>
+                                    <div class="col-sm-10">
+                                        <input name="image"  class="form-control" type="file" id="formFile" >
+                                    </div>
+                                </div>
                                     <div class="text-center" style="margin-top: 10px">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-secondary">Reset</button>
                                         <a href="{{route('category.index')}}" class="btn btn-primary">Back</a>
                                     </div>
+
+
                             </form><!-- End Multi Columns Form -->
 
                         </div>
