@@ -10,7 +10,7 @@ class CreateBlogsTable extends Migration
     public function up()
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->increments('blogID');
+            $table->increments('id');
             $table->string('blogCode',200);
             $table->string('title',200)->nullable();
             $table->string('image',200)->nullable();

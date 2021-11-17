@@ -14,6 +14,7 @@
         </div><!-- End Page Title -->
 
         <div class="row">
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Title : </strong>
@@ -58,15 +59,19 @@
 
             <br><br>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Content : </strong>
-                    {{$blog->content}}
+
+            <div class="card" >
+                <div class="card-body"  >
+                    <input type="text" name="heading" style="border: none;" class="card-title" value="{{$blog->title}}">
+                    <!-- TinyMCE Editor -->
+                    <textarea name="blog_content"   class="tinymce-editor">{{$blog->content}}</textarea><!-- End TinyMCE Editor -->
+
                 </div>
             </div>
 
+<!-- End Show Blogs -->
+        <a style="width: 140px;" href="{{ url('blogs/word-export/' . $blog->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-file-earmark-word"></i>  Export to Word</a>
         </div>
-
     </main>
 
 

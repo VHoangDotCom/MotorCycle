@@ -27,7 +27,7 @@
     <!-- Create Blog -->
         <section class="section">
 
-            <form action="{{route('blogs.store')}}" method="post">
+            <form action="{{route('blogs.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="card">
@@ -58,7 +58,7 @@
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Image Upload</label>
                                 <div class="col-sm-10">
-                                    <input name="image" placeholder="Upload image here" class="form-control" type="file" id="formImage">
+                                    <input name="image"  class="form-control" type="file" id="formFile" >
                                 </div>
                             </div>
                             <div class="row mb-3">

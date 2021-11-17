@@ -16,7 +16,7 @@
         <div class="pagetitle">
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('blogs.create')}}">Add Blogs</a></li>
+                    <li style="font-size: 20px;" class="breadcrumb-item"><a href="{{route('blogs.create')}}"><i class="bi bi-file-earmark-plus"></i> Add Blogs</a></li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -37,28 +37,31 @@
                     @foreach($blogs as $blog)
                         <!-- Default Card -->
                             <div class="card" >
-                                <div class="card-header">Blog {{++$i}} - Author : {{createdBy}}</div>
+                                <div class="card-header">Blog {{++$i}} - Author : {{$blog->createdBy}}</div>
                                 <div class="card-body">
 
                                     <div class="row g-0">
                                         <div class="col-md-4">
-                                            <img src="{{image}}"  class="img-fluid rounded-start" alt="...">
+                                            <a href="/image/{{$blog->image}}" download>
+                                            <img src="/image/{{$blog->image}}" title="Click image to download"  class="img-fluid rounded-start" alt="..." >
+                                            </a>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="{{route('blogs.show',$blog->blogID)}}">{{title}}</a></h5>
-                                                <p class="card-text">{{description}}</p>
+                                                <h5 class="card-title"><a href="{{route('blogs.show',$blog->id)}}">{{$blog->title}}</a></h5>
+                                                <p class="card-text">{{$blog->description}}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer" >
-                                    <form action="{{route('blogs.destroy',$blog->blogID)}}" method="post">
-                                        <p style="float: right; margin-left: 40px;" class="card-text"><a href="" class="btn btn-primary"><i class="bi bi-download"></i>  Download</a></p>
-                                        <p style="float: right" class="card-text"><a href="{{route('blogs.edit',$blog->blogID)}}" class="btn btn-primary"><i class="bi bi-file-earmark-font"></i>  Update</a></p>
+                                    <form action="{{route('blogs.destroy',$blog->id)}}" method="post">
+
+                                        <p style="float: right; margin-left: 40px;" class="card-text" ><a href="{{route('blogs.show',$blog->id)}}"  class="btn btn-primary" ><i class="bi bi-eye"></i>  Review</a></p>
+                                        <p style="float: right;margin-left: 40px;" class="card-text"><a href="{{route('blogs.edit',$blog->id)}}" class="btn btn-primary"><i class="bi bi-file-earmark-font"></i>  Edit </a></p>
                                         @csrf
                                         @method('DELETE')
-                                        <p style="float: right; margin-left: 40px;" class="card-text" type="submit"><a class="btn btn-primary"><i class="bi bi-trash"></i>   Delete</a></p>
+                                        <button style="float: right; margin-left: 40px;" type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button>
 
                                     </form>
                                 </div>
@@ -66,7 +69,7 @@
                         @endforeach
 
                         @else
-                            <div class="alert alert-alert">Start Adding to the Database.</div>
+                            <div style="color: #3e4f6f" class="alert alert-alert">Start Adding to the Database.</div>
                         @endif
 
                         {!! $blogs->links() !!}

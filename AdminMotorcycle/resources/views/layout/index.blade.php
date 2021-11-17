@@ -69,6 +69,7 @@
 <!-- Template Main JS File -->
 <script src="{{asset('niceadmin/assets/js/main.js')}}"></script>
 
+
 </body>
 
 </html>

@@ -1,24 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\BlogController;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 // Redirect to home
 
+Route::get('/', function () {
+    return view('home');
+});
 
 Route::get('/', function () {
     return view('home');
@@ -42,6 +30,33 @@ Route::get('/categories',function (){
 });
    Route::resource('category',\App\Http\Controllers\categoryController::class);
 
+//Redirect to Product of people
+Route::get('/products of people',function (){
+    return redirect('productOfPeople');
+});
+Route::resource('productOfPeople',\App\Http\Controllers\productOfPeopleController::class);
+
+
+
+
+//Redirect to Product of motors
+Route::get('/products of items',function (){
+    return redirect('/productOfItems');
+});
+Route::resource('productOfItems',\App\Http\Controllers\productOfItemController::class);
+
+//Redirect to gallery
+Route::get('/gallery',function (){
+    return redirect('/gallery');
+});
+Route::resource('gallery',\App\Http\Controllers\galleryController::class);
+
+//Redirect to Customer
+Route::get('/customers',function (){
+    return redirect('/customers');
+});
+Route::resource('customers',\App\Http\Controllers\customerController::class);
+
 //Redirect to Error
 Route::get('/error', function () {
     return view('error.500');
@@ -58,20 +73,16 @@ Route::get('/Sign in', function () {
 })->name('login.login');
 
 
-
-//////Redirect to the News Resource Controller
-//Route::get('/',function(){
-//   return redirect('/news');
-//});
-//Route::resource('news',NewsController::class);
-//
+Route::get('blogs/word-export/{id}', 'App\Http\Controllers\BlogController@wordExport');
 
 
-///Redirect to the Blog Resource Controller
-//Route::get('/',function(){
-//    return redirect('/blogs');
-//});
-//Route::resource('blogs',BlogController::class);
+
+
+////Redirect to the Blog Resource Controller
+Route::get('/blogs',function(){
+    return redirect('blogs');
+});
+Route::resource('blogs',\App\Http\Controllers\BlogController::class);
 
 
 

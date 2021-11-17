@@ -9,6 +9,12 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('customers.index')}}">
+                <i class="bi bi-person"></i>
+                <span>Customer</span>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#category-nav" data-bs-toggle="collapse" href="#">
@@ -22,13 +28,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('category.index')}}">
+                    <a href="{{route('productOfPeople.index')}}">
                         <i class="bi bi-circle"></i><span>Accessories for people</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('category.index')}}">
+                    <a href="{{route('productOfItems.index')}}">
                         <i class="bi bi-circle"></i><span>Items for motors</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('gallery.index')}}">
+                        <i class="bi bi-circle"></i><span>Product Images</span>
                     </a>
                 </li>
                 <li>
@@ -47,12 +59,12 @@
             </a>
             <ul id="blogs-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="#">
+                    <a href="{{route('blogs.create')}}">
                         <i class="bi bi-circle"></i><span>Design Blog</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('blogs.index')}}">
                         <i class="bi bi-circle"></i><span>List Blogs</span>
                     </a>
                 </li>
@@ -105,12 +117,12 @@
             </a>
             <ul id="error-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('error.404')}}">
+                    <a href="#">
                         <i class="bi bi-circle"></i><span>Error 404</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('error.500')}}">
+                    <a href="#">
                         <i class="bi bi-circle"></i><span>Error 500</span>
                     </a>
                 </li>

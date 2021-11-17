@@ -27,7 +27,7 @@
     <!-- Create Blog -->
         <section class="section">
 
-            <form action="{{route('blogs.update', $blog->blogID)}}" method="post">
+            <form action="{{route('blogs.update', $blog->id)}}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -40,7 +40,7 @@
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Blog Code</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="newsCode" value="{{$blog->blogCode}}" class="form-control" placeholder="Enter blog code here">
+                                    <input type="text" name="blogCode" value="{{$blog->blogCode}}" class="form-control" placeholder="Enter blog code here">
                                 </div>
                             </div>
 
