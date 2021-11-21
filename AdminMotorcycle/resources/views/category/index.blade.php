@@ -18,6 +18,7 @@
 
                     <div class="card">
                         <div class="card-body">
+
                             <h5 class="card-title"> Categories List</h5>
                             @if($message = Session::get('success'))
                                 <div class="alert alert-success">
@@ -26,10 +27,9 @@
                             @endif
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
-                                <div class="col-lg-12 text-center" style="margin-top: 10px;margin-bottom: 10px;float: right" >
+                                <div class="dataTable-top" style="float: right" >
                                     <a href="{{route('category.create')}}" class="btn btn-success">Add</a>
                                 </div>
-
 
                                 <!-- Table with stripped rows -->
                                 <div>
@@ -79,8 +79,6 @@
                                         </table>
                                 @endif
                                 {!! $categories->links() !!}
-                                <!-- End Table with stripped rows -->
-
 
                                 </div>
                             </div>

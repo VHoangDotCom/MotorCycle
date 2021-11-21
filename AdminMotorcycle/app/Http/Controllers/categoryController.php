@@ -6,18 +6,15 @@ use App\Models\category;
 use App\Models\gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class categoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
-        $categories=category::latest()->paginate(50);
-        return view('category.index',compact('categories'))->with('i',(\request()->input('page',1)-1)*5);
+        $categories=category::latest()->paginate(60);
+        return view('category.index',compact('categories'))->with('i',(request()->input('page',1)-1)*5);
 
     }
 

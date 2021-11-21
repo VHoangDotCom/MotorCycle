@@ -6,17 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAdminsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         //table admin
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('admin', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username',50)->nullable()->unique();
+            $table->string('email',255)->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password',200)->nullable();
             $table->string('fullName',200)->nullable();
             $table->string('company',255);
@@ -24,15 +21,14 @@ class CreateAdminsTable extends Migration
             $table->string('country',255);
             $table->string('address',255);
             $table->string('phone',255);
-            $table->string('email',255);
             $table->string('about',255);
             $table->string('image',255);
             $table->string('twitter',255);
             $table->string('facebook',255);
             $table->string('instagram',255);
             $table->string('linkedin',255);
+            $table->rememberToken();
             $table->timestamps();
-
 
 
         });

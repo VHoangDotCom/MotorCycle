@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductPeople extends Model
 {
     use HasFactory;
-    public $fillable=([
+    protected $fillable=[
         'productCode',
         'productName',
         'title',
@@ -22,5 +22,9 @@ class ProductPeople extends Model
         'productType',
         'status',
         'image'
-    ]);
+    ];
+    public function category(){
+        return $this->hasOne(category::class,'id','categoryID')
+            ->withDefault(['name'=>'']);
+    }
 }

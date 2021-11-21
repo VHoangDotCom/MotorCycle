@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductPeopleTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('product_people', function (Blueprint $table) {
@@ -27,11 +23,10 @@ class CreateProductPeopleTable extends Migration
             $table->unsignedInteger('categoryID');
             $table->enum('status',['In Stock','Out of Stock']);
             $table->enum('productType',['Product for People']);
-
             $table->string('image',200)->nullable();
             $table->timestamps();
 
-            $table->foreign('categoryID')->references('id')->on('categories');
+            $table->foreign('categoryID')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

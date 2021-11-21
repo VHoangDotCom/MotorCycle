@@ -28,12 +28,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('productOfPeople.index')}}">
+                    <a href="{{route('productPeople.index')}}">
                         <i class="bi bi-circle"></i><span>Accessories for people</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('productOfItems.index')}}">
+                    <a href="{{route('category.index')}}">
                         <i class="bi bi-circle"></i><span>Items for motors</span>
                     </a>
                 </li>
@@ -87,7 +87,7 @@
 
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-contact.html">
+            <a class="nav-link collapsed" href="{{route('productPeople.edit')}}">
                 <i class="bi bi-whatsapp"></i>
                 <span>Contact</span>
             </a>
@@ -101,7 +101,7 @@
         </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{route('login.login')}}">
+            <a class="nav-link collapsed" href="#">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Login</span>
             </a>
