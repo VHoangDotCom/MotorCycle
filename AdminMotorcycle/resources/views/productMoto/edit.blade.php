@@ -7,8 +7,8 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item">Product Management</li>
-                    <li class="breadcrumb-item active">Create product for people</li>
+                    <li class="breadcrumb-item">Product for People </li>
+                    <li class="breadcrumb-item active">Update product</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -19,7 +19,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Add Product People </h5>
+                            <h5 class="card-title">Update Product </h5>
 
                             @if($errors->any())
                                 <div class="alert alert-danger">
@@ -29,70 +29,57 @@
                                             <li>{{$error}}</li>
                                         @endforeach
                                     </ul>
+
                                 </div>
                         @endif
 
                         <!-- Multi Columns Form -->
-                            <form class="row g-3" action="{{route('productPeople.store')}}"  enctype="multipart/form-data" method="post">
+                            <form class="row g-3" action="{{route('productMoto.update',$product->id)}}" method="post"  enctype="multipart/form-data">
                                 @csrf
-                                <div class="col-md-12">
-                                    <label for="inputName5" class="form-label">Product Code:</label>
-                                    <input type="text" class="form-control" id="inputName5"  name="productCode" placeholder="Enter the Product Code">
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="inputName5" class="form-label">Product Name:</label>
-                                    <input type="text" class="form-control" id="inputName5"  name="productName" placeholder="Enter the Product name">
-                                </div>
+                                @method('PUT')
 
                                 <div class="col-md-12">
+                                    <label for="inputName5" class="form-label">Product Name:</label>
+                                    <input type="text" class="form-control" id="inputName5" name="productName" placeholder="Enter the Product name" value="{{$product->productName}}">
+                                </div>
+                                <div class="col-md-12">
                                     <label for="inputEmail5" class="form-label">Title:</label>
-                                    <input type="text" class="form-control" id="inputEmail5"  name="title" placeholder="Enter the title">
+                                    <input type="text" class="form-control" id="inputEmail5" name="title" placeholder="Enter the title" value="{{$product->title}}">
                                 </div>
                                 <div class="col-md-12">
                                     <label for="inputPassword" class="col-sm-2 col-form-label">Description:</label>
                                     <div class="col-sm-10">
-                                        <textarea name="description" placeholder="Enter description" class="form-control" id="inputEmail5" style="width: 950px"></textarea>
+                                        <textarea name="description" placeholder="Enter description" class="form-control" id="inputEmail5" style="width: 950px" value="{{$product->description}}"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputAddress5" class="form-label">Price(VND) :</label>
-                                    <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Price" name="price">
+                                    <label for="inputAddress5" class="form-label">Price</label>
+                                    <input type="number" class="form-control"  placeholder="Enter the Price" name="price" value="{{$product->price}}">
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputAddress5" class="form-label">Discount(%) :</label>
-                                    <input type="number" class="form-control" id="inputAddres5s"  placeholder="Enter the Discount" name="discount">
+                                    <label for="inputAddress5" class="form-label">Discount</label>
+                                    <input type="number" class="form-control"  placeholder="Enter the Discount" name="discount" value="{{$product->discount}}">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Quantity</label>
-                                    <input type="number" class="form-control" id="inputAddres5s"  placeholder="Enter the Quantity" name="quantity">
+                                    <input type="number" class="form-control"  placeholder="Enter the Quantity" name="quantity" value="{{$product->quantity}}">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Warranty</label>
-                                    <input type="text" class="form-control" id="inputAddres5s"  placeholder="Enter the Warranty" name="warranty">
+                                    <input type="text" class="form-control"  placeholder="Enter the Warranty" name="warranty" value="{{$product->warranty}}">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress5" class="form-label">Created By</label>
-                                    <input type="text" class="form-control" id="inputAddres5s"  placeholder="Enter the Created By" name="createdBy">
+                                    <input type="text" class="form-control"  placeholder="Enter the Created By" name="createdBy" value="{{$product->createdBy}}">
                                 </div>
+
+
                                 <div class="col-12">
-                                    <div class="col-6 " style="float: left">
-                                        <label for="inputNumber" class="form-label">Product Image</label>
-
-                                            <input name="image"  class="form-control" type="file" id="formFile" >
-
+                                    <label for="inputNumber" class="form-label">Product Image</label>
+                                    <div class="col-sm-10">
+                                        <input name="image"  class="form-control" type="file" id="formFile" >
                                     </div>
-                                    <div class="col-6 " style="float: right">
-                                        <label for="inputState" class="form-label " >Product Type:</label>
-                                        <select id="inputState" class="form-select" name="productType">
-                                            <option value="">Choose category from the list</option>
-                                            <option value="0">Product Of People</option>
-                                            <option value="1">Product Of Motor</option>
-
-                                        </select>
-                                    </div>
-
                                 </div>
-
                                 <div class="col-6">
                                     <label for="inputState" class="form-label " >Category Name:</label>
                                     <select id="inputState" class="form-select" name="categoryID">
@@ -100,7 +87,6 @@
                                         {!!$htmlOption !!} }
                                     </select>
                                 </div>
-
                                 <div class="col-6">
                                     <label for="inputState" class="form-label " >Status:</label>
                                     <select id="inputState" class="form-select" name="status">

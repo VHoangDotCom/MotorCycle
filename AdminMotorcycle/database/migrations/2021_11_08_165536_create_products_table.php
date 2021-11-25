@@ -26,7 +26,9 @@ class CreateProductsTable extends Migration
             $table->string('warranty',200);
             $table->string('createdBy',200);
             $table->unsignedInteger('categoryID');
-
+            $table->enum('status',['In Stock','Out of Stock']);
+            $table->enum('productType',['0','1']);//0: product of people 1:product of motor
+            $table->string('image',200)->nullable();
             $table->timestamps();
 
             $table->foreign('categoryID')->references('id')->on('categories');

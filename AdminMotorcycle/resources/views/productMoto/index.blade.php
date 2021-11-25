@@ -26,9 +26,9 @@
                             </div>
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title">Product for People</h5>
+                            <h5 class="card-title">Product for Moto</h5>
                             <div class="dataTable-top" style="float: right" >
-                                <a href="{{route('productPeople.create')}}"  class="btn btn-success"><i class="bi bi-plus">  Add</i></a>
+                                <a href="{{route('productMoto.create')}}"  class="btn btn-success"><i class="bi bi-plus">  Add</i></a>
                             </div>
 
                             <div>
@@ -67,17 +67,17 @@
                                                 <td>{{$product->updated_at}}</td>
 
                                                 <td>
-                                                    <form action="/productPeople/show/{{ $product->id }}" method="get">
+                                                    <form action="/productMoto/show/{{ $product->id }}" method="get">
                                                         <button type="submit" class="btn btn-info"><i class="bi bi-eye">View</i></button>
                                                     </form>
                                                 </td>
                                                 <td>
-                                                    <form action="/productPeople/edit/{{ $product->id }}" method="get">
+                                                    <form action="/productMoto/edit/{{ $product->id }}" method="get">
                                                         <button type="submit"  class="btn btn-primary"><i class="bi bi-pen">Edit</i></button>
                                                     </form>
                                                 </td>
                                                 <td>
-                                                    <form action="{{route('productPeople.destroy',$product->id)}}" method="post">
+                                                    <form action="{{route('productMoto.destroy',$product->id)}}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger"><i class="bi bi-trash">Delete</i> </button>

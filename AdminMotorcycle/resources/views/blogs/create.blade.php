@@ -95,7 +95,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">TinyMCE Editor</h5>
+                            <h5 class="card-title">Design your Blog here</h5>
 
                             <!-- TinyMCE Editor -->
                             <textarea name="content" placeholder="Write Blog here..." class="tinymce-editor"></textarea><!-- End TinyMCE Editor -->

@@ -3,7 +3,7 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Product Management</h1>
+            <h1>Create Product Moto</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
@@ -19,7 +19,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Add Product People </h5>
+                            <h5 class="card-title">Add Product Moto </h5>
 
                             @if($errors->any())
                                 <div class="alert alert-danger">
@@ -33,7 +33,7 @@
                         @endif
 
                         <!-- Multi Columns Form -->
-                            <form class="row g-3" action="{{route('productPeople.store')}}"  enctype="multipart/form-data" method="post">
+                            <form class="row g-3" action="{{route('productMoto.store')}}"  enctype="multipart/form-data" method="post">
                                 @csrf
                                 <div class="col-md-12">
                                     <label for="inputName5" class="form-label">Product Code:</label>

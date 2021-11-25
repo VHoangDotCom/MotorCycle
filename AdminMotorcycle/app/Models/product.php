@@ -18,6 +18,9 @@ class product extends Model
         'quantity',
         'warranty',
         'createdBy',
-        'categoryID'
+        'categoryID',
+        'productType',
+        'status',
+        'image'
     ]);
 }

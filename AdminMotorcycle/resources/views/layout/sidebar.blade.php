@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('category.index')}}">
+                    <a href="{{route('productMoto.index')}}">
                         <i class="bi bi-circle"></i><span>Items for motors</span>
                     </a>
                 </li>
@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('category.index')}}">
+                    <a href="#">
                         <i class="bi bi-circle"></i><span>More services</span>
                     </a>
                 </li>
