@@ -8,7 +8,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                     <li class="breadcrumb-item">Product Management</li>
-                    <li class="breadcrumb-item active">Create product for people</li>
+                    <li class="breadcrumb-item active">Create Items</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -74,12 +74,10 @@
                                     <label for="inputAddress5" class="form-label">Created By</label>
                                     <input type="text" class="form-control" id="inputAddres5s"  placeholder="Enter the Created By" name="createdBy">
                                 </div>
-                                <div class="col-12">
+
                                     <div class="col-6 " style="float: left">
                                         <label for="inputNumber" class="form-label">Product Image</label>
-
                                             <input name="image"  class="form-control" type="file" id="formFile" >
-
                                     </div>
                                     <div class="col-6 " style="float: right">
                                         <label for="inputState" class="form-label " >Product Type:</label>
@@ -91,7 +89,7 @@
                                         </select>
                                     </div>
 
-                                </div>
+
 
                                 <div class="col-6">
                                     <label for="inputState" class="form-label " >Category Name:</label>

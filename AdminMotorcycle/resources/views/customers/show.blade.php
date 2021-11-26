@@ -7,20 +7,19 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item">Tables</li>
-                    <li class="breadcrumb-item active">Data</li>
+                    <li class="breadcrumb-item"><a href="{{route('customers.index')}}">Customer</a></li>
+                    <li class="breadcrumb-item active">{{$customer->firstName}} {{$customer->lastName}}</li>
                 </ol>
             </nav>
 
         </div><!-- End Page Title -->
 
-        <div class="row"style="float: left">
+
             <div class="col-lg-12" >
-                <h2 class="text-center">Show Customer</h2>
+                <h2 class="text-center">View Customer Data</h2>
             </div>
 
 
-        </div>
         <div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -66,7 +65,7 @@
             </div>
             <div class="row " style="float:left;">
                 <div class="col-lg-12 text-center" style="margin-bottom: 10px;margin-top: 10px;float: right">
-                    <a href="{{route('customers.index')}}" class="btn btn-primary">Back</a>
+                    <a href="{{route('customers.index')}}" class="btn btn-primary"><i class="bi bi-chevron-double-left"></i> Back</a>
                 </div>
             </div>
 

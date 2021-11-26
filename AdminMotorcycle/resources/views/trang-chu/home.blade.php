@@ -294,7 +294,7 @@
                                         <h2><a href="#">Quần Dài Nam</a></h2>
                                         <div class="price">
                                             <ul>
-                                                <li class="old-price"><del>600,000đ</strike></li>
+                                                <li class="old-price"><del>600,000đ</del></li>
                                                 <li class="new-price">449,000đ</li>
                                             </ul>
                                         </div>
@@ -368,7 +368,7 @@
                                         <h2><a href="#">quần lót Nữ</a></h2>
                                         <div class="price">
                                             <ul>
-                                                <li class="old-price"><del>400,000đ</strike></li>
+                                                <li class="old-price"><del>400,000đ</del></li>
                                                 <li class="new-price">299,000đ</li>
                                             </ul>
                                         </div>
@@ -456,6 +456,164 @@
             <!-- tab-area end -->
         </div>
     </div>
+
+    <!-- arrivals-area start -->
+    <div class="arrivals-area ptb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title mb-30 text-center">
+                        <h2>Sản phẩm mới nhất </h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- tab-area start -->
+            <div class="tab-content">
+                <div class="row">
+                    <div class="product-active">
+                        @if($message = Session::get('success'))
+                            <div class="alert alert-success">
+                                {{$message}}
+                            </div>
+                        @endif
+
+                        @foreach($products as $id => $product)
+
+                        <div class="col-12">
+                            <!-- product-wrapper start -->
+                            <div class="product-wrapper">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="/image/{{$product->image}}" alt="product" class="primary" />
+                                        <img src="/image/{{$product->image}}" alt="product" class="secondary" />
+                                    </a>
+                                    <div class="product-icon">
+                                        <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
+                                                class="icon ion-bag"></i></a>
+                                        <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
+                                                class="icon ion-android-options"></i></a>
+                                        <a href="#" data-toggle="modal" data-target="#mymodal" title="Xem Nhanh"><i
+                                                class="icon ion-android-open"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="product-content pt-20">
+                                    <div class="manufacture-product">
+                                        <a href="shop.html">{{$product->categoryCode}}</a>
+                                        <div class="rating">
+                                            <div class="rating-box">
+                                                <div class="rating2">rating</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2><a href="product-details.html">{{$product->productName}}</a>
+                                    </h2>
+                                    <div class="price">
+                                        <ul>
+                                            <li class="new-price">{{$product->price}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- product-wrapper end -->
+                        </div>
+
+                            @endforeach
+                    </div>
+                </div>
+            </div>
+            <!-- tab-area end -->
+        </div>
+    </div>
+    <!-- arrivals-area end -->
+    <!-- blog-area start -->
+    <div class="blog-aea ptb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title mb-30 text-center">
+                        <h2>Bài Viết Mới Nhất</h2>
+                    </div>
+                </div>
+                <div class="blog-active">
+                    @if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            {{$message}}
+                        </div>
+                    @endif
+                  @foreach($blogs as $blog)
+                    <div class="col-12">
+                        <!-- single-blog start -->
+                        <div class="single-blog">
+                            <div class="blog-img">
+                                <a href="#"><img src="/image/{{$blog->image}}" alt="blog"></a>
+                                <div class="date">
+                                    Aug <span>09</span>
+                                </div>
+                            </div>
+                            <div class="blog-content pt-20">
+                                <h3><a href="{{$blog->content}}">{{$blog->title}}</a>
+                                </h3>
+                                <span>By {{$blog->createdBy}}</span>
+                                <p>{{$blog->content}}</p>
+                                <a href="blog-details.html">Xem thêm...</a>
+                            </div>
+                        </div>
+                        <!-- single-blog end -->
+                    </div>
+                  @endforeach
+                        <div class="col-12">
+                            <!-- single-blog-start -->
+                            <div class="single-blog">
+                                <div class="blog-img">
+                                    <a href="#"><img src="{{URL::asset('niceadmin/trang-chu/images/slider/nice.jpg')}}" alt="blog" /></a>
+                                    <div class="date">
+                                        Aug <span>10</span>
+                                    </div>
+                                </div>
+                                <div class="blog-content pt-20">
+                                    <h3><a href="blog-details.html">Các cách chăm sóc Sneaker.</a></h3>
+                                    <span>By Chopper</span>
+                                    <p>Đối với lắp đồ sẽ có chế độ bảo hành riêng tùy sản phẩm.
+                                        Đối với sửa chữa bảo dưỡng bảo hành 6 tháng và 1 năm về máy.
+                                        Cửa hàng chúng tôi bảo hành trên hệ thống theo số điện thoại hoặc biển số xe của khách hàng.
+                                        Cửa hàng chỉ nhận bảo hành hàng hóa do lỗi sản xuất.
+                                    </p>
+                                    <a href="blog-details.html">Xem thêm ...</a>
+                                </div>
+                            </div>
+                            <!-- single-blog-end -->
+                        </div>
+                        <div class="col-12">
+                            <!-- single-blog-start -->
+                            <div class="single-blog">
+                                <div class="blog-img">
+                                    <a href="#"><img src="{{URL::asset('niceadmin/trang-chu/images/slider/nice3.jpg')}}" alt="blog" /></a>
+                                    <div class="date">
+                                        Aug <span>11</span>
+                                    </div>
+                                </div>
+                                <div class="blog-content pt-20">
+                                    <h3><a href="blog-details.html">Những mẫu thời trang công sở cao cấp đẹp 2019.</a>
+                                    </h3>
+                                    <span>By Chopper</span>
+                                    <p>Đối với lắp đồ sẽ có chế độ bảo hành riêng tùy sản phẩm.
+                                        Đối với sửa chữa bảo dưỡng bảo hành 6 tháng và 1 năm về máy.
+                                        Cửa hàng chúng tôi bảo hành trên hệ thống theo số điện thoại hoặc biển số xe của khách hàng.
+                                        Cửa hàng chỉ nhận bảo hành hàng hóa do lỗi sản xuất.
+                                    </p>
+                                    <a href="blog-details.html">Xem thêm ...</a>
+                                </div>
+                            </div>
+                            <!-- single-blog-end -->
+                        </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- blog-area end -->
 
 </div>
 

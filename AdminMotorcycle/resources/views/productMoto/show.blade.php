@@ -3,11 +3,11 @@
 
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Product</h1>
+            <h1>Product Management</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item">Product for People</li>
+                    <li class="breadcrumb-item">Items for Motor</li>
                     <li class="breadcrumb-item active">Review</li>
                 </ol>
             </nav>
@@ -93,10 +93,9 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Last updated : </strong>
-                    {{$product->updated_at}}
+            <div class="row " style="float:left;">
+                <div class="col-lg-12 text-center" style="margin-bottom: 10px;margin-top: 10px;float: right">
+                    <a href="{{route('productMoto.index')}}" class="btn btn-primary"><i class="bi bi-chevron-double-left"></i> Back</a>
                 </div>
             </div>
 

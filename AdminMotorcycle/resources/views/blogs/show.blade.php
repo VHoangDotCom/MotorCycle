@@ -70,7 +70,13 @@
             </div>
 
 <!-- End Show Blogs -->
-        <a style="width: 140px;" href="{{ url('blogs/word-export/' . $blog->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-file-earmark-word"></i>  Export to Word</a>
+
+            <div class="row " style="float:left;">
+                <div class="col-lg-12 text-center" style="margin-bottom: 10px;margin-top: 10px;float: right">
+                    <a style="height: 40px;"  href="{{ url('blogs/word-export/' . $blog->id) }}" class="btn btn-primary"><i class="bi bi-file-earmark-word"></i>  Export </a>
+                    <a href="{{route('blogs.index')}}" class="btn btn-primary"><i class="bi bi-chevron-double-left"></i> Back</a>
+                </div>
+            </div>
         </div>
     </main>
 

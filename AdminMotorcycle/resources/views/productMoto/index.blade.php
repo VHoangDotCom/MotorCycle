@@ -9,7 +9,7 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item">Product for People</li>
+                    <li class="breadcrumb-item">Items for Motor</li>
                     <li class="breadcrumb-item active">List Products</li>
                 </ol>
             </nav>
@@ -26,7 +26,7 @@
                             </div>
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title">Product for Moto</h5>
+                            <h5 class="card-title">Items for Motor</h5>
                             <div class="dataTable-top" style="float: right" >
                                 <a href="{{route('productMoto.create')}}"  class="btn btn-success"><i class="bi bi-plus">  Add</i></a>
                             </div>

@@ -134,7 +134,7 @@ class productMotoController extends Controller
 
         $product = product::findOrFail($id);
         $product->delete();
-        return redirect()->route('productMoto.index')->with('success','Update Product Successfully');
+        return redirect()->route('productMoto.index')->with('success','Delete Item Successful');
 
     }
 }

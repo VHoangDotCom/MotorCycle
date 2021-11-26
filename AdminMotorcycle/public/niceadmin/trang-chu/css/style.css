@@ -1226,9 +1226,11 @@ a .nivo-directionNav{
 }
 .single-blog {
   overflow: hidden;
+
 }
 .single-blog .blog-img {
   position: relative;
+
 }
 .single-blog .blog-img a {
 }
@@ -1383,7 +1385,7 @@ a .nivo-directionNav{
   height: 80px;
   line-height: 80px;
 }
-/* 
+/*
 .footer-area .footer-logo{
   max-height: 60px;
 } */

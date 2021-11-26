@@ -12,6 +12,16 @@ class BlogController extends Controller
     {
         $blogs = Blog::latest()->paginate(50);
         return view('blogs.index',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
+
+    }
+
+    public function home(){
+        $blogs = Blog::latest()->get();
+        return view('home',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
+    }
+    public function homePage(){
+        $blogs = Blog::latest()->get();
+        return view('trang-chu.home',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
     }
 
     public function create()

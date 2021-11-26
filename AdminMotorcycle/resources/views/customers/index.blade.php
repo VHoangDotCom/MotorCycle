@@ -11,7 +11,7 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item">Tables</li>
+                    <li class="breadcrumb-item">Customers</li>
                     <li class="breadcrumb-item active">Data</li>
                 </ol>
             </nav>
@@ -28,15 +28,15 @@
                                 {{$message}}
                             </div>
                         @endif
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <div class="col-lg-12 text-center" style="margin-top: 10px;margin-bottom: 10px;float: right" >
-                                <a href="{{route('customers.create')}}" class="btn btn-success">Add</a>
-                            </div>
 
-
-                            <!-- Table with stripped rows -->
                             <div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Customers List</h5>
+                                    <div class="dataTable-top" style="float: right" >
+                                        <a href="{{route('customers.create')}}"  class="btn btn-success"><i class="bi bi-plus">  Add</i></a>
+                                    </div>
+
+                                    <div>
 
 
                                 @if(sizeof($customers) > 0)

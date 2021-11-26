@@ -6,8 +6,7 @@
             <h1>Product Management</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item">Product for People </li>
+                    <li class="breadcrumb-item">Items for Motor </li>
                     <li class="breadcrumb-item active">Update product</li>
                 </ol>
             </nav>
@@ -99,7 +98,7 @@
                                 <div class="text-center" style="margin-top: 10px">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <a href="{{route('productPeople.index')}}" class="btn btn-primary">Back</a>
+                                    <a href="{{route('productMoto.index')}}" class="btn btn-primary">Back</a>
                                 </div>
                             </form><!-- End Multi Columns Form -->
 

@@ -19,39 +19,42 @@
                                 <li class="active"><a href="{{route('trang-chu.home')}}">Home</a></li>
                                 <li><a href="#">Men</a>
                                     <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">Quần áo</a>
+                                        <li><a href="#">Clothes</a>
                                             <ul class="sub-menu-2">
-                                                <li><a href="#">áo da</a></li>
-                                                <li><a href="#">quần lót</a></li>
+                                                <li><a href="#">Leather jacket</a></li>
+                                                <li><a href="#">Underwear</a></li>
                                             </ul>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">phụ kiện</a>
-                                    <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">khăn quàng</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">khăn ống</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">mũ bảo hiểm</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">mũ bảo hiểm</a></li>
-                                            </ul>
-                                        </li>![](C:/Users/Admin/AppData/Local/Temp/slider1.jpg)
                                     </ul>
                                 </li>
                                 <li><a href="#">Women</a>
                                     <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">Quần áo</a>
+                                        <li><a href="#">Clothes</a>
                                             <ul class="sub-menu-2">
-                                                <li><a href="#">áo lót</a></li>
+                                                <li><a href="#">Bra</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
+                                <li><a href="#">Accessory</a>
+                                    <ul class="mega-menu mega-menu-2">
+                                        <li><a href="#">Bib</a>
+                                            <ul class="sub-menu-2">
+                                                <li><a href="#">khăn ống</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Helmet</a>
+                                            <ul class="sub-menu-2">
+                                                <li><a href="#">mũ bảo hiểm</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
                                 <li><a href="{{route('trang-chu.home')}}">Blogs</a></li>
                                 <li><a href="{{route('trang-chu.home')}}">contact</a></li>
+
+
                             </ul>
                         </nav>
                     </div>
@@ -104,6 +107,7 @@
                                         <ul>
                                             <li><a href="register.html">Đăng Ký</a></li>
                                             <li><a href="login.html">Đăng Nhập</a></li>
+                                            <li><a href="login.html">Đăng Nhập Quyền Admin</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::resource('home', \App\Http\Controllers\BlogController::class);
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
 
 // Redirect To Home Page
 Route::get('/homePage', function () {
@@ -98,3 +100,7 @@ Route::get('/blogs', function () {
 });
 Route::resource('blogs', \App\Http\Controllers\BlogController::class);
 
+
+Route::get('/',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
+Route::get('homePage',[\App\Http\Controllers\BlogController::class,'homePage'])->name('trang-chu.home');
+Route::get('homePage',[\App\Http\Controllers\productController::class,'home'])->name('trang-chu.home');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class productController extends Controller
 {
@@ -17,6 +18,17 @@ class productController extends Controller
     {
         $products=product::latest()->where('productType','0')->paginate(80);
         return view('productPeople.index',compact('products'))->with('i',(request()->input('page',1)-1)*5);
+    }
+
+    public function home()
+    {
+       //$products=product::latest()->where('productType','0')->get();
+        $products = DB::table('products')
+            ->join('categories', 'products.categoryID', '=', 'categories.id')
+
+            ->select('products.*', 'categories.categoryCode')
+            ->get();
+        return view('trang-chu.home',compact('products'))->with('i',(request()->input('page',1)-1)*5);
     }
 
 
@@ -126,7 +138,7 @@ class productController extends Controller
     {
         $product = product::findOrFail($id);
         $product->delete();
-        return redirect()->route('productPeople.index')->with('success', +'Delete Product successfully');
+        return redirect()->route('productPeople.index')->with('success','Delete Product successfully');
     }
 
 
