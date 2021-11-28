@@ -37,24 +37,24 @@
                                     <table class="table datatable">
                                         <thead>
                                         <tr>
+
                                             <th scope="col">#</th>
                                             <th scope="col">Image</th>
                                             <th scope="col">Product Name</th>
                                             <th scope="col">Quantity</th>
                                             <th scope="col">Price(VND)</th>
                                             <th scope="col">Discount(%)</th>
-                                            <th scope="col">Warranty</th>
+
                                             <th scope="col">Status</th>
-                                            <th scope="col">Last updated</th>
-                                            <th scope="col">View</th>
-                                            <th scope="col">Update</th>
-                                            <th scope="col">Delete</th>
+                                            <th scope="col" >More</th>
+                                            <th scope="col" >Thumbnails</th>
+
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                         @foreach($products as $product)
-                                            <tr>
+
                                             <tr>
                                                 <td>{{++$i}}</td>
                                                 <td><img src="/image/{{$product->image}}" title="{{$product->productName}}" style="width: 150px" class="img-fluid rounded-start" alt="..." ></td>
@@ -62,28 +62,29 @@
                                                 <td>{{$product->quantity}}</td>
                                                 <td>{{$product->price}}</td>
                                                 <td>{{$product->discount}}</td>
-                                                <td>{{$product->warranty}}</td>
-                                                <td>{{$product->status}}</td>
-                                                <td>{{$product->updated_at}}</td>
 
-                                                <td>
+                                                <td>{{$product->status}}</td>
+
+
+                                                <td style="width: 600px">
                                                     <form action="/productPeople/show/{{ $product->id }}" method="get">
-                                                        <button type="submit" class="btn btn-info"><i class="bi bi-eye">View</i></button>
-                                                    </form>
-                                                </td>
-                                                <td>
-                                                    <form action="/productPeople/update/{{ $product->id }}" method="get">
-                                                        <button type="submit"  class="btn btn-primary"><i class="bi bi-pen">Edit</i></button>
-                                                    </form>
-                                                </td>
-                                                <td>
-                                                    <form action="{{route('productPeople.destroy',$product->id)}}" method="post">
+                                                        <button type="submit" class="btn btn-info"><i class="bi bi-eye"></i></button>
+                                                        <button type="submit"  class="btn btn-primary"><i class="bi bi-pen"></i></button>
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash">Delete</i> </button>
+                                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> </button>
+
+
                                                     </form>
                                                 </td>
-                                            </tr>
+                                                <td>
+
+                                                    <a href="{{route('gallery.create',$product->id)}}" class="btn btn-info"><i class="bi bi-plus"></i></a>
+
+                                                </td>
+
+
+
                                             </tr>
                                             @endforeach
                                             </tr>

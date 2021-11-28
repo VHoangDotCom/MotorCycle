@@ -22,7 +22,7 @@ class CreateGalleriesTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('productID')->references('id')->on('products');
+            $table->foreign('productID')->references('id')->on('Cart');
 
         });
     }

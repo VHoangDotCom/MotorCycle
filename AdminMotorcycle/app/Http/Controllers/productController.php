@@ -90,10 +90,10 @@ class productController extends Controller
 //        // Tìm đến đối tượng muốn update
 //
 //
-//        $product = ProductPeople::findOrFail($id);
+//        $Cart = ProductPeople::findOrFail($id);
 //
 //        // điều hướng đến view edit user và truyền sang dữ liệu về user muốn sửa đổi
-//        return view('productPeople.edit', compact('product'));
+//        return view('productPeople.edit', compact('Cart'));
 //    }
 
 

@@ -21,7 +21,11 @@ class customerController extends Controller
         return view('customers.index',compact('customers'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         //
@@ -37,21 +41,34 @@ class customerController extends Controller
     public function store(Request $request)
     {
 
+
         $request->validate([
-            'username'=>'required',
-            'password'=>'required',
+            'username'=>'required|unique:customers',
+            'password'=>'required|min:8',
             'firstName'=>'required',
             'lastName'=>'required',
             'address'=>'required',
             'email'=>'required',
             'phone'=>'required',
-
         ]);
 
 
 
-        customer::create($request->all());
-        return redirect()->route('customers.index')->with('success','Add Customer Successfully');
+        $hashPassword = md5($request->password);
+        customer::create([
+            'username' => $request->username,
+            'password' => $hashPassword,
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ]);
+
+
+        return redirect()->route('customers.index')->with('success', 'Add Customer Successfully');
+
+
     }
 
 
@@ -94,8 +111,8 @@ class customerController extends Controller
         //
         //
         $request->validate([
-            'username'=>'required',
-            'password'=>'required',
+
+            'password'=>'required|min:8',
             'firstName'=>'required',
             'lastName'=>'required',
             'address'=>'required',

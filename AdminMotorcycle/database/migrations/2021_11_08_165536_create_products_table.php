@@ -13,8 +13,8 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        //table product
-        Schema::create('products', function (Blueprint $table) {
+        //table Cart
+        Schema::create('Cart', function (Blueprint $table) {
             $table->increments('id');
             $table->string('productCode',200)->nullable();
             $table->string('productName',200)->nullable();
@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('createdBy',200);
             $table->unsignedInteger('categoryID');
             $table->enum('status',['In Stock','Out of Stock']);
-            $table->enum('productType',['0','1']);//0: product of people 1:product of motor
+            $table->enum('productType',['0','1']);//0: Cart of people 1:Cart of motor
             $table->string('image',200)->nullable();
             $table->timestamps();
 
@@ -42,6 +42,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('Cart');
     }
 }
