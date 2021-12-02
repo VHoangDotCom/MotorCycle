@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Blog;
+use App\Models\product;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Illuminate\Http\Request;
 
@@ -16,13 +17,11 @@ class BlogController extends Controller
     }
 
     public function home(){
+        $products=product::latest()->where('productType','0')->paginate(80);
         $blogs = Blog::latest()->get();
-        return view('home',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
+        return view('home',compact(['blogs','products']))->with('i',(request()->input('page',1)-1)*5);
     }
-    public function homePage(){
-        $blogs = Blog::latest()->get();
-        return view('trang-chu.home',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
-    }
+
 
     public function create()
     {

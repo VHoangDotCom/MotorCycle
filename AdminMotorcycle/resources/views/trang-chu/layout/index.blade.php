@@ -29,6 +29,12 @@
     <!-- responsive css -->
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/responsive.min.css')}}">
     <!-- modernizr css -->
+    <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/animate/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/ionicons/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/owlcarousel/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/lightbox/css/lightbox.min.css')}}">
+    <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/font-awesome/css/font-awesome.min.css')}}">
 
 </head>
 

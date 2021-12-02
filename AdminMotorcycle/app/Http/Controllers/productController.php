@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Blog;
 use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class productController extends Controller
 
             ->select('products.*', 'categories.categoryCode')
             ->get();
-        return view('trang-chu.home',compact('products'))->with('i',(request()->input('page',1)-1)*5);
+        $blogs = Blog::latest()->get();
+        return view('trang-chu.home',compact(['products','blogs']))->with('i',(request()->input('page',1)-1)*5);
     }
 
 
