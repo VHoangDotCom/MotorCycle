@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateCheckoutsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,14 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('categories', function (Blueprint $table) {
-            $table->unsignedInteger('cate_id')->autoIncrement();
-            $table->string('categoryName',200);
-            $table->string('description',200);
-            $table->text('logo')->nullable();
-            $table->string('status',200)->nullable();
-            $table->integer('parent_id')->unsigned()->nullable();
+        Schema::create('checkouts', function (Blueprint $table) {
+            $table->unsignedInteger('check_id')->autoIncrement();
+            $table->unsignedInteger('order_id');
+            $table->unsignedInteger('pro_id');
+            $table->integer('quantity');
+            $table->integer('total_price');
             $table->timestamps();
+            $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -34,7 +34,7 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('checkouts');
         Schema::enableForeignKeyConstraints();
     }
 }

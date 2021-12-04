@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateThumbnailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,11 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('categories', function (Blueprint $table) {
-            $table->unsignedInteger('cate_id')->autoIncrement();
-            $table->string('categoryName',200);
-            $table->string('description',200);
-            $table->text('logo')->nullable();
-            $table->string('status',200)->nullable();
-            $table->integer('parent_id')->unsigned()->nullable();
+        Schema::create('thumbnails', function (Blueprint $table) {
+            $table->unsignedInteger('thumb_id')->autoIncrement();
+            $table->unsignedInteger('pro_id');
+            $table->text('thumb_image')->nullable();
+            $table->foreign('pro_id')->references('pro_id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
@@ -34,7 +32,7 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('thumbnails');
         Schema::enableForeignKeyConstraints();
     }
 }
