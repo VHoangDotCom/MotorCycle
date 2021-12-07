@@ -62,10 +62,8 @@
                     $('.cart_wrapper').html(data.cart_delete);
                     alert('delete thanh cong');
                 }
-
             },
             error:function (event){
-
 
             }
 

@@ -13,19 +13,19 @@ class CartController extends Controller
     {
         $pro_id = $request->input('pro_id');
         $quantity = $request->input('quantity');
-        $getpro = Product::find($pro_id);
-        $pro_name = $getpro->pro_name;
-        $pro_image = $getpro->pro_image;
+        $getpro = product::find($pro_id);
+        $productName = $getpro->productName;
+        $image = $getpro->image;
         $pro_new_price = $getpro->pro_new_price;
 
         $data = [
             'id' => $pro_id,
             'qty' => $quantity,
-            'name' => $pro_name,
+            'name' => $productName,
             'price' => $pro_new_price,
             'weight' => '12',
             'options' => [
-                'image' => $pro_image,
+                'image' => $image,
             ],
         ];
         Cart::add($data);
