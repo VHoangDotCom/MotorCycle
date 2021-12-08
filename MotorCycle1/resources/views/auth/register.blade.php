@@ -63,34 +63,46 @@
                                     <p class="text-center small">Enter your email & password to login</p>
                                 </div>
 
-                                <form class="row g-3 needs-validation" novalidate method="post" action="{{route('login')}}">
+                                <form class="row g-3 needs-validation" novalidate method="post" action="{{route('create')}}">
                                     @csrf
                                     <div class="col-12">
-                                        <label for="yourUsername"  value="{{ __('Email') }}" class="form-label">Email:</label>
-                                        <div class="input-group has-validation">
-                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                            <input type="text" name="email" class="form-control" id="yourUsername" :value="old('email')" required autofocus >
-                                            <div class="invalid-feedback">Please enter your username.</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="yourPassword" value="{{ __('Password') }}" class="form-label">Password</label>
-                                        <input type="password" name="password" class="form-control" id="yourPassword" required autocomplete="current-password">
+                                        <label for="yourName" class="form-label">Your Name</label>
+                                        <input type="text" name="name" class="form-control" id="yourName" required>
+                                        <div class="invalid-feedback">Please, enter your name!</div>
+                                      </div>
+                  
+                                      <div class="col-12">
+                                        <label for="yourEmail" class="form-label">Your Email</label>
+                                        <input type="email" name="email" class="form-control" id="yourEmail" required>
+                                        <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                                      </div>
+                  
+                                     
+                  
+                                      <div class="col-12">
+                                        <label for="yourPassword" class="form-label">Password</label>
+                                        <input type="password" name="password" class="form-control" id="yourPassword" required>
                                         <div class="invalid-feedback">Please enter your password!</div>
-                                    </div>
+                                      </div>
 
-                                    <div class="block mt-4">
-                                        <label for="remember_me" class="flex items-center">
-                                            <x-jet-checkbox id="remember_me" name="remember" />
-                                            <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                                        </label>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">{{ __('Log in') }}</button>
-                                    </div>
-                                    <div class="col-12">
-                                        <p class="small mb-0">Don't have account? <a href="{{route('register')}}">Create an account</a></p>
-                                    </div>
+                                       <div class="col-12">
+                                        <label for="password_confirmation" :value="__('Confirm Password')">Confirm Password</label>
+                                        <input id="password_confirmation" class="form-control"  type="password" name="password_confirmation" required> 
+                                        <div class="invalid-feedback">Please enter  Confirm password!</div>
+                                      </div>
+
+
+                            
+                                      <div class="col-12">
+                                        <div class="form-check">
+                                          <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                                          <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                                          <div class="invalid-feedback">You must agree before submitting.</div>
+                                        </div>
+                                      </div>
+                                      <div class="col-12">
+                                        <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                                      </div>
 
                                     <div class="flex items-center justify-end mt-4">
                                         @if (Route::has('password.request'))

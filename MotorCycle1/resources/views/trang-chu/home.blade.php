@@ -485,7 +485,8 @@
                                         <img src="/image/{{$product->image}}" alt="product" class="secondary" />
                                     </a>
                                     <div class="product-icon">
-                                        <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
+                                        
+                                        <a href="#" data-toggle="tooltip" onclick="addToCart" data-url="{{route('addToCart',['id'=>$product->id])}}" title="Thêm vào Giỏ Hàng"><i
                                                 class="icon ion-bag"></i></a>
                                         <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                 class="icon ion-android-options"></i></a>
@@ -496,7 +497,7 @@
 
                                 <div class="product-content pt-20">
                                     <div class="manufacture-product">
-                                        <a href="shop.html">{{$product->categoryCode}}</a>
+                                      
                                         <div class="rating">
                                             <div class="rating-box">
                                                 <div class="rating2">rating</div>
@@ -507,7 +508,7 @@
                                     </h2>
                                     <div class="price">
                                         <ul>
-                                            <li class="new-price">{{$product->price}}</li>
+                                            <li class="new-price">{{$product->pro_new_price}}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -566,3 +567,21 @@
 </div>
 
 @endsection
+<script>
+     function addToCart(event){
+        event.preventDefault();
+     let urlCart=$(this).data('url');
+        $.ajax({
+         type:"GET",
+         url:urlCart,
+         dataType:'json',
+            success:function (data){
+              if (data.code === 200){
+                  alert('them san phan vao do hangf thanhf cong');
+              }
+         },
+         error:function (){
+         }
+     })
+    };
+</script>

@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('trang-chu.home');
 })->name('trang-chu.home');
 Route::resource('home', \App\Http\Controllers\homeController::class);
-
+Route::get('/home',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
 
 //front end dashboard admin
 Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
@@ -39,7 +39,8 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
     ->name('register');
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->middleware('guest');
+    ->middleware('guest')
+    ->name('create');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
@@ -55,7 +56,8 @@ Route::resource('categories', \App\Http\Controllers\categoryController::class);
 Route::get('/products People', function () {
     return redirect('product.productPeople');
 });
-Route::resource('productPeople', \App\Http\Controllers\productController::class);
+Route::resource('productPeople', \App\Http\Controllers\productMotoController::class);
+
 
 //product moto
 Route::get('/products Moto', function () {
@@ -77,4 +79,4 @@ Route::get('/Admin Profile', function () {
 Route::resource('profile', \App\Http\Controllers\profileController::class);
 
 
-
+Route::get('/',[\App\Http\Controllers\productController::class,'home'])->name('trang-chu.home');
