@@ -476,9 +476,13 @@
 
                        @foreach($products as $product)
 
-                          <div class="col-12">--}}
+                      
+                          
+                          <div class="col-12">
                             <!-- product-wrapper start -->
                             <div class="product-wrapper">
+                              <form action="{{ route("addToCart") }}" method="POST">
+                                  @csrf
                                 <div class="product-img">
                                     <a href="product-details.html">
                                         <img src="/image/{{$product->image}}" alt="product" class="primary" />
@@ -486,15 +490,24 @@
                                     </a>
                                     <div class="product-icon">
                                         
-                                        <a href="#" data-toggle="tooltip" onclick="addToCart" data-url="{{route('addToCart',['id'=>$product->id])}}" title="Thêm vào Giỏ Hàng"><i
-                                                class="icon ion-bag"></i></a>
+                                        @if (Auth::check())
+                                          @if ($product->quantity > 0)
+                                            <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
+                                            <button type="submit" data-toggle="tooltip"  title="Thêm vào Giỏ Hàng" class="btn btn-add-to-cart"><i
+                                                class="icon ion-bag"></i></button>
+                                           
+                                          @endif
+                                     
+                                         @endif
+                                        {{-- <a href="#" data-toggle="tooltip"  title="Thêm vào Giỏ Hàng"><i
+                                                class="icon ion-bag"></i></a> --}}
                                         <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                 class="icon ion-android-options"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#mymodal" title="Xem Nhanh"><i
                                                 class="icon ion-android-open"></i></a>
                                     </div>
                                 </div>
-
+                              
                                 <div class="product-content pt-20">
                                     <div class="manufacture-product">
                                       
@@ -513,6 +526,7 @@
                                     </div>
                                 </div>
                             </div>
+                          </form>
                             <!-- product-wrapper end -->
                             </div>
                         @endforeach

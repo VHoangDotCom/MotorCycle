@@ -17,7 +17,8 @@
                         <nav>
                             <ul>
                                 <li class="active"><a href="{{route('trang-chu.home')}}">Home</a></li>
-                                <li><a href="#">Men</a>
+
+                                <li><a href="{{route('products')}}">Men</a>
                                     <ul class="mega-menu mega-menu-2">
                                         <li><a href="#">Clothes</a>
                                             <ul class="sub-menu-2">

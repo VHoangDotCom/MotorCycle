@@ -32,7 +32,14 @@ class productController extends Controller
             ->select('products.*', 'categories.categoryName')
             ->get();
         $blogs = Blog::latest()->get();
-        return view('trang-chu.home',compact('products','blogs'));
+        return view('trang-chu.home',compact('products','blogs'))->with('i',(request()->input('page',1)-1)*5);;
+    }
+
+    public function Products(){
+        $products=product::all();
+        $categories=category::all();
+
+        return view('trang-chu.productlist',compact(['products','categories']))->with('i',(request()->input('page',1)-1)*5);
     }
 
 

@@ -56,7 +56,7 @@ Route::resource('categories', \App\Http\Controllers\categoryController::class);
 Route::get('/products People', function () {
     return redirect('product.productPeople');
 });
-Route::resource('productPeople', \App\Http\Controllers\productMotoController::class);
+Route::resource('productPeople', \App\Http\Controllers\productController::class);
 
 
 //product moto
@@ -80,3 +80,12 @@ Route::resource('profile', \App\Http\Controllers\profileController::class);
 
 
 Route::get('/',[\App\Http\Controllers\productController::class,'home'])->name('trang-chu.home');
+Route::get('/products',[\App\Http\Controllers\productController::class,'Products'])->name('products');
+
+
+
+
+Route::post('add Cart',[\App\Http\Controllers\cartController::class,'addToCart'])->name('addToCart');
+Route::get('/ShoppingCart',function(){
+    return view('Cart.ShoppingCart');
+});
