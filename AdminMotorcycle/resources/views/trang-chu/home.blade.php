@@ -12,12 +12,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="slider-text">
-                            <h5 class="wow fadeInLeft" data-wow-delay=".3s">áo da</h5>
-                            <h5 class="wow fadeInLeft" data-wow-delay=".5s">bộ sưu tập mới</h5>
-                            <h2 class="wow fadeInRight" data-wow-delay=".7s">sản phẩm độc đáo! </h2>
-                            <h1 class="wow fadeInRight" data-wow-delay=".9s">backpack</h1>
-                            <p class="wow fadeInLeft" data-wow-delay="1.3s">Thiết kế theo xu hướng xe cộ <br /> phong cách của bạn. </p>
-                            <a href="/" class=" wow bounceInRight show-more" data-wow-delay="1.5s">xem thêm</a>
+                            <h5 class="wow fadeInLeft" data-wow-delay=".8s">áo da</h5>
+                            <h5 class="wow fadeInLeft" data-wow-delay=".9s">bộ sưu tập mới</h5>
+                            <h2 class="wow fadeInRight" data-wow-delay="1.1s">sản phẩm độc đáo! </h2>
+                            <h1 class="wow fadeInRight" data-wow-delay="1.2s">backpack</h1>
+                            <p class="wow fadeInLeft" data-wow-delay="1.2s">Thiết kế theo xu hướng xe cộ <br /> phong cách của bạn. </p>
+                            <a href="/" class=" wow bounceInRight show-more" data-wow-delay="0.9s">xem thêm</a>
                         </div>
                     </div><!-- col -->
                 </div><!-- row -->
@@ -31,13 +31,13 @@
             <div class="row">
                 <div class="col">
                     <div class="founder-description text-center">
-                        <h3>chùng tôi là ai</h3>
-                        <h1>chào mừng bạn đến với Chopper</h1>
+                        <h3 class="wow fadeInDown" data-wow-delay="7.0s">chùng tôi là ai</h3>
+                        <h1 class="wow fadeInDown" data-wow-delay="1.6s">chào mừng bạn đến với Chopper</h1>
                         <img src="{{URL::asset('niceadmin/trang-chu/images/banner/1.png')}}" alt="banner" />
-                        <p>Chopper theo đuổi triết lí kinh doanh nhân văn: Được <em><strong>là người tử tế, lương
+                        <p class="wow fadeInUp" data-wow-delay="1.6s">Chopper theo đuổi triết lí kinh doanh nhân văn: Được <em><strong>là người tử tế, lương
                                     thiện</strong></em> và được
                             phục vụ <em><strong>những vị khách hàng tử tế, lương thiện</strong></em>.</p>
-                        <h4>Miss Tùng - <span>CEO Chopper</span></h4>
+                        <h4 class="wow fadeInUp" data-wow-delay="2.0s">Miss Tùng - <span>CEO Chopper</span></h4>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title mb-30 text-center">
-                        <h2>Sản phẩm bán chạy</h2>
+                        <h2 class="wow fadeInDown" data-wow-delay="1.4s">Sản phẩm bán chạy</h2>
                     </div>
                 </div>
                 <div class="col-12">
@@ -463,7 +463,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title mb-30 text-center">
-                        <h2>Sản phẩm mới nhất </h2>
+                        <h2 class="wow fadeInDown" data-wow-delay="1.4s">Sản phẩm mới nhất </h2>
                     </div>
                 </div>
             </div>
@@ -489,7 +489,7 @@
                                         <img src="/image/{{$product->image}}" alt="product" class="secondary" />
                                     </a>
                                     <div class="product-icon">
-                                        <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
+                                        <a href="#"  data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
                                                 class="icon ion-bag"></i></a>
                                         <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                 class="icon ion-android-options"></i></a>
@@ -533,36 +533,38 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title mb-30 text-center">
-                        <h2>Bài Viết Mới Nhất</h2>
+                        <h2 class="wow fadeInDown" data-wow-delay="1.4s">Bài Viết Mới Nhất</h2>
                     </div>
                 </div>
+
                 <div class="blog-active">
                     @if($message = Session::get('success'))
                         <div class="alert alert-success">
                             {{$message}}
                         </div>
                     @endif
-                  @foreach($blogs as $blog)
-                    <div class="col-12">
-                        <!-- single-blog start -->
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <a href="#"><img src="/image/{{$blog->image}}" alt="blog"></a>
-                                <div class="date">
-                                    Aug <span>09</span>
+                        @foreach($blogs as $blog)
+                            <div class="col-12">
+                                <!-- single-blog start -->
+                                <div class="single-blog">
+                                    <div class="blog-img">
+                                        <a href="#"><img src="/image/{{$blog->image}}" alt="blog"></a>
+                                        <div class="date">
+                                            {{$blog->updated_at->format('M')}}-{{$blog->updated_at->format('Y')}} <span>{{$blog->updated_at->format('d')}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="blog-content pt-20">
+                                        <h3><a href="{{$blog->content}}">{{$blog->title}}</a>
+                                        </h3>
+                                        <span>By {{$blog->createdBy}}</span>
+                                            {!!$blog->content!!}
+                                      <!-- goi content -->
+                                        <a href="blog-details.html">Xem thêm...</a>
+                                    </div>
                                 </div>
+                                <!-- single-blog end -->
                             </div>
-                            <div class="blog-content pt-20">
-                                <h3><a href="{{$blog->content}}">{{$blog->title}}</a>
-                                </h3>
-                                <span>By {{$blog->createdBy}}</span>
-                                <p>{{$blog->content}}</p>
-                                <a href="blog-details.html">Xem thêm...</a>
-                            </div>
-                        </div>
-                        <!-- single-blog end -->
-                    </div>
-                  @endforeach
+                        @endforeach
                         <div class="col-12">
                             <!-- single-blog-start -->
                             <div class="single-blog">

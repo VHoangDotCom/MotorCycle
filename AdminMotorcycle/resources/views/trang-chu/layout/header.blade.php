@@ -59,7 +59,7 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-5 col-md-3">
                     <div class="header-right-area">
                         <ul>
                             <li><a id="show-search" href="#"><i class="icon ion-ios-search-strong"></i></a>
@@ -100,6 +100,40 @@
                                     </div>
                                 </div>
                             </li>
+
+                            <li>
+                                <a href="#" onclick="toggle()" class="bam"  id="button" ><i class="ionicons ion-android-favorite-outline"></i></a>
+                            </li>
+                                <div class="popup-container">
+                                    <div class="popup">
+                                        <h3>how do you like our services</h3>
+                                        <input type="radio" name="buttons" id="btn1">
+                                        <input type="radio" name="buttons" id="btn2">
+                                        <input type="radio" name="buttons" id="btn3">
+                                        <input type="radio" name="buttons" id="btn4">
+                                        <input type="radio" name="buttons" id="btn5">
+                                        <div class="icons">
+                                            <label for="btn1">🙁</label>
+                                            <label for="btn2">😐</label>
+                                            <label for="btn3">😊</label>
+                                            <label for="btn4">😀</label>
+                                            <label for="btn5">😍</label>
+                                        </div>
+                                        <input type="submit" value="submit" class="bam">
+                                        <div onclick="toggle()" id="close"> ✖ </div>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    function toggle(){
+                                        let toggle = document.querySelector('.popup-container')
+                                        toggle.classList.toggle('toggle');
+                                    }
+                                </script>
+
+
+
+
                             <li><a href="#" id="show-cart"><i class="icon ion-android-person"></i></a>
                                 <div class="shapping-area" id="hide-cart">
                                     <div class="single-shapping">

@@ -13,15 +13,18 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('categories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('categoryCode',200);
-            $table->string('title',200);
-            $table->text('content')->nullable();
+            $table->unsignedInteger('cate_id')->autoIncrement();
+            $table->string('categoryName',200);
+            $table->string('description',200);
+            $table->text('logo')->nullable()->nullable();
+            $table->text('image')->nullable()->nullable();
             $table->string('status',200)->nullable();
+            $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
         });
-
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -31,6 +34,8 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('categories');
+        Schema::enableForeignKeyConstraints();
     }
 }

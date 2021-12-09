@@ -13,26 +13,26 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        //table product
+        Schema::disableForeignKeyConstraints();
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('productCode',200)->nullable();
-            $table->string('productName',200)->nullable();
+            $table->unsignedInteger('pro_id')->autoIncrement();
+            $table->unsignedInteger('cate_id');
+            $table->string('productName');
             $table->string('title',200);
             $table->string('description',200)->nullable();
-            $table->double('price')->nullable();
+            $table->integer('pro_old_price')->nullable();
+            $table->integer('pro_new_price')->nullable();
+            $table->boolean('pro_sale')->default(0);
             $table->double('discount');
             $table->integer('quantity')->nullable();
-            $table->string('warranty',200);
-            $table->string('createdBy',200);
-            $table->unsignedInteger('categoryID');
+
             $table->enum('status',['In Stock','Out of Stock']);
             $table->enum('productType',['0','1']);//0: product of people 1:product of motor
             $table->string('image',200)->nullable();
+            $table->foreign('cate_id')->references('cate_id')->on('categories')->onDelete('cascade');
             $table->timestamps();
-
-            $table->foreign('categoryID')->references('id')->on('categories');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -42,6 +42,8 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('products');
+        Schema::enableForeignKeyConstraints();
     }
 }

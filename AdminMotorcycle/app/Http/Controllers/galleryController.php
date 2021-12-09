@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\gallery;
+use App\Models\product;
 use Illuminate\Http\Request;
 
 class galleryController extends Controller
@@ -14,10 +15,11 @@ class galleryController extends Controller
         return view('gallery.index',compact('galleries'))->with('i',(\request()->input('page',1)-1)*5);
     }
 
-    public function create()
-    {
-        //
-        return view('gallery.create');
+    public function create($id)
+    { $productID = product::find($id);
+        $products=product::latest()->get();
+
+        return view('gallery.create',compact(['products','productID']));
     }
 
     public function store(Request $request)

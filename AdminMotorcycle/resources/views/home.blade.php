@@ -46,6 +46,9 @@
                                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <i class="bi bi-cart"></i>
                                         </div>
+
+
+
                                         <div class="ps-3">
                                             <h6>145</h6>
                                             <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
@@ -289,6 +292,7 @@
                         <div class="col-12">
                             <div class="card top-selling">
 
+
                                 <div class="filter">
                                     <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -310,48 +314,30 @@
                                         <tr>
                                             <th scope="col">Preview</th>
                                             <th scope="col">Product</th>
-                                            <th scope="col">Price</th>
+                                            <th scope="col">Price(VND)</th>
                                             <th scope="col">Sold</th>
-                                            <th scope="col">Revenue</th>
+                                            <th scope="col">Revenue(VND)</th>
                                         </tr>
                                         </thead>
+
+                                        @if($message = Session::get('success'))
+                                            <div class="alert alert-success">
+                                                {{$message}}
+                                            </div>
+                                        @endif
+                                        @foreach($products as $id => $product)
                                         <tbody>
+
                                         <tr>
-                                            <th scope="row"><a href="#"><img src="{{URL::asset('niceadmin/assets/img/product-1.jpg')}}" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                                            <td>$64</td>
-                                            <td class="fw-bold">124</td>
-                                            <td>$5,828</td>
+                                            <th scope="row"><a href=""><img src="/image/{{$product->image}}" alt=""></a></th>
+                                            <td><a href="/productPeople/show/{{ $product->id }}" class="text-primary fw-bold">{{$product->productName}}</a></td>
+                                            <td>{{$product->price}}</td>
+                                            <td class="fw-bold">{{$product->quantity}}</td>
+                                            <td>{{$product->quantity * $product->price}}</td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="{{URL::asset('niceadmin/assets/img/product-2.jpg')}}" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                                            <td>$46</td>
-                                            <td class="fw-bold">98</td>
-                                            <td>$4,508</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="{{URL::asset('niceadmin/assets/img/product-3.jpg')}}" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                                            <td>$59</td>
-                                            <td class="fw-bold">74</td>
-                                            <td>$4,366</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="{{URL::asset('niceadmin/assets/img/product-4.jpg')}}" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                                            <td>$32</td>
-                                            <td class="fw-bold">63</td>
-                                            <td>$2,016</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="{{URL::asset('niceadmin/assets/img/product-5.jpg')}}" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                                            <td>$79</td>
-                                            <td class="fw-bold">41</td>
-                                            <td>$3,239</td>
-                                        </tr>
+
                                         </tbody>
+                                        @endforeach
                                     </table>
 
                                 </div>
@@ -462,7 +448,7 @@
                                 document.addEventListener("DOMContentLoaded", () => {
                                     var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
                                         legend: {
-                                            data: ['Allocated Budget', 'Actual Spending']
+                                            data: ['Products for People', 'Items for Motor']
                                         },
                                         radar: {
                                             // shape: 'circle',
@@ -497,11 +483,11 @@
                                             type: 'radar',
                                             data: [{
                                                 value: [4200, 3000, 20000, 35000, 50000, 18000],
-                                                name: 'Allocated Budget'
+                                                name: 'Products for People'
                                             },
                                                 {
                                                     value: [5000, 14000, 28000, 26000, 42000, 21000],
-                                                    name: 'Actual Spending'
+                                                    name: 'Items for Motor'
                                                 }
                                             ]
                                         }]
@@ -621,7 +607,7 @@
                             <div class="news">
                                 <div class="post-item clearfix">
                                     <img src="/image/{{$blog->image}}" alt="">
-                                    <h4><a href="{{route('blogs.show',$blog->id)}}">{{$id}} {{$blog->title}}</a></h4>
+                                    <h4><a href="{{route('blogs.show',$blog->id)}}">{{$blog->title}}</a></h4>
                                     <p>{{$blog->description}}</p>
                                 </div>
 

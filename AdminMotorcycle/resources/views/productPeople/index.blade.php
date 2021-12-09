@@ -43,9 +43,10 @@
                                             <th scope="col">Quantity</th>
                                             <th scope="col">Price(VND)</th>
                                             <th scope="col">Discount(%)</th>
-                                            <th scope="col">Warranty</th>
+
                                             <th scope="col">Status</th>
                                             <th scope="col">Last updated</th>
+                                            <th scope="col" >Thumbnails</th>
                                             <th scope="col">View</th>
                                             <th scope="col">Update</th>
                                             <th scope="col">Delete</th>
@@ -62,10 +63,11 @@
                                                 <td>{{$product->quantity}}</td>
                                                 <td>{{$product->price}}</td>
                                                 <td>{{$product->discount}}</td>
-                                                <td>{{$product->warranty}}</td>
                                                 <td>{{$product->status}}</td>
                                                 <td>{{$product->updated_at}}</td>
-
+                                                <td>
+                                                    <a href="{{route('gallery.create',$product->id)}}" class="btn btn-info"><i class="bi bi-plus"></i> Add</a>
+                                                </td>
                                                 <td>
                                                     <form action="/productPeople/show/{{ $product->id }}" method="get">
                                                         <button type="submit" class="btn btn-info"><i class="bi bi-eye">View</i></button>
@@ -83,6 +85,8 @@
                                                         <button type="submit" class="btn btn-danger"><i class="bi bi-trash">Delete</i> </button>
                                                     </form>
                                                 </td>
+
+
                                             </tr>
                                             </tr>
                                             @endforeach
