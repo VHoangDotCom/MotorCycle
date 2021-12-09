@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\category;
+use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
 {
@@ -14,12 +14,10 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
         category::create([
-            'categoryCode' => 'ct01',
-            'title' => 'For man',
-            'content' => 'Nothing up to date',
-            'status'=>'Sold out'
+            'categoryName' =>'fewe',
+            'description'=>'few',
+
         ]);
     }
 }

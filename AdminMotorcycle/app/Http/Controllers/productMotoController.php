@@ -17,23 +17,23 @@ class productMotoController extends Controller
     public function index()
     {
         $products = product::latest()->where('productType', '1')->paginate(50);
-        return view('productMoto.index', compact('products'))->with('i', (\request()->input('page', 1) - 1) * 5);
+        return view('product.productMoto.index', compact('products'))->with('i', (\request()->input('page', 1) - 1) * 5);
     }
 
 
     public function create()
     {
 
-        $categories=category::all(['id','categoryCode']);
+        $categories=category::all(['cate_id','categoryName']);
         foreach ($categories as $dt) {
-            if ($dt['id'] > 0) {
-                $this->htmlSelect .= "<option value='{$dt["id"]}'>" . $dt["categoryCode"] . "</option>";
+            if ($dt['cate_id'] > 0) {
+                $this->htmlSelect .= "<option value='{$dt["cate_id"]}'>" . $dt["categoryName"] . "</option>";
             }
         }
 
 
         $htmlOption=$this->htmlSelect;
-        return view('productMoto.create',compact('htmlOption'));
+        return view('product.productMoto.create',compact('htmlOption'));
     }
 
 
@@ -41,15 +41,12 @@ class productMotoController extends Controller
     {
 
         $request->validate([
-            'productCode'=> 'required|unique:products',
-            'productName'=> 'required',
+            'productName'=> 'required|unique:products',
             'title'=> 'required',
-            'price'=> 'required',
-            'discount'=> 'required',
+            'pro_new_price'=> 'required',
+            'pro_sale'=> 'required',
             'quantity'=> 'required',
-            'warranty'=> 'required',
-            'createdBy'=> 'required',
-            'categoryID'=> 'required',
+            'cate_id'=> 'required',
             'productType'=>'required',
             'status'=>'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -73,42 +70,40 @@ class productMotoController extends Controller
     {
 
         $product = product::findOrFail($id);
-        return view('productMoto.show',compact('product'));
+        return view('product.productMoto.show',compact('product'));
     }
 
 
-    public function edit(product $product,$id)
+    public function edit(product $product,$pro_id)
     {
-
-        $categories=category::all();
+        $categories=category::all(['cate_id','categoryName']);
         foreach ($categories as $dt) {
-            if ($dt['id'] > 0) {
-                $this->htmlSelect .= "<option value='{$dt["id"]}'>" . $dt["categoryCode"] . "</option>";
+            if ($dt['cate_id'] > 0) {
+                $this->htmlSelect .= "<option value='{$dt["cate_id"]}'>" . $dt["categoryName"] . "</option>";
             }
         }
-        $htmlOption=$this->htmlSelect;
-        $product = product::findOrFail($id);
 
-        return view('productMoto.edit',compact('htmlOption','product'));
+
+        $htmlOption=$this->htmlSelect;
+        $product = product::findOrFail($pro_id);
+
+        return view('product.productMoto.edit',compact('htmlOption','product'));
 
     }
 
 
-    public function update(Request $request,$id)
+    public function update(Request $request,$pro_id)
     {
 
         $request->validate([
-            'productName'=> 'required',
+            'productName'=> 'required|unique:products',
             'title'=> 'required',
-            'price'=> 'required',
-            'discount'=> 'required',
+            'pro_new_price'=> 'required',
+            'pro_old_price'=> 'required',
+            'pro_sale'=> 'required',
             'quantity'=> 'required',
-            'warranty'=> 'required',
-            'createdBy'=> 'required',
-            'categoryID'=> 'required',
-
+            'cate_id'=> 'required',
             'status'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $input = $request->all();
@@ -121,7 +116,7 @@ class productMotoController extends Controller
             unset($input['image']);
         }
 
-        $product = product::findOrFail($id);
+        $product = product::findOrFail($pro_id);
 
         $product->update($input);
         return redirect()->route('productMoto.index')->with('success','Update Product successfully');
@@ -129,10 +124,10 @@ class productMotoController extends Controller
     }
 
 
-    public function destroy(product $product,$id)
+    public function destroy(product $product,$pro_id)
     {
 
-        $product = product::findOrFail($id);
+        $product = product::findOrFail($pro_id);
         $product->delete();
         return redirect()->route('productMoto.index')->with('success','Delete Item Successful');
 

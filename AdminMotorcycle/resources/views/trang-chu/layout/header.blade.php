@@ -59,7 +59,7 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-5 col-md-3">
+                <div class="col-6 col-md-3">
                     <div class="header-right-area">
                         <ul>
                             <li><a id="show-search" href="#"><i class="icon ion-ios-search-strong"></i></a>
@@ -96,7 +96,7 @@
                                         <h5>Tổng <span>998,000đ</span></h5>
                                     </div>
                                     <div class="cart-bottom">
-                                        <a href="checkout.html">Check out</a>
+                                        <a href="{{route('trang-chu.Cart.checkout')}}">Check out</a>
                                     </div>
                                 </div>
                             </li>
@@ -104,46 +104,66 @@
                             <li>
                                 <a href="#" onclick="toggle()" class="bam"  id="button" ><i class="ionicons ion-android-favorite-outline"></i></a>
                             </li>
-                                <div class="popup-container">
-                                    <div class="popup">
-                                        <h3>how do you like our services</h3>
-                                        <input type="radio" name="buttons" id="btn1">
-                                        <input type="radio" name="buttons" id="btn2">
-                                        <input type="radio" name="buttons" id="btn3">
-                                        <input type="radio" name="buttons" id="btn4">
-                                        <input type="radio" name="buttons" id="btn5">
-                                        <div class="icons">
-                                            <label for="btn1">🙁</label>
-                                            <label for="btn2">😐</label>
-                                            <label for="btn3">😊</label>
-                                            <label for="btn4">😀</label>
-                                            <label for="btn5">😍</label>
-                                        </div>
-                                        <input type="submit" value="submit" class="bam">
-                                        <div onclick="toggle()" id="close"> ✖ </div>
+                            <div class="popup-container">
+                                <div class="popup">
+                                    <h3>how do you like our services</h3>
+                                    <input type="radio" name="buttons" id="btn1">
+                                    <input type="radio" name="buttons" id="btn2">
+                                    <input type="radio" name="buttons" id="btn3">
+                                    <input type="radio" name="buttons" id="btn4">
+                                    <input type="radio" name="buttons" id="btn5">
+                                    <div class="icons">
+                                        <label for="btn1">🙁</label>
+                                        <label for="btn2">😐</label>
+                                        <label for="btn3">😊</label>
+                                        <label for="btn4">😀</label>
+                                        <label for="btn5">😍</label>
                                     </div>
+                                    <input type="submit" value="submit" class="bam">
+                                    <div onclick="toggle()" id="close"> ✖ </div>
                                 </div>
+                            </div>
 
-                                <script>
-                                    function toggle(){
-                                        let toggle = document.querySelector('.popup-container')
-                                        toggle.classList.toggle('toggle');
-                                    }
-                                </script>
-
-
+                            <script>
+                                function toggle(){
+                                    let toggle = document.querySelector('.popup-container')
+                                    toggle.classList.toggle('toggle');
+                                }
+                            </script>
 
 
                             <li><a href="#" id="show-cart"><i class="icon ion-android-person"></i></a>
                                 <div class="shapping-area" id="hide-cart">
-                                    <div class="single-shapping">
-                                        <span>Tài khoản</span>
-                                        <ul>
-                                            <li><a href="register.html">Đăng Ký</a></li>
-                                            <li><a href="login.html">Đăng Nhập</a></li>
-                                            <li><a href="login.html">Đăng Nhập Quyền Admin</a></li>
-                                        </ul>
-                                    </div>
+
+                                         @if (Route::has('login'))
+                                            <ul>
+                                                @auth
+                                                    <li> <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a></li>
+
+                                                    <li>
+                                                        <form method="POST" action="{{ route('logout') }}">
+                                                            @csrf
+
+                                                            <link :href="route('logout')"
+                                                                             onclick="event.preventDefault();
+                                                                 this.closest('form').submit();">
+                                                                {{ __('Log Out') }}
+                                                            </link>
+                                                        </form>
+                                                    </li>
+                                                @else
+                                                    <li><a href="{{ route('login') }}" >Đăng Nhập</a></li>
+
+                                                    @if (Route::has('register'))
+                                                        <li><a href="{{ route('register') }}" >Đăng Ký</a></li>
+                                                    @endif
+                                                    <li><a href="{{ route('login') }}" >Đăng Nhập Quyền Admin</a></li>
+                                                @endauth
+                                            </ul>
+                                        @endif
+
+
+
                                 </div>
                             </li>
                         </ul>

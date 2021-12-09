@@ -21,7 +21,7 @@ class CreateReviewsTable extends Migration
             $table->text('comment');
             $table->tinyInteger('rate')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('pro_id')->references('pro_id')->on('products')->onDelete('cascade');
         });
         Schema::enableForeignKeyConstraints();

@@ -13,7 +13,6 @@ class category extends Model
         'categoryName',
         'description',
         'logo',
-        'image',
         'status',
         'parent_id',
     ];

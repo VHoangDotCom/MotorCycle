@@ -35,7 +35,6 @@
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/owlcarousel/assets/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/lightbox/css/lightbox.min.css')}}">
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/lib/font-awesome/css/font-awesome.min.css')}}">
-
 </head>
 
 <body>

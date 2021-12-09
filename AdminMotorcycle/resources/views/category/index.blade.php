@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <div class="dataTable-top" style="float: right" >
-                                    <a href="{{route('category.create')}}" class="btn btn-success">Add</a>
+                                    <a href="{{route('categories.create')}}" class="btn btn-success">Add</a>
                                 </div>
 
                                 <!-- Table with stripped rows -->
@@ -41,9 +41,8 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Category Name</th>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Content</th>
-                                                <th scope="col">Status</th>
+                                                <th scope="col">Description</th>
+
 
                                                 <th scope="col">More</th>
 
@@ -54,15 +53,14 @@
                                             @foreach($categories as $category)
                                                 <tr>
                                                     <th  scope="row">{{++$i}}</th>
-                                                    <td >{{$category->categoryCode}}</td>
-                                                    <td>{{$category->title}}</td>
-                                                    <td>{{$category->content}}</td>
-                                                    <td>{{$category->status}}</td>
+                                                    <td >{{$category->categoryName}}</td>
+                                                    <td>{{$category->description}}</td>
+
 
                                                     <td>
-                                                        <form action="{{route('category.destroy',$category->id)}}" method="post">
+                                                        <form action="{{route('categories.destroy',$category->cate_id)}}" method="post">
 
-                                                            <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a>
+                                                            <a href="{{route('categories.edit',$category->cate_id)}}" class="btn btn-primary">Edit</a>
                                                             @csrf
                                                             @method('delete')
                                                             <button type="submit" class="btn btn-danger">Delete </button>

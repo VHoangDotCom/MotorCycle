@@ -17,7 +17,6 @@ class product extends Model
         'productName',
         'title',
         'description',
-        'discount',
         'quantity',
        'pro_old_price',
         'pro_new_price',
