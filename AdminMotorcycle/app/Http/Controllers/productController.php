@@ -35,6 +35,12 @@ class productController extends Controller
         return view('trang-chu.home',compact('products','blogs'));
     }
 
+    public function Products(){
+        $products=product::all();
+        $categories=category::all();
+
+        return view('trang-chu.productlist',compact(['products','categories']))->with('i',(request()->input('page',1)-1)*5);
+    }
 
     public function create()
     {
@@ -59,6 +65,7 @@ class productController extends Controller
             'pro_new_price'=> 'required',
             'pro_sale'=> 'required',
             'quantity'=> 'required',
+
             'cate_id'=> 'required',
             'productType'=>'required',
             'status'=>'required',

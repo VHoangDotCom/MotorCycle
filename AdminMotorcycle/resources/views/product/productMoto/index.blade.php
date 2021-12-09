@@ -46,8 +46,9 @@
 
                                             <th scope="col">Status</th>
 
-                                            <th scope="col" >More</th>
-
+                                            <th scope="col" >Review</th>
+                                            <th scope="col" >Update</th>
+                                            <th scope="col" >Delete</th>
 
                                         </tr>
                                         </thead>
@@ -65,17 +66,22 @@
 
                                                 <td>{{$product->status}}</td>
 
-
                                                 <td>
                                                     <form action="{{route('productMoto.destroy',$product->pro_id)}}" method="post">
-                                                        <a href="{{route('productMoto.show',$product->pro_id)}}" class="btn btn-primary">Show</a>
-                                                        <a href="{{route('productMoto.edit',$product->pro_id)}}" class="btn btn-primary">Edit</a>
+                                                        <a href="{{route('productMoto.show',$product->pro_id)}}" class="btn btn-primary"><i class="bi bi-eye"> Show</i> </a>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form action="{{route('productMoto.destroy',$product->pro_id)}}" method="post">
+                                                        <a href="{{route('productMoto.edit',$product->pro_id)}}" class="btn btn-primary"><i class="bi bi-file-earmark-font"> Edit</i> </a>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form action="{{route('productMoto.destroy',$product->pro_id)}}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger">Delete </button>
                                                     </form>
-
-
                                                 </td>
                                                 {{--                                                <td>--}}
 

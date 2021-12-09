@@ -17,7 +17,7 @@
                         <nav>
                             <ul>
                                 <li class="active"><a href="{{route('trang-chu.home')}}">Home</a></li>
-                                <li><a href="#">Men</a>
+                                <li><a href="{{route('products')}}">Men</a>
                                     <ul class="mega-menu mega-menu-2">
                                         <li><a href="#">Clothes</a>
                                             <ul class="sub-menu-2">
@@ -27,7 +27,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Women</a>
+                                <li><a href="{{route('products')}}">Women</a>
                                     <ul class="mega-menu mega-menu-2">
                                         <li><a href="#">Clothes</a>
                                             <ul class="sub-menu-2">
@@ -78,8 +78,12 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="cart.html"><i class="icon ion-bag"></i></a>
-                                <span>1</span>
+
+                            <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
+
+                                    <span class="">
+                                 {{ session()->get('quantity') }}
+                                 </span>
                                 <div class="mini-cart-sub">
                                     <div class="cart-product">
                                         <div class="single-cart">

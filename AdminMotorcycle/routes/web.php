@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/checkout', function () {
     return view('trang-chu.Cart.checkout');
 })->name('trang-chu.Cart.checkout');
+
 Route::resource('home', \App\Http\Controllers\homeController::class);
 Route::get('/home',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
 
@@ -59,7 +60,7 @@ Route::resource('categories', \App\Http\Controllers\categoryController::class);
 Route::get('/products People', function () {
     return redirect('product.productPeople');
 });
-Route::resource('productPeople', \App\Http\Controllers\productMotoController::class);
+Route::resource('productPeople', \App\Http\Controllers\productController::class);
 
 
 //product moto
@@ -73,7 +74,7 @@ Route::resource('productMoto', \App\Http\Controllers\productMotoController::clas
 Route::get('/blogs', function () {
     return redirect('blogs');
 });
-Route::get('/',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
+Route::get('/home',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
 Route::resource('blogs', \App\Http\Controllers\BlogController::class);
 
 
@@ -85,3 +86,22 @@ Route::resource('profile', \App\Http\Controllers\profileController::class);
 
 
 Route::get('/',[\App\Http\Controllers\productController::class,'home'])->name('trang-chu.home');
+Route::get('/products',[\App\Http\Controllers\productController::class,'Products'])->name('products');
+
+
+
+
+Route::post('add Cart',[\App\Http\Controllers\cartController::class,'addToCart'])->name('addToCart');
+Route::get('/ShoppingCart',function(){
+    return view('Cart.ShoppingCart');
+});
+
+Route::get('cart', [\App\Http\Controllers\cartController::class, 'Cart'])->name('Cart');
+Route::get('add-to-cart/{id}', [\App\Http\Controllers\cartController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [\App\Http\Controllers\cartController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [\App\Http\Controllers\cartController::class, 'remove'])->name('remove.from.cart');
+
+//Route::get('/cart', function () {
+//    return view('cart');
+//});
+//Route::resource('cart',\App\Http\Controllers\cartController::class);

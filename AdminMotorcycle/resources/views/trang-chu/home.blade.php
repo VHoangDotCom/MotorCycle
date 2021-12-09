@@ -232,7 +232,7 @@
                                         </a>
                                         <div class="product-icon">
                                             <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
+                                                    class="icon ion-bag addToCart"></i></a>
                                             <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                     class="icon ion-android-options"></i></a>
                                             <a href="#" data-toggle="modal" data-target="#mymodal"
@@ -275,7 +275,7 @@
                                         <span class="sale">sale</span>
                                         <div class="product-icon">
                                             <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
+                                                    class="icon ion-bag addToCart"></i></a>
                                             <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                     class="icon ion-android-options"></i></a>
                                             <a href="#" data-toggle="modal" data-target="#mymodal"
@@ -312,7 +312,7 @@
                                         </a>
                                         <div class="product-icon">
                                             <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
+                                                    class="icon ion-bag addToCart"></i></a>
                                             <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                     class="icon ion-android-options"></i></a>
                                             <a href="#" data-toggle="modal" data-target="#mymodal"
@@ -349,7 +349,7 @@
                                         <span class="sale">sale</span>
                                         <div class="product-icon">
                                             <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
+                                                    class="icon ion-bag addToCart"></i></a>
                                             <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                     class="icon ion-android-options"></i></a>
                                             <a href="#" data-toggle="modal" data-target="#mymodal"
@@ -386,7 +386,7 @@
                                         </a>
                                         <div class="product-icon">
                                             <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
+                                                    class="icon ion-bag addToCart"></i></a>
                                             <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                     class="icon ion-android-options"></i></a>
                                             <a href="#" data-toggle="modal" data-target="#mymodal"
@@ -422,7 +422,7 @@
                                         </a>
                                         <div class="product-icon">
                                             <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
+                                                    class="icon ion-bag addToCart"></i></a>
                                             <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                     class="icon ion-android-options"></i></a>
                                             <a href="#" data-toggle="modal" data-target="#mymodal"
@@ -485,9 +485,9 @@
                                         <img src="/image/{{$product->image}}" alt="product" class="secondary" />
                                     </a>
                                     <div class="product-icon">
-                                        
-                                        <a href="#" data-toggle="tooltip" onclick="addToCart" data-url="{{route('addToCart',['id'=>$product->id])}}" title="Thêm vào Giỏ Hàng"><i
-                                                class="icon ion-bag"></i></a>
+
+                                        <a href="{{ route('add.to.cart', $product->pro_id)}}" data-toggle="tooltip"  id="addToCart"  title="Thêm vào Giỏ Hàng"><i
+                                                class="icon ion-bag addToCart"></i></a>
                                         <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                 class="icon ion-android-options"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#mymodal" title="Xem Nhanh"><i
@@ -497,7 +497,7 @@
 
                                 <div class="product-content pt-20">
                                     <div class="manufacture-product">
-                                      
+
                                         <div class="rating">
                                             <div class="rating-box">
                                                 <div class="rating2">rating</div>
@@ -534,6 +534,11 @@
                 </div>
                 <div class="blog-active">
 
+                    @if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            {{$message}}
+                        </div>
+                    @endif
                     @foreach($blogs as $blog)
                         <div class="col-12">
                             <!-- single-blog start -->
@@ -541,7 +546,7 @@
                                 <div class="blog-img">
                                     <a href="#"><img src="/image/{{$blog->image}}" alt="blog"></a>
                                     <div class="date">
-                                        Aug <span>09</span>
+                                        {{$blog->updated_at->format('M')}}-{{$blog->updated_at->format('Y')}} <span>{{$blog->updated_at->format('d')}}</span>
                                     </div>
                                 </div>
                                 <div class="blog-content pt-20">
@@ -567,7 +572,7 @@
 </div>
 
 @endsection
-<script>
+ <!--<script>
      function addToCart(event){
         event.preventDefault();
      let urlCart=$(this).data('url');
@@ -584,4 +589,13 @@
          }
      })
     };
+</script> -->
+
+<script>
+    $(".addToCart").click(function (e){
+       // e.preventDefault()
+        alert("hello")
+    })
 </script>
+
+

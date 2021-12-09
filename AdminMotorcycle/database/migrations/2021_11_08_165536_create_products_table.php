@@ -23,7 +23,6 @@ class CreateProductsTable extends Migration
             $table->integer('pro_old_price')->nullable();
             $table->integer('pro_new_price')->nullable();
             $table->boolean('pro_sale')->default(0);
-            $table->double('discount');
             $table->integer('quantity')->nullable();
 
             $table->enum('status',['In Stock','Out of Stock']);

@@ -101,6 +101,7 @@ class productMotoController extends Controller
             'pro_new_price'=> 'required',
             'pro_old_price'=> 'required',
             'pro_sale'=> 'required',
+
             'quantity'=> 'required',
             'cate_id'=> 'required',
             'status'=>'required',
