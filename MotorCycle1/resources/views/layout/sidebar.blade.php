@@ -74,6 +74,12 @@
                 <span>Profile</span>
             </a>
         </li><!-- End Profile Page Nav -->
+        <li class="nav-item">
+            <a href="{{route('trang-chu.home')}}" class="nav-link collapsed">
+            <i class="bi bi-backspace-fill"></i>
+                <span>Back HomPage</span>
+            </a>
+        </li>
 
     </ul>
 
