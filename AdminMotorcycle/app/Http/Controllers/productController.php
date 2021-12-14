@@ -32,7 +32,11 @@ class productController extends Controller
             ->select('products.*', 'categories.categoryName')
             ->get();
         $blogs = Blog::latest()->get();
-        return view('trang-chu.home',compact('products','blogs'));
+        $carts=session()->get('cart');
+
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
+        return view('trang-chu.home',compact(['products','blogs','dem','carts']));
     }
 
     public function Products(){

@@ -23,6 +23,19 @@
         </div>
         <!-- breadcrumbs-area end -->
         <!-- shop-main-area start -->
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <strong>Oops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="{{route('orders.store')}}"  method="post" enctype="multipart/form-data">
+            @csrf
         <div class="shop-main-area">
             <!-- coupon-area start -->
             <div class="coupon-area">
@@ -36,11 +49,11 @@
                                         <form action="#">
                                             <p class="form-row-first">
                                                 <label>Tên Đăng Nhập hoặc Email <span class="required">*</span></label>
-                                                <input type="text">
+                                                <input type="text" name="email" placeholder="Enter your email here">
                                             </p>
                                             <p class="form-row-last">
                                                 <label>Mật Khẩu<span class="required">*</span></label>
-                                                <input type="text">
+                                                <input type="text" name="password" placeholder="Enter your password here" >
                                             </p>
                                             <p class="form-row">
                                                 <input type="submit" value="Đăng Nhập">
@@ -73,49 +86,49 @@
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Họ <span class="required">*</span></label>
-                                                <input type="text" placeholder="">
+                                                <input type="text" name="first_name" placeholder="Enter your first name here">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Tên <span class="required">*</span></label>
-                                                <input type="text" placeholder="">
+                                                <input type="text" name="last_name" placeholder="Enter your last name here">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="checkout-form-list">
                                                 <label>Địa Chỉ <span class="required">*</span></label>
-                                                <input type="text" placeholder="Số nhà - Phố">
+                                                <input type="text"  name="address" placeholder="Số nhà - Phố">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Xã/ Phường <span class="required">*</span></label>
-                                                <input type="text">
+                                                <input type="text" name="ward" placeholder="Enter your ward here">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Quận/ Huyện <span class="required">*</span></label>
-                                                <input type="text" placeholder="">
+                                                <input type="text" name="district" placeholder="Enter your district here">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="checkout-form-list">
                                                 <label>Tỉnh / Thành Phố <span class="required">*</span></label>
-                                                <input type="text">
+                                                <input type="text" name="city" placeholder="Enter your city here">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Điện Thoại <span class="required">*</span></label>
-                                                <input type="text">
+                                                <input type="text" name="phone" placeholder="Enter your phone here">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
                                                 <label>Địa Chỉ Email <span class="required">*</span></label>
-                                                <input type="email" placeholder="">
+                                                <input type="email" name="email" placeholder="Enter your  email here">
                                             </div>
                                         </div>
 
@@ -129,9 +142,9 @@
                                                 <p>Tạo một tài khoản bằng cách nhập thông tin dưới đây. Nếu bạn là khách
                                                     hàng cũ, vui lòng đăng nhập ở đầu trang.</p>
                                                 <label>Tên Đăng Nhập hoặc Email <span class="required">*</span></label>
-                                                <input type="text">
+                                                <input type="text" name="new_email" placeholder="Enter your email here">
                                                 <label>Mật Khẩu <span class="required">*</span></label>
-                                                <input type="password">
+                                                <input type="password" name="password" placeholder="Enter your password here">
                                             </div>
                                         </div>
                                     </div>
@@ -337,5 +350,6 @@
             <!-- checkout-area end -->
         </div>
         <!-- shop-main-area end -->
+        </form>
     </div>
     @endsection

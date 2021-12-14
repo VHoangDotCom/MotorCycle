@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/checkout', function () {
     return view('trang-chu.Cart.checkout');
 })->name('trang-chu.Cart.checkout');
+Route::get('/list', function () {
+    return view('trang-chu.blogs.blogs_list');
+})->name('trang-chu.blogs.blogs_list');
 
 Route::resource('home', \App\Http\Controllers\homeController::class);
 Route::get('/home',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
@@ -75,6 +78,8 @@ Route::get('/blogs', function () {
     return redirect('blogs');
 });
 Route::get('/home',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
+Route::get('/list',[\App\Http\Controllers\BlogController::class,'list'])->name('list');
+Route::get('/detail',[\App\Http\Controllers\BlogController::class,'blog_detail'])->name('blog_detail');
 Route::resource('blogs', \App\Http\Controllers\BlogController::class);
 
 
@@ -100,7 +105,7 @@ Route::get('cart', [\App\Http\Controllers\cartController::class, 'Cart'])->name(
 Route::get('add-to-cart/{id}', [\App\Http\Controllers\cartController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [\App\Http\Controllers\cartController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [\App\Http\Controllers\cartController::class, 'remove'])->name('remove.from.cart');
-
+//Route::get('/', [\App\Http\Controllers\cartController::class, 'DisplayCart'])->name('displayCart');
 //Route::get('/cart', function () {
 //    return view('cart');
 //});

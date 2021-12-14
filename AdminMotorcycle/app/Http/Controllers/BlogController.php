@@ -19,6 +19,11 @@ class BlogController extends Controller
         return view('home',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
     }
 
+    public function list(){
+        $blogs = Blog::latest()->get();
+        return view('trang-chu.blogs.blogs_list',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
+    }
+
 
     public function create()
     {
@@ -53,6 +58,11 @@ class BlogController extends Controller
     public function show(Blog $blog )
     {
         return view('blogs.show',compact('blog'));
+    }
+
+    public function blog_detail(Blog $blog )
+    {
+        return view('blogs.blog_detail',compact('blog'));
     }
 
 

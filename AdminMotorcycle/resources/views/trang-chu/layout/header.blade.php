@@ -17,7 +17,7 @@
                         <nav>
                             <ul>
                                 <li class="active"><a href="{{route('trang-chu.home')}}">Home</a></li>
-                                <li><a href="{{route('products')}}">Men</a>
+                                <li><a href="{{route('products')}}">Accessories</a>
                                     <ul class="mega-menu mega-menu-2">
                                         <li><a href="#">Clothes</a>
                                             <ul class="sub-menu-2">
@@ -27,31 +27,12 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="{{route('products')}}">Women</a>
-                                    <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">Clothes</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">Bra</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Accessory</a>
-                                    <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">Bib</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">khăn ống</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Helmet</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">mũ bảo hiểm</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                <li><a href="#">About Us</a>
+
                                 </li>
 
-                                <li><a href="{{route('trang-chu.home')}}">Blogs</a></li>
+
+                                <li><a href="{{route('trang-chu.blogs.blogs_list')}}">Blogs</a></li>
                                 <li><a href="{{route('trang-chu.home')}}">contact</a></li>
 
 
@@ -78,32 +59,8 @@
                                     </div>
                                 </div>
                             </li>
+                            @yield('cart')
 
-                            <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
-
-                                    <span class="">
-                                 {{ session()->get('quantity') }}
-                                 </span>
-                                <div class="mini-cart-sub">
-                                    <div class="cart-product">
-                                        <div class="single-cart">
-                                            <div class="cart-img">
-                                                <a href="#"><img src="{{URL::asset('niceadmin/trang-chu/images/product/1.jpg')}}" alt="book"/></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h5><a href="#">Quần lót nữ</a></h5>
-                                                <p>1 x 499,000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-totals">
-                                        <h5>Tổng <span>998,000đ</span></h5>
-                                    </div>
-                                    <div class="cart-bottom">
-                                        <a href="{{route('trang-chu.Cart.checkout')}}">Check out</a>
-                                    </div>
-                                </div>
-                            </li>
 
                             <li>
                                 <a href="#" onclick="toggle()" class="bam"  id="button" ><i class="ionicons ion-android-favorite-outline"></i></a>

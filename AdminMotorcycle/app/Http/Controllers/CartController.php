@@ -16,10 +16,12 @@ class cartController extends Controller
 
     public function Cart()
     {
-        return view('trang-chu.Cart.total_cart');
+        $carts=session()->get('cart');
+        return view('trang-chu.Cart.total_cart',compact('carts'));
     }
 
     public function addToCart($pro_id){
+
         $product = product::findOrFail($pro_id);
         $cart = session()->get('cart', []);
 
@@ -29,13 +31,13 @@ class cartController extends Controller
             $cart[$pro_id] = [
                 "name" => $product->productName,
                 "quantity" => 1,
-                "price" => $product->price,
+                "price" => $product->pro_new_price,
                 "image" => $product->image
             ];
         }
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back();
     }
 
 
@@ -60,6 +62,9 @@ class cartController extends Controller
             session()->flash('success', 'Product removed successfully');
         }
     }
+
+
+
 
 
 }

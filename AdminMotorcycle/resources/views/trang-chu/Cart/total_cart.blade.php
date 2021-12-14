@@ -43,24 +43,18 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="./images/product/14965516_1304858206222506_6574316790383360_n.jpg" alt="man" /></a></td>
-                                            <td class="product-name"><a href="#">Sịp nam</a></td>
-                                            <td class="product-price"><span class="amount">499,000đ</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"></td>
-                                            <td class="product-subtotal">499,000đ</td>
+                                            @foreach($carts as $id=>$cart)
+                                            <td class="product-thumbnail"><a href="#"><img src="/image/{{$cart['image']}}"  alt="{{$cart['name']}}" /></a></td>
+                                            <td class="product-name"><a href="#">{{$cart['name']}}</a></td>
+                                            <td class="product-price"><span class="amount">{{ number_format($cart['price'])}}$</span></td>
+                                            <td class="product-quantity"><input type="number" value="{{$cart['quantity']}}"></td>
+                                            <td class="product-subtotal"> {{number_format($cart['price'] * $cart['quantity']) }}$</td>
                                             <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="./images/product/250849721_4290564467709131_7273106139172555595_n.jpg"
-                                                                                           alt="man" /></a></td>
-                                            <td class="product-name"><a href="#">Quần lót nữ</a></td>
-                                            <td class="product-price"><span class="amount">499,000đ</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"></td>
-                                            <td class="product-subtotal">499,000đ</td>
-                                            <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a>
-                                            </td>
-                                        </tr>
+
+
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -72,7 +66,7 @@
                             <div class="buttons-cart mb-30 mt-3">
                                 <ul>
                                     <li><a href="#">Cập nhật giỏ hàng</a></li>
-                                    <li><a href="shop.html">tiếp tục mua sắm</a></li>
+                                    <li><a href="{{route('trang-chu.home')}}">tiếp tục mua sắm</a></li>
                                 </ul>
                             </div>
                             <div class="coupon">
