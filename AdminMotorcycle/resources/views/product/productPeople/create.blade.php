@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputAddress5" class="form-label">Price(VND) :</label>
+                                    <label for="inputAddress5" class="form-label">Price($) :</label>
                                     <input type="number" class="form-control" id="inputAddres5s" placeholder="Enter the Price" name="pro_new_price">
                                 </div>
                                 <div class="col-12">

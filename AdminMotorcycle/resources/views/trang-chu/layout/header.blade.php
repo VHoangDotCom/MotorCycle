@@ -6,7 +6,7 @@
                 <div class="col-6 col-md-2">
                     <!-- logo-area start -->
                     <div class="logo-area">
-                        <a href="{{route('trang-chu.home')}}"><img src="{{URL::asset('niceadmin/trang-chu/images/logo/1.png')}}" alt="logo"></a>
+                        <a href="{{route('/')}}"><img src="{{URL::asset('niceadmin/trang-chu/images/logo/1.png')}}" alt="logo"></a>
                     </div>
                     <!-- logo-area end -->
                 </div>
@@ -16,10 +16,10 @@
                     <div class="menu-area">
                         <nav>
                             <ul>
-                                <li class="active"><a href="{{route('trang-chu.home')}}">Home</a></li>
-                                <li><a href="{{route('products')}}">Men</a>
+                                <li class="active"><a href="{{route('/')}}">Home</a></li>
+                                <li><a href="{{route('products')}}">Products</a>
                                     <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">Clothes</a>
+                                        <li><a href="">Clothes</a>
                                             <ul class="sub-menu-2">
                                                 <li><a href="#">Leather jacket</a></li>
                                                 <li><a href="#">Underwear</a></li>
@@ -27,15 +27,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="{{route('products')}}">Women</a>
-                                    <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">Clothes</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">Bra</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+
                                 <li><a href="#">Accessory</a>
                                     <ul class="mega-menu mega-menu-2">
                                         <li><a href="#">Bib</a>
@@ -51,8 +43,8 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="{{route('trang-chu.home')}}">Blogs</a></li>
-                                <li><a href="{{route('trang-chu.home')}}">contact</a></li>
+                                <li><a href="{{ route('news') }}">Blogs</a></li>
+                                <li><a href="">contact</a></li>
 
 
                             </ul>
@@ -118,17 +110,18 @@
                                          @if (Route::has('login'))
                                             <ul>
                                                 @auth
-                                                    <li> <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a></li>
-
+                                                    @can('admin')
+                                                    <li> <a href="{{ route('home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a></li>
+                                                    @endcan
                                                     <li>
                                                         <form method="POST" action="{{ route('logout') }}">
                                                             @csrf
 
-                                                            <link :href="route('logout')"
+                                                            <a href="route('logout')"
                                                                              onclick="event.preventDefault();
                                                                  this.closest('form').submit();">
                                                                 {{ __('Log Out') }}
-                                                            </link>
+                                                            </a>
                                                         </form>
                                                     </li>
                                                 @else
@@ -136,8 +129,8 @@
 
                                                     @if (Route::has('register'))
                                                         <li><a href="{{ route('register') }}" >Đăng Ký</a></li>
+
                                                     @endif
-                                                    <li><a href="{{ route('login') }}" >Đăng Nhập Quyền Admin</a></li>
                                                 @endauth
                                             </ul>
                                         @endif

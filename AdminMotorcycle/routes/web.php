@@ -16,20 +16,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 //front end trang chu
-Route::get('/', function () {
-    return view('trang-chu.home');
-})->name('trang-chu.home');
-Route::get('/checkout', function () {
-    return view('trang-chu.Cart.checkout');
-})->name('trang-chu.Cart.checkout');
+Route::prefix('')->group(function () {
 
-Route::resource('home', \App\Http\Controllers\homeController::class);
-Route::get('/home',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
+    Route::get('/', [\App\Http\Controllers\homeController::class,'index'])->name('/');
+    Route::get('/news', [\App\Http\Controllers\homeController::class,'news'])->name('news');
+    Route::get('/products', [\App\Http\Controllers\homeController::class,'Products'])->name('products');
 
-//front end dashboard admin
-Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
-    return view('home');
-})->name('home');
+});
+//Cart
+Route::prefix('')->group(function () {
+
+    Route::get('cart', [\App\Http\Controllers\cartController::class, 'Cart'])->name('Cart');
+    Route::get('add-to-cart/{id}', [\App\Http\Controllers\cartController::class, 'addToCart'])->name('add.to.cart');
+    Route::get('/update-cart',[\App\Http\Controllers\cartController::class,'updateCart'])->name('updateCart');
+    Route::get('/delete-cart',[\App\Http\Controllers\cartController::class,'deleteCart'])->name('deleteCart');
+});
+
+//checkout
+Route::prefix('')->group(function () {
+    Route::get('/checkout',[\App\Http\Controllers\checkOutController::class,'index'])->name('checkout');
+});
+
+//dashboard admin
+Route::prefix('')->middleware('checkAdmin')->group(function () {
+    Route::get('/dashboard',[\App\Http\Controllers\dashboardController::class,'index'])->name('home');
+});
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
@@ -51,57 +62,29 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 
 //category
-Route::get('/categories', function () {
-    return redirect('category');
+Route::prefix('')->middleware('checkAdmin')->group(function () {
+    Route::resource('categories', \App\Http\Controllers\categoryController::class);
 });
-Route::resource('categories', \App\Http\Controllers\categoryController::class);
-
 //product people
-Route::get('/products People', function () {
-    return redirect('product.productPeople');
+Route::prefix('')->middleware('checkAdmin')->group(function () {
+    Route::resource('productPeople', \App\Http\Controllers\productController::class);
 });
-Route::resource('productPeople', \App\Http\Controllers\productController::class);
-
 
 //product moto
-Route::get('/products Moto', function () {
-    return redirect('product.productPeople');
+Route::prefix('')->middleware('checkAdmin')->group(function () {
+    Route::resource('productMoto', \App\Http\Controllers\productMotoController::class);
 });
-Route::resource('productMoto', \App\Http\Controllers\productMotoController::class);
-
 
 ////Redirect to the Blog Resource Controller
-Route::get('/blogs', function () {
-    return redirect('blogs');
+Route::prefix('')->middleware('checkAdmin')->group(function () {
+    Route::resource('blogs', \App\Http\Controllers\BlogController::class);
 });
-Route::get('/home',[\App\Http\Controllers\BlogController::class,'home'])->name('home');
-Route::resource('blogs', \App\Http\Controllers\BlogController::class);
-
 
 // Redirect to Profile
-Route::get('/Admin Profile', function () {
-    return redirect('profile');
+Route::prefix('')->middleware('checkAdmin')->group(function () {
+    Route::resource('profile', \App\Http\Controllers\profileController::class);
 });
-Route::resource('profile', \App\Http\Controllers\profileController::class);
-
-
-Route::get('/',[\App\Http\Controllers\productController::class,'home'])->name('trang-chu.home');
-Route::get('/products',[\App\Http\Controllers\productController::class,'Products'])->name('products');
-
-
-
-
-Route::post('add Cart',[\App\Http\Controllers\cartController::class,'addToCart'])->name('addToCart');
-Route::get('/ShoppingCart',function(){
-    return view('Cart.ShoppingCart');
+//admin user
+Route::prefix('')->middleware('checkAdmin')->group(function () {
+    Route::resource('users', \App\Http\Controllers\adminUserController::class);
 });
-
-Route::get('cart', [\App\Http\Controllers\cartController::class, 'Cart'])->name('Cart');
-Route::get('add-to-cart/{id}', [\App\Http\Controllers\cartController::class, 'addToCart'])->name('add.to.cart');
-Route::patch('update-cart', [\App\Http\Controllers\cartController::class, 'update'])->name('update.cart');
-Route::delete('remove-from-cart', [\App\Http\Controllers\cartController::class, 'remove'])->name('remove.from.cart');
-//Route::get('/', [\App\Http\Controllers\cartController::class, 'DisplayCart'])->name('displayCart');
-//Route::get('/cart', function () {
-//    return view('cart');
-//});
-//Route::resource('cart',\App\Http\Controllers\cartController::class);

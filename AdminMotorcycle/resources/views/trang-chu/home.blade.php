@@ -1,5 +1,7 @@
 @extends('trang-chu.layout.index')
 @section('cart')
+
+
     <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
 
         <span class=""> {!!$dem!!}</span>
@@ -20,7 +22,7 @@
                 <h5>Tổng <span></span></h5>
             </div>
             <div class="cart-bottom">
-                <a href="{{route('trang-chu.Cart.checkout')}}">Check out</a>
+                <a href="{{route('checkout')}}">Check out</a>
             </div>
         </div>
         @endforeach
@@ -503,8 +505,7 @@
 
 
                        @foreach($products as $product)
-
-                          <div class="col-12">--}}
+                          <div class="col-12">
                             <!-- product-wrapper start -->
                             <div class="product-wrapper">
                                 <div class="product-img">
@@ -536,7 +537,7 @@
                                     </h2>
                                     <div class="price">
                                         <ul>
-                                            <li class="new-price">{{$product->pro_new_price}}</li>
+                                            <li class="new-price">{{number_format($product->pro_new_price)}}$</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -600,30 +601,6 @@
 </div>
 
 @endsection
- <!--<script>
-     function addToCart(event){
-        event.preventDefault();
-     let urlCart=$(this).data('url');
-        $.ajax({
-         type:"GET",
-         url:urlCart,
-         dataType:'json',
-            success:function (data){
-              if (data.code === 200){
-                  alert('them san phan vao do hangf thanhf cong');
-              }
-         },
-         error:function (){
-         }
-     })
-    };
-</script> -->
 
-<script>
-    $(".addToCart").click(function (e){
-       // e.preventDefault()
-        alert("hello")
-    })
-</script>
 
 

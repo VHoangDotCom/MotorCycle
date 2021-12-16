@@ -41,8 +41,12 @@
 
 <!-- =========== Header ====== -->
 @include('trang-chu.layout.header')
+<div class="wapper">
+  @yield('content')
+</div>
 
-@yield('content')
+
+
 
 <!-- =========== Footer ====== -->
 @include('trang-chu.layout.footer')
@@ -76,7 +80,66 @@
     <script src="{{asset('niceadmin/trang-chu/js/plugins.js')}}"></script>
     <!-- main js -->
     <script src="{{asset('niceadmin/trang-chu/js/main.js')}}"></script>
+<script>
+      function updateCart(event){
+            event.preventDefault();
+           let urlUpdateCart=$('.update_cart_url').data('url');
+           let id=$(this).data('id');
+          let quantity=$(this).parents('tr').find('#quantity').val();
 
+
+           $.ajax({
+            type:"GET",
+             url:urlUpdateCart,
+             data:{pro_id:id,quantity:quantity},
+
+               success:function (data){
+                 if (data.code ===200){
+              $('.page-wrapper').html(data.cart_update);
+              window.location.reload();
+
+                    }
+
+                  },
+             error:function (){
+
+
+             }
+
+            });
+      }
+
+          function deleteCart(event){
+              event.preventDefault();
+              let urlDelete=$('.delete_cart').data('url');
+              let id=$(this).data('id');
+              $.ajax({
+              type:"GET",
+              url:urlDelete,
+             data:{pro_id:id},
+
+
+              success:function (data){
+                if (data.code ===200){
+               $('.page-wrapper').html(data.cart_delete);
+               window.location.reload();
+
+         }
+
+      },
+          error:function (event){
+
+
+          }
+
+      });
+      }
+
+$(function (){
+$(document).on('click','.update_cart',updateCart);
+$(document).on('click','.delete_cart',deleteCart);
+})
+</script>
 </body>
 
 </html>

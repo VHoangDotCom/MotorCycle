@@ -28,69 +28,61 @@
                         <div class="card-body">
                             <h5 class="card-title">Product for People</h5>
                             <div class="dataTable-top" style="float: right" >
-                                <a href="{{route('productPeople.create')}}"  class="btn btn-success"><i class="bi bi-plus">  Add</i></a>
+                                <a href="{{route('users.create')}}"  class="btn btn-success"><i class="bi bi-plus">  Add</i></a>
+
                             </div>
 
                             <div>
 
-                                @if(sizeof($products) > 0)
+                                @if(sizeof($users) > 0)
                                     <table class="table datatable">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">New Price(VND)</th>
-                                            <th scope="col">Old Price(VND)</th>
-
-                                            <th scope="col">Status</th>
-
-                                            <th scope="col" >More</th>
-
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Permission</th>
+                                            <th scope="col" >Grant Permission</th>
+                                            <th scope="col" >Delete</th>
 
 
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                        @foreach($products as $product)
-                                            <tr>
+                                        @foreach($users as $user)
+
                                             <tr>
                                                 <td>{{++$i}}</td>
-                                                <td><img src="/image/{{$product->image}}" title="{{$product->productName}}" style="width: 150px" class="img-fluid rounded-start" alt="..." ></td>
-                                                <td>{{$product->productName}}</td>
-                                                <td>{{$product->quantity}}</td>
-                                                <td>{{$product->pro_new_price}}</td>
-                                                <td>{{$product->pro_old_price}}</td>
-                                                <td>{{$product->status}}</td>
+
+                                                <td>{{$user->name}}</td>
+                                                <td>{{$user->email}}</td>
+                                                <td>{{$user->role}}</td>
 
 
                                                 <td>
-                                                    <form action="{{route('productPeople.destroy',$product->pro_id)}}" method="post">
-                                                        <a href="{{route('productPeople.show',$product->pro_id)}}" class="btn btn-primary"><i class="bi bi-eye"> Show</i> </a>
-                                                        <a href="{{route('productPeople.edit',$product->pro_id)}}" class="btn btn-primary"><i class="bi bi-file-earmark-font"> Edit</i> </a>
+                                                    <form action="{{route('users.destroy',$user->id)}}" method="post">
+                                                        <a href="{{route('users.edit',$user->id)}}" class="btn btn-primary"><i class="bi bi-file-earmark-font"> Grant Admin</i> </a>
+                                                    </form>
+                                                </td>
+
+
+                                                <td>
+                                                    <form action="{{route('users.destroy',$user->id)}}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger"><i class="bi bi-trash"> Delete</i>  </button>
                                                     </form>
                                                 </td>
 
-{{--                                                <td>--}}
-
-{{--                                                        <a href="{{route('gallery.create',$product->id)}}" class="btn btn-info"><i class="bi bi-eye">Create Thumbnails</i></a>--}}
-
-{{--                                                </td>--}}
-
-
                                             </tr>
-                                            </tr>
+
                                             @endforeach
                                             </tr>
                                         </tbody>
                                     </table>
-                            @endif
-                            {!! $products->links() !!}
+                                @endif
+                                {!! $users->links() !!}
                             </div>
                         </div>
                     </div>

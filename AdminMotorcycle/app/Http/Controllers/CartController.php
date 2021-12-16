@@ -42,26 +42,36 @@ class cartController extends Controller
 
 
 
-    public function update(Request $request)
+    public function updateCart(Request $request)
     {
-        if($request->id && $request->quantity){
-            $cart = session()->get('cart');
-            $cart[$request->id]["quantity"] = $request->quantity;
-            session()->put('cart', $cart);
-            session()->flash('success', 'Cart updated successfully');
+        if ($request->pro_id && $request->quantity){
+            $carts=session()->get('cart');
+            $carts[$request->pro_id]['quantity']=$request->quantity;
+            session()->put('cart',$carts);
+            $carts=session()->get('cart');
+            $cart_update=view('trang-chu.Cart.total_cart',compact('carts'))->render();
+            return response()->json([
+                'code'=>200,
+                'cart_update'=> $cart_update,
+            ],200);
         }
     }
-    public function remove(Request $request)
+    public function deleteCart(Request $request)
     {
-        if($request->id) {
-            $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
-            session()->flash('success', 'Product removed successfully');
+        if ($request->pro_id){
+            $carts=session()->get('cart');
+            unset($carts[$request->pro_id]);
+            session()->put('cart',$carts);
+            $carts=session()->get('cart');
+            $cart_delete=view('trang-chu.Cart.total_cart',compact('carts'))->render();
+            return response()->json([
+                'code'=>200,
+                'cart_delete'=> $cart_delete,
+            ],200);
         }
     }
+
+
 
 
 

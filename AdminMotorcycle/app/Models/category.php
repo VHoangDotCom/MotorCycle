@@ -12,9 +12,7 @@ class category extends Model
 
         'categoryName',
         'description',
-        'logo',
-        'status',
-        'parent_id',
+
     ];
     public function products(){
         return $this->hasMany(product::class,'cate_id');

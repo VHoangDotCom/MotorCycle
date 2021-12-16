@@ -23,27 +23,8 @@ class productController extends Controller
         return view('product.productPeople.index',compact('products'))->with('i',(request()->input('page',1)-1)*5);
     }
 
-    public function home()
-    {
-//       $products=product::latest()->where('productType','0')->get();
-        $products = DB::table('products')
-            ->join('categories', 'products.cate_id', '=', 'categories.cate_id')
 
-            ->select('products.*', 'categories.categoryName')
-            ->get();
-        $blogs = Blog::latest()->get();
-        $carts=session()->get('cart');
-        $quantityCart=$carts;
-        $dem=count($quantityCart);
-        return view('trang-chu.home',compact(['products','blogs','dem','carts']));
-    }
 
-    public function Products(){
-        $products=product::all();
-        $categories=category::all();
-
-        return view('trang-chu.productlist',compact(['products','categories']))->with('i',(request()->input('page',1)-1)*5);
-    }
 
     public function create()
     {
@@ -68,7 +49,6 @@ class productController extends Controller
             'pro_new_price'=> 'required',
             'pro_sale'=> 'required',
             'quantity'=> 'required',
-
             'cate_id'=> 'required',
             'productType'=>'required',
             'status'=>'required',
@@ -124,7 +104,7 @@ class productController extends Controller
             'quantity'=> 'required',
             'cate_id'=> 'required',
             'status'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|max:2048',
         ]);
 
         $input = $request->all();

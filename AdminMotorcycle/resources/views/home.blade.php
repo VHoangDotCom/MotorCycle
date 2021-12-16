@@ -609,27 +609,27 @@
                             <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
 
                             <div class="news">
-                                @foreach($blogs as $blog)
-                                    <div class="col-12">
-                                        <!-- single-blog start -->
-                                        <div class="single-blog">
-                                            <div class="blog-img">
-                                                <a href="#"><img src="/image/{{$blog->image}}" alt="blog"></a>
-                                                <div class="date">
-                                                    Aug <span>09</span>
-                                                </div>
-                                            </div>
-                                            <div class="blog-content pt-20">
-                                                <h3><a href="{{$blog->content}}">{{$blog->title}}</a>
-                                                </h3>
-                                                <span>By {{$blog->createdBy}}</span>
-                                                {!!$blog->content!!}
-                                                <a href="blog-details.html">Xem thêm...</a>
-                                            </div>
-                                        </div>
-                                        <!-- single-blog end -->
-                                    </div>
-                                @endforeach
+{{--                                @foreach($blogs as $blog)--}}
+{{--                                    <div class="col-12">--}}
+{{--                                        <!-- single-blog start -->--}}
+{{--                                        <div class="single-blog">--}}
+{{--                                            <div class="blog-img">--}}
+{{--                                                <a href="#"><img src="/image/{{$blog->image}}" alt="blog"></a>--}}
+{{--                                                <div class="date">--}}
+{{--                                                    Aug <span>09</span>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="blog-content pt-20">--}}
+{{--                                                <h3><a href="{{$blog->content}}">{{$blog->title}}</a>--}}
+{{--                                                </h3>--}}
+{{--                                                <span>By {{$blog->createdBy}}</span>--}}
+{{--                                                {!!$blog->content!!}--}}
+{{--                                                <a href="blog-details.html">Xem thêm...</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <!-- single-blog end -->--}}
+{{--                                    </div>--}}
+{{--                                @endforeach--}}
                                 <div class="post-item clearfix">
                                     <img src="{{URL::asset('niceadmin/assets/img/news-5.jpg')}}" alt="">
                                     <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>

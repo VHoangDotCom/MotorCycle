@@ -35,7 +35,7 @@ class categoryController extends Controller
 
         ]);
         category::create($request->all());
-        return redirect()->route('categories.index')->with('success','Add Gallery Successfully');
+        return redirect()->route('categories.index')->with('success','Add category Successfully');
     }
 
 
@@ -45,15 +45,16 @@ class categoryController extends Controller
     }
 
 
-    public function edit(category $category)
+    public function edit($id)
     {
-        //
+
+        $category = category::findOrFail($id);
 
         return view('category.update',compact('category'));
     }
 
 
-    public function update(Request $request, category $category)
+    public function update(Request $request,category $category)
     {
         //
         $request->validate([
@@ -63,8 +64,9 @@ class categoryController extends Controller
 
 
         ]);
+
         $category->update($request->all());
-        return redirect()->route('categories.index')->with('success','Update Gallery Successfully');
+        return redirect()->route('categories.index')->with('success','Update category Successfully');
     }
 
     /**
@@ -73,10 +75,11 @@ class categoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(category $category)
+    public function destroy(Request $request,$id)
     {
         //
+        $category=category::findOrFail($id);
         $category->delete();
-        return redirect()->route('categories.index')->with('success','Delete Gallery Successfully');
+        return redirect()->route('categories.index')->with('success','Delete category Successfully');
     }
 }

@@ -6,8 +6,7 @@
             <h1>Product Management</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item">Product for People </li>
+                    <li class="breadcrumb-item">Items for Motor </li>
                     <li class="breadcrumb-item active">Update product</li>
                 </ol>
             </nav>
@@ -90,7 +89,6 @@
                                         <option value="Out of Stock">Out of Stock</option>
                                     </select>
                                 </div>
-
                                 <div class="text-center" style="margin-top: 10px">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>

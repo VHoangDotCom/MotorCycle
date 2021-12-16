@@ -1,4 +1,34 @@
 @extends('trang-chu.layout.index')
+@section('cart')
+
+
+    <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
+
+        <span class=""> {!!$dem!!}</span>
+        @foreach($carts as $id=>$cart)
+            <div class="mini-cart-sub">
+                <div class="cart-product">
+                    <div class="single-cart">
+                        <div class="cart-img">
+                            <a href="#"><img src="/image/{{$cart['image']}}"/></a>
+                        </div>
+                        <div class="cart-info">
+                            <h5><a href="#">{{$cart['name']}}</a></h5>
+                            <p>{{$cart['quantity']}} x {{$cart['price']}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-totals">
+                    <h5>Tổng <span></span></h5>
+                </div>
+                <div class="cart-bottom">
+                    <a href="{{route('checkout')}}">Check out</a>
+                </div>
+            </div>
+        @endforeach
+    </li>
+
+@endsection
 @section('content')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

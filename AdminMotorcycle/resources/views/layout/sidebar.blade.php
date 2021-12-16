@@ -56,7 +56,7 @@
         </li><!-- End News Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="">
+            <a class="nav-link collapsed" href="{{route('users.index')}}">
                 <i class="bi bi-person"></i>
                 <span>Users Management</span>
             </a>
@@ -75,6 +75,12 @@
             </a>
         </li><!-- End Profile Page Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('/')}}">
+                <i class="bi bi-backspace-fill"></i>
+                <span>Back HomePage</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
     </ul>
 
 
