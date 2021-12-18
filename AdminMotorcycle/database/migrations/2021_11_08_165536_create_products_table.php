@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('cate_id');
             $table->string('productName');
             $table->string('title',200);
-            $table->string('description',200)->nullable();
+            $table->string('description')->nullable();
             $table->integer('pro_old_price')->nullable();
             $table->integer('pro_new_price')->nullable();
             $table->boolean('pro_sale')->default(0);

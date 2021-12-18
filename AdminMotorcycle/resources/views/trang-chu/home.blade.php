@@ -6,6 +6,7 @@
 
         <span class=""> {!!$dem!!}</span>
         @foreach($carts as $id=>$cart)
+
         <div class="mini-cart-sub">
             <div class="cart-product">
                 <div class="single-cart">

@@ -4,34 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Checkout;
+
 class Order extends Model
 {
-    protected $primaryKey = 'order_id';
+    use HasFactory;
 
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'user_id',
-        'order_name',
-        'order_phone',
-        'order_city',
-        'order_district',
-        'order_ward',
-        'order_address',
-        'ship_method',
-        'pay_method',
-        'order_total',
-        'order_qty',
-        'order_status',
-        'bill_image',
+        'checks_id',
+        'pro_id',
+        'quantity',
+        'total_price',
     ];
 
-    public function user()
+    public function checkout()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Order::class, 'id');
     }
-    public function checkouts()
+
+    public function product()
     {
-        return $this->hasMany(Checkout::class, 'order_id');
+        return $this->belongsTo(product::class, 'pro_id');
     }
 }

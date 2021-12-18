@@ -33,8 +33,9 @@ Route::prefix('')->group(function () {
 });
 
 //checkout
-Route::prefix('')->group(function () {
+Route::prefix('')->middleware('auth')->group(function () {
     Route::get('/checkout',[\App\Http\Controllers\checkOutController::class,'index'])->name('checkout');
+    Route::post('/bill/{id} ',[\App\Http\Controllers\checkOutController::class,'checkout'])->name('order');
 });
 
 //dashboard admin
