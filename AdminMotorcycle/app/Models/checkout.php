@@ -24,7 +24,7 @@ class Checkout extends Model
         'method',
         'pay_method',
         'total',
-        'qty',
+        'quantity',
         'status',
 
     ];

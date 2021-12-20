@@ -22,20 +22,20 @@ class checkOutController extends Controller
     public function checkout(Request $request,$pro_id)
     {
         $total=0;
+        $sum=0;
         $users=User::all('id')->where('id',Auth::user()->id)->first();
 
 
         $carts=session()->get('cart',[]);
         foreach ($carts as $pro_id=>$cart){
             $total += $cart['price'] * $cart['quantity'] ;
+            $sum +=$cart['quantity'];
         }
         $tong=$total +30;
 
 
 
-//        $products[]=session()->push('cart.name', 'products');
-//        $product=var_dump($products);
-//        $quantity[]=session()->push('cart.quantity', 'quantity');
+
 
         $request->validate([
             'name'=>'required',
@@ -59,6 +59,7 @@ class checkOutController extends Controller
             'ward'=>$request->ward,
             'district'=>$request->district,
             'city'=>$request->city,
+            'quantity'=>$sum,
             'pay_method'=>1,
             'total'=>$tong,
             'status'=>0,
@@ -76,11 +77,11 @@ class checkOutController extends Controller
                'total_price'=>$subtotal,
             ]);
         }
-        session()->flush();
+        session()->forget('cart');
 
 
 
-       return redirect()->route('/');
+       return redirect()->route('checkout_success');
     }
 
 

@@ -21,6 +21,9 @@ Route::prefix('')->group(function () {
     Route::get('/', [\App\Http\Controllers\homeController::class,'index'])->name('/');
     Route::get('/news', [\App\Http\Controllers\homeController::class,'news'])->name('news');
     Route::get('/products', [\App\Http\Controllers\homeController::class,'Products'])->name('products');
+    Route::get('checkout success',function (){
+        return view('order.checkout_success');
+    })->name('checkout_success');
 
 });
 //Cart
@@ -82,10 +85,16 @@ Route::prefix('')->middleware('checkAdmin')->group(function () {
 });
 
 // Redirect to Profile
-Route::prefix('')->middleware('checkAdmin')->group(function () {
-    Route::resource('profile', \App\Http\Controllers\profileController::class);
+Route::prefix('admin')->middleware('checkAdmin')->group(function () {
+    Route::get('profile',[\App\Http\Controllers\profileController::class,'index'])->name('admin.profile');
+    Route::post('profile/{id}',[\App\Http\Controllers\profileController::class,'update'])->name('profile.update');
 });
 //admin user
 Route::prefix('')->middleware('checkAdmin')->group(function () {
     Route::resource('users', \App\Http\Controllers\adminUserController::class);
+});
+
+Route::prefix('')->middleware('checkAdmin')->group(function () {
+    Route::resource('orders', \App\Http\Controllers\OrderController::class);
+
 });

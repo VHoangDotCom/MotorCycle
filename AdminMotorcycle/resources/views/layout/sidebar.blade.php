@@ -62,14 +62,14 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href=>
+            <a class="nav-link collapsed" href="{{route('orders.index')}}">
                 <i class="bi bi-card-list"></i>
                 <span>Order Management</span>
             </a>
         </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{route('profile.index')}}">
+            <a class="nav-link collapsed" href="{{route('admin.profile')}}">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>
