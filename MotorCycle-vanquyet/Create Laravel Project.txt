@@ -1,0 +1,4 @@
+1. composer create-project --prefer-dist laravel/laravel MotorCycle_Project
+2. Cấu hình kết nối database trong .env DB_DATABASE= motorcycle
+3. Tạo Model và Migration
+      php artisan make:model 
