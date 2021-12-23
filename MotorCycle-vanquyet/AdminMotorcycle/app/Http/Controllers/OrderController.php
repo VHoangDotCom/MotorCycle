@@ -19,22 +19,19 @@ class OrderController extends Controller
         return view('order.index',compact('checkouts'))->with('i',(request()->input('page',1)-1)*5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function orderList(){
+        $checkouts=Checkout::latest()->paginate(50);
+        return view('order.user_order',compact('checkouts'))->with('i',(request()->input('page',1)-1)*5);
+    }
+
+
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //
@@ -52,6 +49,12 @@ class OrderController extends Controller
         $checkout=Checkout::findOrFail($id);
         $orders=Order::all()->where('checks_id',$id);
         return view('order.show',compact(['checkout','orders']));
+    }
+
+    public function user_review($id){
+        $checkout=Checkout::findOrFail($id);
+        $orders=Order::all()->where('checks_id',$id);
+        return view('order.review',compact(['checkout','orders']));
     }
 
     /**
@@ -89,6 +92,8 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $checkout = Checkout::findOrFail($id);
+        $checkout->delete();
+        return redirect()->route('order.user_order')->with('success','Your order has been canceled !');
     }
 }

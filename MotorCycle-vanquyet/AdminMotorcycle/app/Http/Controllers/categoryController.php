@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use App\Models\gallery;
+use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +16,12 @@ class categoryController extends Controller
         //
         $categories=category::latest()->paginate(60);
         return view('category.index',compact('categories'))->with('i',(request()->input('page',1)-1)*5);
+    }
 
+    public function menu()
+    {
+        $categories=category::latest()->paginate(80);
+        return view('trang-chu.layout.header',compact('categories'))->with('i',(request()->input('page',1)-1)*5);
     }
 
 

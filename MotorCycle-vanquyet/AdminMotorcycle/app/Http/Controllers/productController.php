@@ -23,7 +23,17 @@ class productController extends Controller
         return view('product.productPeople.index',compact('products'))->with('i',(request()->input('page',1)-1)*5);
     }
 
+    public function menu()
+    {
+
+        $products=product::latest()->paginate(1);
+        return view('trang-chu.layout.header',compact(['products',]))->with('i',(request()->input('page',1)-1)*5);
+    }
+
     public function Products(){
+        $carts=session()->get('cart',[]);
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
 //        $products=product::paginate(6);
         $categories=category::all();
         $sortBy = request()->get('sort_by');
@@ -37,10 +47,15 @@ class productController extends Controller
 //        }
         $products=product::filterProduct($sortBy)->filterPrice($priceFrom, $priceTo)->paginate(6);
 
-        return view('trang-chu.productlist',compact(['products','categories']))->with('i',(request()->input('page',1)-1)*5);
+        return view('trang-chu.productlist',compact(['products','categories','carts','dem','quantityCart']))->with('i',(request()->input('page',1)-1)*5);
     }
     public function Productpage(){
-        return view('trang-chu.productpage');
+        $carts=session()->get('cart',[]);
+        $categories=category::all();
+        $products=product::all();
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
+        return view('trang-chu.productpage',compact(['carts','products','categories','quantityCart','dem']))->with('i',(request()->input('page',1)-1)*5);
     }
 
 
@@ -97,7 +112,11 @@ class productController extends Controller
     public function detail(product $product,$id)
     {
         $product = product::findOrFail($id);
-        return view('trang-chu.productpage',compact('product'));
+        $carts=session()->get('cart',[]);
+        $categories=category::all();
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
+        return view('trang-chu.productpage',compact('product','categories','dem','carts','quantityCart'));
     }
 
 

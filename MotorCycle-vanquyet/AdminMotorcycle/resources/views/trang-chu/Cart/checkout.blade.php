@@ -118,6 +118,7 @@
                                         <table>
                                             <thead>
                                             <tr>
+                                                <th class="product-name"><strong>Ảnh</strong></th>
                                                 <th class="product-name"><strong>Sản phẩm</strong></th>
                                                 <th class="product-total"><strong>Tổng</strong></th>
                                             </tr>
@@ -134,6 +135,9 @@
                                                 @endphp
                                             <tr class="cart_item">
                                                 <td class="product-name">
+                                                    <img width="50px" src="/image/{{$cart['image']}}"  alt="{{$cart['name']}}" />
+                                                </td>
+                                                <td class="product-name">
                                                     {{$cart['name']}}<strong class="product-quantity"> ×
                                                         {{$cart['quantity']}}</strong>
                                                 </td>
@@ -148,11 +152,13 @@
                                             </tbody>
                                             <tfoot>
                                             <tr class="cart-subtotal">
-                                                <th>Tổng tiền hàng</th>
+                                                <th><strong>Tổng tiền hàng</strong></th>
+                                                <th><strong></strong></th>
                                                 <td><span class="amount">{{number_format($total)}}$</span></td>
                                             </tr>
                                             <tr class="shipping">
-                                                <th>Phí Vận Chuyển</th>
+                                                <th><strong>Phí Vận Chuyển</strong></th>
+                                                <th><strong></strong></th>
                                                 <td>
                                                     <ul>
                                                         <li></li>
@@ -164,6 +170,7 @@
                                             </tr>
                                             <tr class="order-total">
                                                 <th><strong>Tổng đơn hàng</strong></th>
+                                                <th><strong></strong></th>
                                                 <td><strong><span  class="amount">{{$total +30}}$</span></strong>
                                                 </td>
                                             </tr>

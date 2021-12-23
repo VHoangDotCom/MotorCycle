@@ -1,7 +1,6 @@
 @extends('trang-chu.layout.index')
 @section('cart')
 
-
     <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
 
         <span class=""> {!!$dem!!}</span>

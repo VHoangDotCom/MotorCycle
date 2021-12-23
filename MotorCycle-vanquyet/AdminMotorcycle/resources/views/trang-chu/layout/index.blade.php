@@ -10,6 +10,9 @@
     <title>Tony Chopper Team</title>
 
     <!-- all css here -->
+    <link href="{{asset('niceadmin/assets/img/logo.png')}}" rel="icon">
+    <link href="{{asset('niceadmin/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
     <!-- bootstrap v4.3.1 css -->
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/bootstrap.min.css')}}">
     <!-- jquery-ui.min css -->

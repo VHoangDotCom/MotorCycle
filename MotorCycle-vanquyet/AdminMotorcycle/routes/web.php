@@ -25,10 +25,14 @@ Route::prefix('')->group(function () {
     Route::get('/blog/{id}',[\App\Http\Controllers\BlogController::class,'blog_detail'])->name('blog_detail');
     Route::get('/blog',[\App\Http\Controllers\BlogController::class,'list'])->name('blog_list');
     Route::get('/products',[\App\Http\Controllers\productController::class,'Products'])->name('products');
+    Route::get('/products',[\App\Http\Controllers\productController::class,'Products'])->name('products');
     Route::get('/product/{id}',[\App\Http\Controllers\productController::class,'detail'])->name('detail');
+
     Route::get('checkout success',function (){
         return view('order.checkout_success');
     })->name('checkout_success');
+
+   Route::get('/listOrder',[\App\Http\Controllers\OrderController::class,'orderList'])->name('order_user');
 
 });
 //Cart

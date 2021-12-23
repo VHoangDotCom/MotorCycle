@@ -94,13 +94,13 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Phí Ship:30$</strong>
+                    <strong>Phí Ship: $30</strong>
 
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Tổng giá:{{$checkout->total}}</strong>
+                    <strong>Tổng giá: ${{$checkout->total}}</strong>
 
                 </div>
             </div>

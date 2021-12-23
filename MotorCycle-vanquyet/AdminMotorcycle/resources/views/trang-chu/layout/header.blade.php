@@ -105,7 +105,7 @@
 
                             <li><a href="#" id="show-cart"><i class="icon ion-android-person"></i></a>
                                 <div class="shapping-area" id="hide-cart">
-
+                                    <div class="single-shapping">
                                          @if (Route::has('login'))
                                             <ul>
                                                 @auth
@@ -121,21 +121,24 @@
                                                                  this.closest('form').submit();">
                                                                 {{ __('Log Out') }}
                                                             </a>
+                                                        <li><a href="{{ route('order_user') }}" >Order Manage</a></li>
                                                         </form>
                                                     </li>
                                                 @else
                                                     <li><a href="{{ route('login') }}" >Đăng Nhập</a></li>
+
 
                                                     @if (Route::has('register'))
                                                         <li><a href="{{ route('register') }}" >Đăng Ký</a></li>
 
                                                     @endif
                                                 @endauth
+
                                             </ul>
                                         @endif
 
 
-
+                                   </div>
                                 </div>
                             </li>
                         </ul>

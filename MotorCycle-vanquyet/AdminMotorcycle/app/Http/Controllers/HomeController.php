@@ -24,6 +24,7 @@ class homeController extends Controller
         return view('trang-chu.home',compact(['products','blogs','dem','carts']));
     }
 
+
     public function order_success(){
         return view('trang-chu.Cart.order_success');
     }
@@ -41,4 +42,5 @@ class homeController extends Controller
         $blogs = Blog::latest()->get();
         return view('trang-chu.blogs.blog_list',compact('blogs'));
     }
+
 }
