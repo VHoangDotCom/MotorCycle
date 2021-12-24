@@ -3,54 +3,54 @@
     <div class="header-top-area" id="sticky-header">
         <div class="container">
             <div class="row">
-                <div class="col-6 col-md-2">
+                <div class="col-2 col-md-">
                     <!-- logo-area start -->
                     <div class="logo-area">
                         <a href="{{route('/')}}"><img src="{{URL::asset('niceadmin/trang-chu/images/logo/1.png')}}" alt="logo"></a>
                     </div>
                     <!-- logo-area end -->
                 </div>
-                <div class="col-md-7 d-none d-lg-block">
+                <div class="col-md-6 d-none d-lg-block">
 
                     <!-- Menu Task Bar -->
                     <div class="menu-area">
                         <nav>
                             <ul>
                                 <li class="active"><a href="{{route('/')}}">Home</a></li>
-                                <li><a href="{{route('products')}}">Products</a>
+                                <li><a href="{{route('products')}}">Accessories</a>
+
                                     <ul class="mega-menu mega-menu-2">
-                                        <li><a href="">Clothes</a>
+                                        <li><a href="{{route('products')}}">Categories for man</a>
                                             <ul class="sub-menu-2">
-                                                <li><a href="#">Leather jacket</a></li>
-                                                <li><a href="#">Underwear</a></li>
+                                                <li><a href="#">Helmet</a></li>
+                                                <li> <a href="#">Glove</a></li>
+                                                <li> <a href="#">Jacket</a></li>
+                                                <li><a href="#">Jean</a></li>
+                                                <li><a href="#">Boots</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="{{route('products')}}">Accessories for motorcycle</a>
+                                            <ul class="sub-menu-2">
+                                                <li><a href="#">Tire</a></li>
+                                                <li><a href="#">Break</a></li>
+                                                <li><a href="#">Signal</a></li>
+                                                <li><a href="#">Toys</a></li>
                                             </ul>
                                         </li>
                                     </ul>
+
                                 </li>
 
-                                <li><a href="#">Accessory</a>
-                                    <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">Bib</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">khăn ống</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Helmet</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">mũ bảo hiểm</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
 
                                 <li><a href="{{ route('blog_list') }}">Blogs</a></li>
-                                <li><a href="">contact</a></li>
+                                <li><a href="">About us</a></li>
 
                             </ul>
                         </nav>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-2 col-md-4">
                     <div class="header-right-area">
                         <ul>
                             <li><a id="show-search" href="#"><i class="icon ion-ios-search-strong"></i></a>

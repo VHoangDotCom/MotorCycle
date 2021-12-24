@@ -5,11 +5,12 @@
         <!-- header-area start -->
 
         <!-- breadcrumbs-area start -->
-        <div class="breadcrumbs-area">
+        <div class="breadcrumbs-area" style="background-image: url('https://pictures.topspeed.com/IMG/crop/201811/2019-kawi-ninja_400-6_1600x0w.jpg'); " >
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-content text-center">
+
                             <h2>Giỏ Hàng</h2>
                             <ul>
                                 <li><a href="{{route('/')}}">Trang chủ /</a></li>

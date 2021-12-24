@@ -55,15 +55,16 @@
                                     <table class="table datatable">
                                         <thead>
                                         <tr>
-                                            <th scope="col">#</th>
+                                            <th scope="col">#ID</th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Phone</th>
                                             <th scope="col">Address</th>
-                                            <th scope="col">Description</th>
+                                            <th scope="col">Message</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Total</th>
-                                            <th scope="col">View</th>
+                                            <th scope="col">Pay method</th>
+                                            <th scope="col">Card Name</th>
                                             <th scope="col">Cancel</th>
 
                                         </tr>
@@ -92,9 +93,15 @@
                                                     </form>
                                                 </td>
                                                 <td>${{number_format($checkout->total)}}</td>
-                                                <td><a href="#" class="btn btn-"></a><i class="bi bi-eye-fill"></i></td>
+                                                <td>Pay by card</td>
+                                                <td>{{($checkout->card_name)}}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-"><i class="bi bi-cart-x"></i></a>
+                                                    <form action="{{route('orders.destroy',$checkout->id)}}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button style="border: none" type="submit"><i class="bi bi-cart-x"></i></button>
+                                                    </form>
+
                                                 </td>
                                             </tr>
                                             @endforeach

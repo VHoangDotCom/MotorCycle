@@ -19,8 +19,8 @@ class ProductSeeder extends Seeder
         DB::table('products')->truncate();
         DB::table('products')->insert([
             [
-                'pro_id' => 1,
-                'cate_id' => 1,
+
+                'cate_id' => 2,
                 'productName' => 'Scorpion EXO-AT950 Helmet',
                  'title' =>'SCORPION',
                  'description' =>'This helmet is like having four helmets in one! It is a great option for riding multiple bikes and in multiple conditions. ',

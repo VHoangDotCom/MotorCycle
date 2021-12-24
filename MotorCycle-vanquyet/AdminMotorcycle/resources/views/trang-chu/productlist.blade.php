@@ -36,6 +36,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/productlist.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.0/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/blog.css')}}">
 
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -46,25 +47,24 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src=""  class="" alt="...">
+                <img src="https://mandsmotorcycles.co.uk/wp-content/uploads/2018/10/banner-ducati-full-opt.jpg"  class="" alt="...">
                 <div class="carousel-caption ">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h5>Our best Products</h5>
+                    <p style="color:black">Some representative placeholder content for the first slide.</p>
                     <a href="#" class="btn btn-lg btn-primary">Get A Quote</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="" class="" alt="...">
+                <img src="https://mandsmotorcycles.co.uk/wp-content/uploads/2018/10/banner-kawasaki-full-opt.jpg" class="" alt="...">
                 <div class="carousel-caption ">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                    <h5 style="color:whitesmoke">Quality Accessory</h5>
+                    <p>Some customers didn't want to leave.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="" class="" alt="...">
+                <img src="https://www.bmwmotorcyclesofriverside.com/wp-content/uploads/2021/07/BMWM-21-XXXXX_R18EASYRIDE_1920x600_02.jpg" class="" alt="...">
                 <div class="carousel-caption">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">

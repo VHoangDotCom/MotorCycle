@@ -94,6 +94,6 @@ class OrderController extends Controller
     {
         $checkout = Checkout::findOrFail($id);
         $checkout->delete();
-        return redirect()->route('order.user_order')->with('success','Your order has been canceled !');
+        return redirect()->route('order_user')->with('success','Your order has been canceled !');
     }
 }

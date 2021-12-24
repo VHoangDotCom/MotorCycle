@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
 
         DB::table('categories')->insert([
             [
-                'cate_id'=>2,
+                'cate_id'=>1,
                 'categoryName' => 'Helmet',
                 'description' =>'Fashion Helmet in Tonny Chopper',
                 'created_at' =>Carbon::now()->addDays(1)

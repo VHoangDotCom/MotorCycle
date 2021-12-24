@@ -18,9 +18,9 @@ class categoryController extends Controller
         return view('category.index',compact('categories'))->with('i',(request()->input('page',1)-1)*5);
     }
 
-    public function menu()
+    public function layout()
     {
-        $categories=category::latest()->paginate(80);
+        $categories=category::all()->paginate(80);
         return view('trang-chu.layout.header',compact('categories'))->with('i',(request()->input('page',1)-1)*5);
     }
 

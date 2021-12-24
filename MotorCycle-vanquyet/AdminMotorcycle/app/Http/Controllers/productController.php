@@ -26,7 +26,7 @@ class productController extends Controller
     public function menu()
     {
 
-        $products=product::latest()->paginate(1);
+        $products=product::latest()->paginate(10);
         return view('trang-chu.layout.header',compact(['products',]))->with('i',(request()->input('page',1)-1)*5);
     }
 
