@@ -1,4 +1,34 @@
 @extends('trang-chu.layout.index')
+@section('cart')
+
+    <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
+
+        <span class=""> {!!$dem!!}</span>
+        @foreach($carts as $id=>$cart)
+
+            <div class="mini-cart-sub">
+                <div class="cart-product">
+                    <div class="single-cart">
+                        <div class="cart-img">
+                            <a href="#"><img src="/image/{{$cart['image']}}"/></a>
+                        </div>
+                        <div class="cart-info">
+                            <h5><a href="#">{{$cart['name']}}</a></h5>
+                            <p>{{$cart['quantity']}} x {{$cart['price']}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-totals">
+                    <h5>Tổng <span></span></h5>
+                </div>
+                <div class="cart-bottom">
+                    <a href="{{route('checkout')}}">Check out</a>
+                </div>
+            </div>
+        @endforeach
+    </li>
+
+@endsection
 @section('content')
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/blog.css')}}">
     <div class="main-wrapper ">
@@ -25,12 +55,12 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-12">
-                    <h1>BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG!</h1>
-                    <p>Đơn hàng của bạn đã được xử lý thành công!</p>
-                    <p>Cám ơn bạn đã mua sắm tại cửa hàng chúng tôi!</p>
+                    <h1>You have ordered successfully!</h1>
+                    <p>Your order is being processed. You will receive your order soon !</p>
+                    <p>Thank you for shopping at our store!</p>
                     <div class="buttons">
                         <div class="pull-right">
-                            <a href="/" class="btn btn-primary btn-continue">Tiếp Tục Mua Sắm</a>
+                            <a href="/" class="btn btn-primary btn-continue">Continue shopping</a>
                         </div>
                     </div>
                 </div>

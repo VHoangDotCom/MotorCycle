@@ -1,4 +1,34 @@
 @extends('trang-chu.layout.index')
+@section('cart')
+
+    <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
+
+        <span class=""> {!!$dem!!}</span>
+        @foreach($carts as $id=>$cart)
+
+            <div class="mini-cart-sub">
+                <div class="cart-product">
+                    <div class="single-cart">
+                        <div class="cart-img">
+                            <a href="#"><img src="/image/{{$cart['image']}}"/></a>
+                        </div>
+                        <div class="cart-info">
+                            <h5><a href="#">{{$cart['name']}}</a></h5>
+                            <p>{{$cart['quantity']}} x {{$cart['price']}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-totals">
+                    <h5>Tổng <span></span></h5>
+                </div>
+                <div class="cart-bottom">
+                    <a href="{{route('checkout')}}">Check out</a>
+                </div>
+            </div>
+        @endforeach
+    </li>
+
+@endsection
 @section('content')
 
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/blog.css')}}">
@@ -52,7 +82,7 @@
                                                 <span class="text-muted text-capitalize mr-3"><i class="ti-pencil-alt mr-2"></i>{{$blog->createdBy}}</span>
                                             </div>
 
-                                                <h3 class="mt-3 mb-3"><a href="{{route('blog_detail',$blog->blog_id)}}">{{$blog->title}}</a></h3>
+                                                <h3 class="mt-3 mb-3"><a href="{{route('blog_detail',$blog->id)}}">{{$blog->title}}</a></h3>
                                                 <p class="mb-4">{{$blog->description}}</p>
                                                 <a href="{{route('blog_detail',$blog->id)}}" class="btn btn-small btn-main btn-round-full">Learn More</a>
                                         </div>
@@ -88,10 +118,10 @@
                             </div>
 
                             <div class="sidebar-widget card border-0 mb-3">
-                                <img src="{{URL::asset('niceadmin/trang-chu/images/blog/blog-author.jpg')}}" alt="" class="img-fluid">
+                                <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t31.18172-8/12310083_544680302363202_3052199910046784527_o.jpg?_nc_cat=109&ccb=1-5&_nc_sid=f9d7a1&_nc_ohc=1brh5hEflSoAX8iyw5F&_nc_ht=scontent.fhan14-2.fna&oh=00_AT_MRxpx9u_uVRuxz00qZiCmoDoLj8kSCgv46WUB_SVVmw&oe=61F0A965" alt="" class="img-fluid">
                                 <div class="card-body p-4 text-center">
                                     <h5 class="mb-0 mt-4">Anh Duc</h5>
-                                    <p>Ong than Bootstrap</p>
+                                    <p>Bootstrap God</p>
                                     <p>Best Vaper in the world .</p>
 
                                     <ul class="list-inline author-socials">
@@ -125,7 +155,7 @@
 
                                 @foreach($blogs as $blog)
                                     <div class="media border-bottom py-3">
-                                        <a href="#"><img class="mr-4" src="/image/{{$blog->image}}" alt="blog"></a>
+                                        <a href="#"><img class="mr-4" src="{{URL::asset('niceadmin/trang-chu/images/blog/bt-3.jpg')}}" alt="blog"></a>
                                         <div class="media-body">
                                             <h6 class="my-2"><a href="#">{{$blog->title}}</a></h6>
                                             <span class="text-sm text-muted">{{$blog->updated_at->format('D')}} {{$blog->updated_at->format('M')}} {{$blog->updated_at->format('Y')}}</span>

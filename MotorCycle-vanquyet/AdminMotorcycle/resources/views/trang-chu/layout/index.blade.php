@@ -116,6 +116,7 @@
               event.preventDefault();
               let urlDelete=$('.delete_cart').data('url');
               let id=$(this).data('id');
+
               $.ajax({
               type:"GET",
               url:urlDelete,

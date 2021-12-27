@@ -1,5 +1,5 @@
 
-
+@include('trang-chu.layout.pre_loader')
 @extends('layout.index')
 @section('content')
     <main id="main" class="main">

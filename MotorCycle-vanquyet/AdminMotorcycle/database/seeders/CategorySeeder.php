@@ -24,25 +24,25 @@ class CategorySeeder extends Seeder
                 'created_at' =>Carbon::now()->addDays(1)
             ],
             [
-                'cate_id'=>3,
+                'cate_id'=>2,
                 'categoryName' => 'Glove',
                 'description' =>'Fashion Glove in Tonny Chopper',
                 'created_at' =>Carbon::now()->addDays(1)
             ],
             [
-            'cate_id'=>4,
+            'cate_id'=>3,
             'categoryName' => 'Jacket',
             'description' =>'Fashion Jacket in Tonny Chopper',
             'created_at' =>Carbon::now()->addDays(1)
         ],
             [
-                'cate_id'=>5,
+                'cate_id'=>4,
                 'categoryName' => 'Jean',
                 'description' =>'Quality Jean in Tonny Chopper',
                 'created_at' =>Carbon::now()->addDays(1)
             ],
             [
-                'cate_id'=>6,
+                'cate_id'=>5,
                 'categoryName' => 'Boots',
                 'description' =>'Variety Boots in Tonny Chopper',
                 'created_at' =>Carbon::now()->addDays(1)

@@ -24,6 +24,12 @@ class homeController extends Controller
         return view('trang-chu.home',compact(['products','blogs','dem','carts']));
     }
 
+    public function about_us(){
+        $carts=session()->get('cart',[]);
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
+        return view('trang-chu.about_us',compact(['carts','quantityCart','dem']));
+    }
 
     public function order_success(){
         return view('trang-chu.Cart.order_success');

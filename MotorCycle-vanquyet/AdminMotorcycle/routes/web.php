@@ -18,20 +18,27 @@ use Illuminate\Support\Facades\Route;
 //front end trang chu
 Route::prefix('')->group(function () {
 
+    // Main home
     Route::get('/', [\App\Http\Controllers\homeController::class,'index'])->name('/');
+
+    // Order pages
     Route::get('/order_success', [\App\Http\Controllers\homeController::class,'order_success'])->name('order_success');
+    Route::get('/listOrder',[\App\Http\Controllers\OrderController::class,'orderList'])->name('order_user');
+    Route::get('/checkout_success', [\App\Http\Controllers\checkOutController::class,'checkout_success'])->name('checkout_success');
+
+    //About Us page
+    Route::get('/about_us', [\App\Http\Controllers\homeController::class,'about_us'])->name('about_us');
+
+    //Blog page
     Route::get('/news', [\App\Http\Controllers\homeController::class,'news'])->name('news');
-    Route::get('/products', [\App\Http\Controllers\homeController::class,'Products'])->name('products');
     Route::get('/blog/{id}',[\App\Http\Controllers\BlogController::class,'blog_detail'])->name('blog_detail');
     Route::get('/blog',[\App\Http\Controllers\BlogController::class,'list'])->name('blog_list');
+
+    //Product Page
+    Route::get('/products', [\App\Http\Controllers\homeController::class,'Products'])->name('products');
     Route::get('/products',[\App\Http\Controllers\productController::class,'Products'])->name('products');
     Route::get('/product/{id}',[\App\Http\Controllers\productController::class,'detail'])->name('detail');
 
-    Route::get('checkout success',function (){
-        return view('order.checkout_success');
-    })->name('checkout_success');
-
-   Route::get('/listOrder',[\App\Http\Controllers\OrderController::class,'orderList'])->name('order_user');
 
 });
 //Cart

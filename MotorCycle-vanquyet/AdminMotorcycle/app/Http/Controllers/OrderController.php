@@ -20,10 +20,19 @@ class OrderController extends Controller
     }
 
     public function orderList(){
+        $carts=session()->get('cart',[]);
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
         $checkouts=Checkout::latest()->paginate(50);
-        return view('order.user_order',compact('checkouts'))->with('i',(request()->input('page',1)-1)*5);
+        return view('order.user_order',compact(['checkouts','carts','quantityCart','dem']))->with('i',(request()->input('page',1)-1)*5);
     }
 
+    public function checkout_dashboard(){
+
+        $checkouts=Checkout::latest()->paginate(50);
+        $dem=count($checkouts);
+        return view('layout.header',compact(['checkouts','dem']))->with('i',(request()->input('page',1)-1)*5);
+    }
 
 
     public function create()

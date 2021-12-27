@@ -11,24 +11,32 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::latest()->paginate(50);
+
         return view('blogs.index',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
 
     }
 
-    public function home(){
+    public function home(Blog  $blog,$id){
         $blogs = Blog::latest()->get();
-        return view('home',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
+        $blog = Blog::findOrFail($id);
+        return view('home',compact(['blogs','blog']))->with('i',(request()->input('page',1)-1)*5);
     }
 
     public function list(){
         $blogs = Blog::latest()->get();
-        return view('trang-chu.blogs.blog_list',compact('blogs'))->with('i',(request()->input('page',1)-1)*5);
+        $carts=session()->get('cart',[]);
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
+        return view('trang-chu.blogs.blog_list',compact(['blogs','carts','quantityCart','dem']))->with('i',(request()->input('page',1)-1)*5);
     }
 
     public function blog_detail(Blog  $blog,$id){
-
+        $blogs = Blog::latest()->paginate(50);
         $blog = Blog::findOrFail($id);
-        return view('trang-chu.blogs.blog_detail',compact('blog'));
+        $carts=session()->get('cart',[]);
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
+        return view('trang-chu.blogs.blog_detail',compact(['blog','blogs','carts','quantityCart','dem']));
     }
 
 

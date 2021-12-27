@@ -11,10 +11,10 @@
                     <div class="col-12">
                         <div class="breadcrumb-content text-center">
 
-                            <h2>Giỏ Hàng</h2>
+                            <h2> shopping cart</h2>
                             <ul>
-                                <li><a href="{{route('/')}}">Trang chủ /</a></li>
-                                <li class="active"><a href="#">Giỏ hàng</a></li>
+                                <li><a href="{{route('/')}}">Home /</a></li>
+                                <li class="active"><a href="#">Total Cart</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,13 +39,13 @@
                                             <thead>
                                             <tr>
                                                 <th class="product-thumbnail">#</th>
-                                                <th class="product-thumbnail">Ảnh</th>
-                                                <th class="product-name">Sản phẩm</th>
-                                                <th class="product-price">Giá</th>
-                                                <th class="product-quantity">số lượng</th>
-                                                <th class="product-subtotal">tổng</th>
-                                                <th class="product-remove">Cập Nhật </th>
-                                                <th class="product-remove">xóa</th>
+                                                <th class="product-thumbnail">Image</th>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-price">Price</th>
+                                                <th class="product-quantity">Quantity</th>
+                                                <th class="product-subtotal">Total</th>
+                                                <th class="product-remove">Update </th>
+                                                <th class="product-remove">Delete</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -83,37 +83,37 @@
                                 <div class="buttons-cart mb-30 mt-3">
                                     <ul>
 
-                                        <li><a href="{{route('/')}}">tiếp tục mua sắm</a></li>
+                                        <li><a href="{{route('/')}}">Continue shopping</a></li>
                                     </ul>
                                 </div>
                                 <div class="coupon">
-                                    <h3>phiếu giảm giá</h3>
-                                    <p>Điền mã giảm giá của bạn.</p>
+                                    <h3>Your Coupons </h3>
+                                    <p>Enter your coupon code.</p>
                                     <form action="#">
-                                        <input type="text" placeholder="Mã giảm giá">
-                                        <a href="#">Áp dụng</a>
+                                        <input type="text" placeholder="Coupon code">
+                                        <a href="#">Apply now</a>
                                     </form>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-lg-5">
                                 <div class="cart_totals">
-                                    <h2>Tổng giỏ hàng</h2>
+                                    <h2>Total cart</h2>
                                     <table>
                                         <tbody>
                                         <tr class="cart-subtotal">
-                                            <th>tiền hàng</th>
+                                            <th>Total price</th>
                                             <td>
                                                 <span class="amount">{{number_format($total)}}</span>
                                             </td>
                                         </tr>
                                         <tr class="shipping">
-                                            <th>vận chuyển</th>
+                                            <th>Transport method</th>
                                             <td>
                                                 <ul id="shipping_method">
                                                     <li>
 
                                                         <label>
-                                                            Phí Giao Hàng:
+                                                            Shipping fee:
                                                             <span class="amount">30$</span>
                                                         </label>
                                                     </li>
@@ -122,7 +122,7 @@
                                             </td>
                                         </tr>
                                         <tr class="order-total">
-                                            <th>tổng</th>
+                                            <th>Total checkout</th>
                                             <td>
                                                 <strong>
                                                     <span class="amount">{{number_format($total +30)}}$</span>
@@ -132,7 +132,7 @@
                                         </tbody>
                                     </table>
                                     <div class="wc-proceed-to-checkout">
-                                        <a href="{{route('checkout')}}">Tiến Hành Thanh Toán</a>
+                                        <a href="{{route('checkout')}}">Confirm payment</a>
                                     </div>
                                 </div>
                             </div>

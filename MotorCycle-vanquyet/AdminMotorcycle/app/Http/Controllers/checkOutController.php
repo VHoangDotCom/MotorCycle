@@ -90,6 +90,13 @@ class checkOutController extends Controller
        return redirect()->route('checkout_success');
     }
 
+    public function checkout_success(){
+        $carts=session()->get('cart',[]);
+        $quantityCart=$carts;
+        $dem=count($quantityCart);
+        return view('order.checkout_success',compact(['carts','carts','quantityCart','dem']));
+    }
+
 
 
 

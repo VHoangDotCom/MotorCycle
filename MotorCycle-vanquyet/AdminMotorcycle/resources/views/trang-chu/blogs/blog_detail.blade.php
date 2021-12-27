@@ -1,4 +1,34 @@
 @extends('trang-chu.layout.index')
+@section('cart')
+
+    <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
+
+        <span class=""> {!!$dem!!}</span>
+        @foreach($carts as $id=>$cart)
+
+            <div class="mini-cart-sub">
+                <div class="cart-product">
+                    <div class="single-cart">
+                        <div class="cart-img">
+                            <a href="#"><img src="/image/{{$cart['image']}}"/></a>
+                        </div>
+                        <div class="cart-info">
+                            <h5><a href="#">{{$cart['name']}}</a></h5>
+                            <p>{{$cart['quantity']}} x {{$cart['price']}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-totals">
+                    <h5>Tổng <span></span></h5>
+                </div>
+                <div class="cart-bottom">
+                    <a href="{{route('checkout')}}">Check out</a>
+                </div>
+            </div>
+        @endforeach
+    </li>
+
+@endsection
 @section('content')
     <!-- Blog CSS -->
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/blog.css')}}">
@@ -175,10 +205,10 @@
                             </div>
 
                             <div class="sidebar-widget card border-0 mb-3">
-                                <img src="{{URL::asset('niceadmin/trang-chu/images/blog/blog-author.jpg')}}" alt="" class="img-fluid">
+                                <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t31.18172-8/12310083_544680302363202_3052199910046784527_o.jpg?_nc_cat=109&ccb=1-5&_nc_sid=f9d7a1&_nc_ohc=1brh5hEflSoAX8iyw5F&_nc_ht=scontent.fhan14-2.fna&oh=00_AT_MRxpx9u_uVRuxz00qZiCmoDoLj8kSCgv46WUB_SVVmw&oe=61F0A965" alt="" class="img-fluid">
                                 <div class="card-body p-4 text-center">
                                     <h5 class="mb-0 mt-4">Anh Duc</h5>
-                                    <p>Ong than Bootstrap</p>
+                                    <p>Bootstrap God</p>
                                     <p>Best Vaper in the world .</p>
 
                                     <ul class="list-inline author-socials">

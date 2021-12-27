@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-content text-center">
-                            <h2>Thanh Toán</h2>
+                            <h2>Checkout process</h2>
                             <ul>
-                                <li><a href="{{route("/")}}">Trang Chủ /</a></li>
-                                <li><a href="{{route("Cart")}}">Giỏ Hàng /</a></li>
-                                <li class="active"><a href="#">Thanh Toán</a></li>
+                                <li><a href="{{route("/")}}">Home /</a></li>
+                                <li><a href="{{route("Cart")}}">Shopping cart /</a></li>
+                                <li class="active"><a href="#">Checkout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -54,48 +54,48 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="checkbox-form">
-                                    <h3>Thông Tin nhận hàng</h3>
+                                    <h3>delivery information</h3>
                                     <div class="row">
 
                                         <div class="col-12 ">
                                             <div class="checkout-form-list">
-                                                <label>Tên <span class="required">*</span></label>
+                                                <label>Full name <span class="required">*</span></label>
                                                 <input type="text" name="name" placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="checkout-form-list">
-                                                <label>Địa Chỉ <span class="required">*</span></label>
-                                                <input type="text" name="address" placeholder="Số nhà - Phố">
+                                                <label>Address <span class="required">*</span></label>
+                                                <input type="text" name="address" placeholder="Number - street">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>Xã/ Phường <span class="required">*</span></label>
+                                                <label>District <span class="required">*</span></label>
                                                 <input type="text" name="district">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>Quận/ Huyện <span class="required">*</span></label>
+                                                <label>Wards <span class="required">*</span></label>
                                                 <input type="text" name="ward" placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="checkout-form-list">
-                                                <label>Tỉnh / Thành Phố <span class="required">*</span></label>
+                                                <label>Province/City <span class="required">*</span></label>
                                                 <input type="text" name="city">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>Điện Thoại <span class="required">*</span></label>
+                                                <label>Phone number <span class="required">*</span></label>
                                                 <input type="number" name="phone">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="checkout-form-list">
-                                                <label>Địa Chỉ Email <span class="required">*</span></label>
+                                                <label>Email address <span class="required">*</span></label>
                                                 <input type="email" placeholder="" name="email">
                                             </div>
                                         </div>
@@ -103,9 +103,9 @@
                                     </div>
                                     <div class="order-notes">
                                         <div class="checkout-form-list">
-                                            <label>Ghi chú </label>
+                                            <label>Message/Note </label>
                                             <textarea
-                                                placeholder="Ghi chú về đơn hàng của bạn, Ví dụ ghi chú đặc biệt để nhận hàng."
+                                                placeholder="Notes on your order, Example of special notes for receiving goods."
                                                 rows="10" cols="30" id="checkout-mess" name="description"></textarea>
                                         </div>
                                     </div>
@@ -113,14 +113,14 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="your-order">
-                                    <h3>Đơn hàng của bạn</h3>
+                                    <h3>Your Orders</h3>
                                     <div class="your-order-table table-responsive">
                                         <table>
                                             <thead>
                                             <tr>
-                                                <th class="product-name"><strong>Ảnh</strong></th>
-                                                <th class="product-name"><strong>Sản phẩm</strong></th>
-                                                <th class="product-total"><strong>Tổng</strong></th>
+                                                <th class="product-name"><strong>Image</strong></th>
+                                                <th class="product-name"><strong>Product</strong></th>
+                                                <th class="product-total"><strong>Total</strong></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -152,12 +152,12 @@
                                             </tbody>
                                             <tfoot>
                                             <tr class="cart-subtotal">
-                                                <th><strong>Tổng tiền hàng</strong></th>
+                                                <th><strong>Total price</strong></th>
                                                 <th><strong></strong></th>
                                                 <td><span class="amount">{{number_format($total)}}$</span></td>
                                             </tr>
                                             <tr class="shipping">
-                                                <th><strong>Phí Vận Chuyển</strong></th>
+                                                <th><strong>Shipping fee</strong></th>
                                                 <th><strong></strong></th>
                                                 <td>
                                                     <ul>
@@ -169,7 +169,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="order-total">
-                                                <th><strong>Tổng đơn hàng</strong></th>
+                                                <th><strong>Total checkout</strong></th>
                                                 <th><strong></strong></th>
                                                 <td><strong><span  class="amount">{{$total +30}}$</span></strong>
                                                 </td>
@@ -184,7 +184,7 @@
 
                             <div class="col-12 col-md-12">
                                 <div class="your-order">
-                                    <h3>Phương thức thanh toán</h3>
+                                    <h3>Checkout Method</h3>
 
                                     <div class="payment-method">
                                         <div class="payment-accordion">
@@ -285,7 +285,7 @@
                                                                         </g>
                                                                         <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
                                                                         <rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5" />
-                                                                        <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13">John Doe</text>
+                                                                        <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13">Yasuo</text>
                                                                     </g>
                 </svg>
                                                             </div>
@@ -323,7 +323,7 @@
                                             </div>
                                         </div>
                                         <div class="order-button-payment">
-                                            <input type="submit" value="Đặt Hàng" >
+                                            <input type="submit" value="Confirm payment" >
                                         </div>
                                     </div>
                                 </div>
