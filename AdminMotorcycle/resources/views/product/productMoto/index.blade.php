@@ -83,11 +83,7 @@
                                                         <button type="submit" class="btn btn-danger">Delete </button>
                                                     </form>
                                                 </td>
-                                                {{--                                                <td>--}}
 
-                                                {{--                                                        <a href="{{route('gallery.create',$product->id)}}" class="btn btn-info"><i class="bi bi-eye">Create Thumbnails</i></a>--}}
-
-                                                {{--                                                </td>--}}
 
 
                                             </tr>

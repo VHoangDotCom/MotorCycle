@@ -4,13 +4,14 @@
 
     <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
 
-        <span class=""> {!!$dem!!}</span>
+        <span class="lblCartCount" id="lblCartCount"> {!! $dem !!}</span>
         @foreach($carts as $id=>$cart)
 
         <div class="mini-cart-sub">
             <div class="cart-product">
                 <div class="single-cart">
                     <div class="cart-img">
+
                         <a href="#"><img src="/image/{{$cart['image']}}"/></a>
                     </div>
                     <div class="cart-info">
@@ -19,9 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="cart-totals">
-                <h5>Tổng <span></span></h5>
-            </div>
+
             <div class="cart-bottom">
                 <a href="{{route('checkout')}}">Check out</a>
             </div>
@@ -76,411 +75,69 @@
     </div>
     <!-- founder-area end -->
     <!-- feature-product-area start -->
-    <div class="feature-product-area ptb-80">
+    <div class="arrivals-area ptb-80">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-title mb-30 text-center">
-                        <h2>Sản phẩm bán chạy</h2>
+                        <h2>Phụ Kiện mới nhất </h2>
                     </div>
-                </div>
-                <div class="col-12">
-                    <!-- tab-menu start -->
-                    <div class="tab-menu mb-50 text-center">
-                        <ul>
-                            <li class="active"><a href="#" data-toggle="tab">quần áo</a></li>
-                            <li><a href="#" data-toggle="tab">Mũ Bảo hiểm</a></li>
-                            <li><a href="#" data-toggle="tab">giày</a></li>
-                            <li><a href="#" data-toggle="tab">phụ kiện</a></li>
-                        </ul>
-                    </div>
-                    <!-- tab-menu end -->
                 </div>
             </div>
+
             <!-- tab-area start -->
             <div class="tab-content">
-                <div class="tab-pane active" id="Clothing">
-                    <div class="row">
-                        <div class="product-active">
+                <div class="row">
+                    <div class="product-active">
+
+
+                        @foreach($accessories as $accessory)
                             <div class="col-12">
+
                                 <!-- product-wrapper start -->
                                 <div class="product-wrapper">
+
                                     <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/14965516_1304858206222506_6574316790383360_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/14965516_1304858206222506_6574316790383360_n.jpg')}}" alt="product" class="secondary" />
+                                        <a href="product-details.html">
+                                            <img src="/image/{{$accessory->image}}" alt="product" class="primary" />
+                                            <img src="/image/{{$accessory->image}}" alt="product" class="secondary" />
                                         </a>
-                                        <span class="sale">sale</span>
+
                                         <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
+
+                                            <a href="#" class="add-to-cart-button" data-name="{{$accessory->productName}}" data-url="{{route('add.to.cart',$accessory->pro_id)}}" title="Thêm vào Giỏ Hàng"><i
+                                                    class="icon ion-bag " ></i></a>
+                                            <input type="hidden" name="quantity" value="1">
+
+
                                             <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                     class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#mymodal" title="Xem Nhanh"><i
+                                                    class="icon ion-android-open"></i></a>
                                         </div>
                                     </div>
+
                                     <div class="product-content pt-20">
                                         <div class="manufacture-product">
-                                            <a href="">Armani</a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating1">rating</div>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">Áo da nam</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <!-- cho nay la strike + del -->
-                                                <li class="oldprice"><del>625,000đ</del></li>
-                                                <li class="new-price">499,000đ</li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/14965516_1304858206222506_6574316790383360_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/14965516_1304858206222506_6574316790383360_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">Prada</a>
                                             <div class="rating">
                                                 <div class="rating-box">
                                                     <div class="rating2">rating</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <h2><a href="#">Giày da nam</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <li class="new-price">499,000đ</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <span class="sale">sale</span>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">H&M </a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating3">rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">Mũ bảo hiểm</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <li class="old-price"><del>300,000đ</del></li>
-                                                <li class="new-price">179,000đ</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">Chanel</a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating4">rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">áo da nam</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <li class="new-price">449,000đ</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag addToCart"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">Canifa</a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating5">rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">Áo Nữ In Hình</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <li class="new-price">349,000đ</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="Handbags">
-                    <div class="row">
-                        <div class="product-active">
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <span class="sale">sale</span>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag addToCart"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">Chanel</a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating1">rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">Quần Dài Nam</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <li class="old-price"><del>600,000đ</del></li>
-                                                <li class="new-price">449,000đ</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag addToCart"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">IVY Moda</a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating2">rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">Áo lót nữ</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <li class="new-price">199,000đ</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <span class="sale">sale</span>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag addToCart"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">Dior </a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating3">rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">quần lót Nữ</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <li class="old-price"><del>400,000đ</del></li>
-                                                <li class="new-price">299,000đ</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag addToCart"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">Chanel</a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating4">rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">Váy Len Nữ Dài Tay</a></h2>
-                                        <div class="price">
-                                            <ul>
-                                                <li class="new-price">499,000đ</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- product-wrapper end -->
-                            </div>
-                            <div class="col-12">
-                                <!-- product-wrapper start -->
-                                <div class="product-wrapper">
-                                    <div class="product-img">
-                                        <a href="#">
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="primary" />
-                                            <img src="{{URL::asset('niceadmin/trang-chu/images/product/250849721_4290564467709131_7273106139172555595_n.jpg')}}" alt="product" class="secondary" />
-                                        </a>
-                                        <div class="product-icon">
-                                            <a href="#" data-toggle="tooltip" title="Thêm vào Giỏ Hàng"><i
-                                                    class="icon ion-bag addToCart"></i></a>
-                                            <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
-                                                    class="icon ion-android-options"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#mymodal"
-                                               title="Xem Nhanh"><i class="icon ion-android-open"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content pt-20">
-                                        <div class="manufacture-product">
-                                            <a href="shop.html">H&M </a>
-                                            <div class="rating">
-                                                <div class="rating-box">
-                                                    <div class="rating5">rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2><a href="#">quần lót nam</a>
+                                        <h2><a href="product-details.html">{{$accessory->productName}}</a>
                                         </h2>
                                         <div class="price">
                                             <ul>
-                                                <li class="new-price">149,000đ</li>
+                                                <li class="new-price">{{number_format($accessory->pro_new_price)}}$</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- product-wrapper end -->
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -507,17 +164,23 @@
 
                        @foreach($products as $product)
                           <div class="col-12">
+
                             <!-- product-wrapper start -->
                             <div class="product-wrapper">
+
                                 <div class="product-img">
                                     <a href="product-details.html">
                                         <img src="/image/{{$product->image}}" alt="product" class="primary" />
                                         <img src="/image/{{$product->image}}" alt="product" class="secondary" />
                                     </a>
+
                                     <div class="product-icon">
 
-                                        <a href="{{ route('add.to.cart', $product->pro_id)}}" data-toggle="tooltip"  id="addToCart"  title="Thêm vào Giỏ Hàng"><i
-                                                class="icon ion-bag addToCart"></i></a>
+                                        <a href="#" class="add-to-cart-button" data-name="{{$product->productName}}" data-url="{{route('add.to.cart',$product->pro_id)}}" title="Thêm vào Giỏ Hàng"><i
+                                                class="icon ion-bag " ></i></a>
+                                        <input type="hidden" name="quantity" value="1">
+
+
                                         <a href="#" data-toggle="tooltip" title="So Sánh Sản Phẩm"><i
                                                 class="icon ion-android-options"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#mymodal" title="Xem Nhanh"><i
@@ -583,7 +246,7 @@
                                     <h3><a href="{{$blog->content}}">{{$blog->title}}</a>
                                     </h3>
                                     <span>By {{$blog->createdBy}}</span>
-                                  {!!$blog->content!!}
+
                                     <a href="blog-details.html">Xem thêm...</a>
                                </div>
                             </div>

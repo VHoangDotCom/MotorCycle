@@ -1,4 +1,34 @@
 @extends('trang-chu.layout.index')
+@section('cart')
+
+
+    <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
+
+        <span class="lblCartCount" id="lblCartCount"> {!! $dem !!}</span>
+        @foreach($carts as $id=>$cart)
+            <div class="mini-cart-sub">
+                <div class="cart-product">
+                    <div class="single-cart">
+                        <div class="cart-img">
+                            <a href="#"><img src="/image/{{$cart['image']}}"/></a>
+                        </div>
+                        <div class="cart-info">
+                            <h5><a href="#">{{$cart['name']}}</a></h5>
+                            <p>{{$cart['quantity']}} x {{$cart['price']}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-totals">
+                    <h5>Tổng <span></span></h5>
+                </div>
+                <div class="cart-bottom">
+                    <a href="{{route('checkout')}}">Check out</a>
+                </div>
+            </div>
+        @endforeach
+    </li>
+
+@endsection
 @section('content')
     <!-- Blog CSS -->
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/blog.css')}}">
@@ -20,7 +50,7 @@
                             <span class="text-white">Blogs in motorcycle field</span>
                             <h1  class="text-capitalize mb-4 text-lg"> Motorcycle Blogs</h1>
                             <ul class="list-inline">
-                                <li class="list-inline-item"><a href="{{route('trang-chu.home')}}" class="text-white">Home</a></li>
+                                <li class="list-inline-item"><a href="{{route('/')}}" class="text-white">Home</a></li>
                                 <li class="list-inline-item"><span class="text-white">/</span></li>
                                 <li class="list-inline-item"><a href="#" class="text-white-50">Blogs details</a></li>
                             </ul>
@@ -51,7 +81,7 @@
                                         <h2 class="mt-3 mb-4"><a href="#">{{$blog->title}}</a></h2>
                                         <p class="lead mb-4">{{$blog->description}}</p>
 
-                                        <textarea>{{$blog->content}}</textarea>
+                                        {!! $blog->content !!}
 
                                         <h3 class="quote">A brand for a company is like a reputation for a person. You earn reputation by trying to do hard things well.</h3>
 
@@ -205,17 +235,13 @@
                                 <h5>Latest Posts</h5>
 
 
-                                @if($message = Session::get('success'))
-                                    <div class="alert alert-success">
-                                        {{$message}}
-                                    </div>
-                                @endif
+
 
                                 @foreach($blogs as $blog)
                                     <div class="media border-bottom py-3">
-                                        <a href="{{route('blogs.blog_detail',$blog->id)}}"><img class="mr-4" src="/image/{{$blog->image}}" alt="blog"></a>
+                                        <a href="{{route('blog_detail',$blog->id)}}"><img class="mr-4" src="/image/{{$blog->image}}" width="100px" height="100px" alt="blog"></a>
                                         <div class="media-body">
-                                            <h6 class="my-2"><a href="{{route('blogs.blog_detail',$blog->id)}}">{{$blog->title}}</a></h6>
+                                            <h6 class="my-2"><a href="{{route('blog_detail',$blog->id)}}">{{$blog->title}}</a></h6>
                                             <span class="text-sm text-muted">{{$blog->updated_at->format('D')}} {{$blog->updated_at->format('M')}} {{$blog->updated_at->format('Y')}}</span>
                                         </div>
                                     </div>

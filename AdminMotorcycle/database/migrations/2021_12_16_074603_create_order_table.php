@@ -25,8 +25,9 @@ class CreateOrderTable extends Migration
             $table->string('ward');
             $table->string('city');
             $table->string('total');
+            $table->integer('quantity');
             $table->tinyInteger('pay_method');
-//            $table->text('bill_image')->nullable();
+
             $table->tinyInteger('status')->default(0);//0:dang xu ly 1:dang giao hang 2:da nhan hang
             $table->timestamps();
             $table->softDeletes();

@@ -178,61 +178,13 @@
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading" role="tab" id="headingOne">
                                                             <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion"
-                                                                   href="#collapseOne" aria-expanded="true"
-                                                                   aria-controls="collapseOne">
-                                                                    Chuyển khoản trực tiếp
-                                                                </a>
+                                                               Hình Thức Thanh Toán:Tiền Mặt
                                                             </h4>
                                                         </div>
-                                                        <div id="collapseOne" class="panel-collapse collapse in"
-                                                             role="tabpanel" aria-labelledby="headingOne">
-                                                            <div class="panel-body">
-                                                                <p>Chuyển khoản trực tiếp vào tài khoản ngân hàng của
-                                                                    chúng tôi. Vui lòng ghi chú mã đơn hàng của bạn. Đơn
-                                                                    hàng của bạn sẽ được vận chuyển khi chúng tôi nhận
-                                                                    được tiền trong tài khoản</p>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading" role="tab" id="headingTwo">
-                                                            <h4 class="panel-title">
-                                                                <a class="collapsed" role="button"
-                                                                   data-toggle="collapse" data-parent="#accordion"
-                                                                   href="#collapseTwo" aria-expanded="false"
-                                                                   aria-controls="collapseTwo">
-                                                                    Thanh toán bằng ví điện tử
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseTwo" class="panel-collapse collapse"
-                                                             role="tabpanel" aria-labelledby="headingTwo">
-                                                            <div class="panel-body">
-                                                                <p>Hỗ trợ thanh toán qua các ví điện tử: MoMo, Zalo Pay,
-                                                                    Payoo, Vtc Pay, Viettel Pay</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-heading" role="tab" id="headingThree">
-                                                            <h4 class="panel-title">
-                                                                <a class="collapsed" role="button"
-                                                                   data-toggle="collapse" data-parent="#accordion"
-                                                                   href="#collapseThree" aria-expanded="false"
-                                                                   aria-controls="collapseThree">
-                                                                    Thanh toán bằng thẻ<img src="images/2.png"
-                                                                                            alt="payment" />
-                                                                </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapseThree" class="panel-collapse collapse"
-                                                             role="tabpanel" aria-labelledby="headingThree">
-                                                            <div class="panel-body">
-                                                                <p>Thanh toán bằng thẻ ghi nợ nội địa, thẻ tín dụng hoặc
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
+
                                                 </div>
                                             </div>
                                         </div>

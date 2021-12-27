@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('products', function (Blueprint $table) {
-            $table->unsignedInteger('pro_id')->autoIncrement();
+            $table->increments('pro_id');
             $table->unsignedInteger('cate_id');
             $table->string('productName');
             $table->string('title',200);
@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->integer('quantity')->nullable();
 
             $table->enum('status',['In Stock','Out of Stock']);
-            $table->enum('productType',['0','1']);//0: product of people 1:product of motor
+            $table->enum('productType',['1','2']);//0: product of people 1:product of motor
             $table->string('image',200)->nullable();
             $table->foreign('cate_id')->references('cate_id')->on('categories')->onDelete('cascade');
             $table->timestamps();

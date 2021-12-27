@@ -28,23 +28,9 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="#">Accessory</a>
-                                    <ul class="mega-menu mega-menu-2">
-                                        <li><a href="#">Bib</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">khăn ống</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Helmet</a>
-                                            <ul class="sub-menu-2">
-                                                <li><a href="#">mũ bảo hiểm</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
 
                                 <li><a href="{{ route('news') }}">Blogs</a></li>
-                                <li><a href="">contact</a></li>
+                                <li><a href="{{route('about_us')}}">contact</a></li>
 
 
                             </ul>
@@ -106,10 +92,11 @@
 
                             <li><a href="#" id="show-cart"><i class="icon ion-android-person"></i></a>
                                 <div class="shapping-area" id="hide-cart">
-
+                                    <div class="single-shapping">
                                          @if (Route::has('login'))
                                             <ul>
                                                 @auth
+                                                    <li><a href="{{ route('profile') }}" >Profile</a></li>
                                                     @can('admin')
                                                     <li> <a href="{{ route('home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a></li>
                                                     @endcan
@@ -135,7 +122,7 @@
                                             </ul>
                                         @endif
 
-
+                                    </div>
 
                                 </div>
                             </li>

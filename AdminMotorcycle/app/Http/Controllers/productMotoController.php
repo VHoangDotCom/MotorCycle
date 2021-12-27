@@ -16,7 +16,7 @@ class productMotoController extends Controller
 
     public function index()
     {
-        $products = product::latest()->where('productType', '1')->paginate(50);
+        $products = product::latest()->where('productType', '2')->paginate(50);
         return view('product.productMoto.index', compact('products'))->with('i', (\request()->input('page', 1) - 1) * 5);
     }
 

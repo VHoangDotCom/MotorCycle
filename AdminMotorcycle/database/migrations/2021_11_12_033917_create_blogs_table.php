@@ -14,7 +14,7 @@ class CreateBlogsTable extends Migration
             $table->string('blogCode',200);
             $table->string('title',200)->nullable();
             $table->string('image',200)->nullable();
-            $table->string('description',200)->nullable();
+            $table->text('description',)->nullable();
             $table->text('content')->nullable();
             $table->string('createdBy',200)->nullable();
             $table->timestamps();

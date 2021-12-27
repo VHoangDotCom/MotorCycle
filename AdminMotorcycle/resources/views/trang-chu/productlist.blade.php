@@ -4,7 +4,7 @@
 
     <li><a href="{{route('Cart')}}"><i class="icon ion-bag"></i></a>
 
-        <span class=""> {!!$dem!!}</span>
+        <span class="lblCartCount" id="lblCartCount"> {!! $dem !!}</span>
         @foreach($carts as $id=>$cart)
             <div class="mini-cart-sub">
                 <div class="cart-product">
@@ -37,7 +37,6 @@
     <link rel="stylesheet" href="{{asset('niceadmin/trang-chu/css/productlist.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.0/css/boxicons.min.css' rel='stylesheet'>
 
-
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -46,7 +45,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="" class="" alt="...">
+                <img src="{{URL::asset('niceadmin/trang-chu/images/blog/banner-ducati-full-opt.jpg')}}"  class="" alt="...">
                 <div class="carousel-caption ">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
@@ -54,14 +53,14 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="" class="" alt="...">
+                <img src="{{URL::asset('niceadmin/trang-chu/images/blog/banner-kawasaki-full-opt.jpg')}}" class="" alt="...">
                 <div class="carousel-caption ">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the second slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="" class="" alt="...">
+                <img src="{{URL::asset('niceadmin/trang-chu/images/blog/BMWM-21-XXXXX_R18EASYRIDE_1920x600_02.jpg')}}" class="" alt="...">
                 <div class="carousel-caption">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the third slide.</p>
@@ -86,17 +85,17 @@
             <div class="row">
 
                 <div class="side_tung">
-                    {{--                <div class="category_tung">--}}
-                    {{--                    <h3 class="side_tung_title">Category</h3>--}}
-                    {{--                    <ul class="product_brand_list">--}}
-                    {{--                        <li><a href="#" class="product_brand_detail">Men</a></li>--}}
-                    {{--                        <li><a href="#" class="product_brand_detail">Women</a></li>--}}
-                    {{--                        <li><a href="#" class="product_brand_detail">Accesorry</a></li>--}}
-                    {{--                    </ul>--}}
-                    {{--                </div>--}}
+                    <div class="filter_product">
+                        <h3 class="filter_product_title">FILTERS</h3>
+                    </div>
+                    <div class="product_category">
+                        <h5 class="product_category_title">Category</h5>
+
+                    </div>
                     <div class="products_brand">
+
+                        <h5 class="side_tung_title">Sort By Brand</h5>
                         @foreach($categories as $category)
-                            <h3 class="side_tung_title">Category </h3>
                             <div class="product_brand_list">
                                 <div class="product_brand_detail">
                                     <a href="#" >{{$category->categoryName}}</a>
@@ -105,29 +104,35 @@
                             </div>
                         @endforeach
                     </div>
-
                     <div class="product_price">
-                        <h3 class="side_tung_title">Sort By Price</h3>
+                        <h5 class="side_tung_title">Sort By Price</h5>
                         <div class="form-group row">
                             <div class="form-check col-md-12">
-                                <input type="checkbox" class="form-check-input rangeCheck" id="range1" data-range="4999" checked readonly="true">
+                                <input type="radio" name="filter_range_price" class="form-check-input rangeCheck" id="range1" data-price_from="" data-price_to="49"  data-range="49"  readonly="true" @if(request()->get('priceTo') == 49999) checked @endif>
                                 <label class="form-check-label" for="range1">Up $49,999 </label>
                             </div>
                             <div class="form-check col-md-12">
-                                <input type="checkbox" class="form-check-input rangeCheck" id="range2" data-range="9999" checked>
+                                <input type="radio" name="filter_range_price"  class="form-check-input rangeCheck" id="range2" data-price_from="50" data-price_to="99" data-range="99"
+                                       @if(request()->get('priceFrom') == 50 && request()->get('priceTo') == 99 ) checked @endif>
                                 <label class="form-check-label" for="range2">$50,000 - $99,999 </label>
                             </div>
                             <div class="form-check col-md-12">
-                                <input type="checkbox" class="form-check-input rangeCheck" id="range3" data-range="14999">
+                                <input type="radio" name="filter_range_price"  class="form-check-input rangeCheck" id="range3" data-price_from="100" data-price_to="149"  data-range="149"
+                                       @if(request()->get('priceFrom') == 100 && request()->get('priceTo') == 149 ) checked @endif
+                                >
                                 <label class="form-check-label" for="range3">$100,000 - $149,999</label>
                             </div>
                             <div class="form-check col-md-12">
-                                <input type="checkbox" class="form-check-input rangeCheck" id="range4" data-range="19999">
+                                <input type="radio" name="filter_range_price"  class="form-check-input rangeCheck" id="range4" data-price_from="150" data-price_to="199"  data-range="199"
+                                       @if(request()->get('priceFrom') == 150 && request()->get('priceTo') == 199 ) checked @endif
+                                >
                                 <label class="form-check-label" for="range4">$150,000 - $199,999 </label>
                             </div>
                             <div class="form-check col-md-12">
-                                <input type="checkbox" class="form-check-input rangeCheck" id="range5" data-range="20000">
-                                <label class="form-check-label" for="range5">Up $20,000 </label>
+                                <input type="radio" name="filter_range_price"  class="form-check-input rangeCheck" id="range5" data-price_from="200" data-price_to=""  data-range="200"
+                                       @if(request()->get('priceFrom') == 200 ) checked @endif
+                                >
+                                <label class="form-check-label" for="range5">Up $200,000 </label>
                             </div>
                         </div>
                     </div>
@@ -135,25 +140,19 @@
                 <div class="product_list_main">
                     <div class="browse-navigation--desktop">
                         <div class="browse-navigation__sort">
-                            <select aria-label="Sort by" class="browse-navigation__sort-select" data-field-name="Sort by"  name="[]">
+                            @csrf
+                            <select aria-label="Sort by" class="browse-navigation__sort-select" data-field-name="Sort by" id="sort"  name="sort">
                                 <option value="featured" selected="">Sort by Featured</option>
-                                <option value="rating">Sort by Rating</option>
-                                <option value="brand">Sort by Brand</option>
-                                <option value="best_seller">Sort by Best Sellers</option>
-                                <option value="newest">Sort by Newest Arrivals</option>
-                                <option value="price_asc">Sort by Price: Low to High</option>
-                                <option value="price_desc">Sort by Price: High to Low</option>
+                                <option value="{{Request::url()}}?sort_by=newest" @if(request()->get('sort_by') == 'newest' ) selected @endif>Sort by Newest Arrivals</option>
+                                <option value="{{Request::url()}}?sort_by=price_asc" @if(request()->get('sort_by') == 'price_asc' ) selected @endif>Sort by Price: Low to High</option>
+                                <option value="{{Request::url()}}?sort_by=price_desc" @if(request()->get('sort_by') == 'price_desc' ) selected @endif>Sort by Price: High to Low</option>
                             </select>
+
                         </div>
-                        <div class="pagination">
-                            <a href="#">&laquo;</a>
-                            <a href="#">1</a>
-                            <a class="active" href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                            <a href="#">&raquo;</a>
+                        <div class="pagination_start">
+                            <div class="pagination">
+                                {{$products->render('vendor.pagination.paginate')}}
+                            </div>
                         </div>
                     </div>
 
@@ -163,9 +162,6 @@
                                 <div class="card_heart">
                                     <i class='bx bx-heart' ></i>
                                 </div>
-                                <div class="card_cart">
-                                    <i class='bx bx-cart-alt' ></i>
-                                </div>
                                 <div class="card_img">
                                     <img src="/image/{{$product->image}}" />
                                 </div>
@@ -173,7 +169,7 @@
                                     {{$product->productName}}
                                 </div>
                                 <div class="card_price">
-                                    {{number_format($product->pro_new_price)}}$
+                                    ${{number_format($product->pro_new_price)}}
                                 </div>
                                 <div class="card_size">
                                     <h5 class="size">Size</h5>
@@ -189,28 +185,19 @@
                                     <span class="card_color_3"></span>
                                 </div>
                                 <div class="card_action">
-                                    <button>Buy Now</button>
-                                    <button>Add Cart</button>
-                                    <button>Detail</button>
+                                    <button><a href="#" class="add-to-cart-button" data-name="{{$product->productName}}" data-url="{{route('add.to.cart',$product->pro_id)}}">Add Cart</a></button>
+                                    <input type="hidden" name="quantity" value="1">
+                                    <button> <a href="{{route('detail',$product->pro_id)}}">Detail </a></button>
                                 </div>
                             </div>
 
                         @endforeach
 
-                    </div>
-                    <div class="pagination_end">
-                        <div class="pagination">
-                            <a href="#">&laquo;</a>
-                            <a href="#">1</a>
-                            <a class="active" href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                            <a href="#">&raquo;</a>
-                        </div>
-                    </div>
 
+                    </div>
+                    <div class="pagination">
+                        {{$products->render('vendor.pagination.paginate')}}
+                    </div>
                 </div>
             </div>
 

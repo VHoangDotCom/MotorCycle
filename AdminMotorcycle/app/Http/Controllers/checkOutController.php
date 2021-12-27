@@ -70,12 +70,14 @@ class checkOutController extends Controller
             $product=$cart['name'];
             $quantity=$cart['quantity'];
             $subtotal=$cart['price'] * $cart['quantity'];
-            \DB::table('orders')->insert([
+            Order::create([
                 'checks_id'=>$order,
                 'pro_name'=>$product,
-               'quantity'=>$quantity,
-               'total_price'=>$subtotal,
+                'quantity'=>$quantity,
+                'total_price'=>$subtotal,
             ]);
+
+
         }
         session()->forget('cart');
 

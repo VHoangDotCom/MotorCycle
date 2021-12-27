@@ -80,8 +80,8 @@
                                         <label for="inputState" class="form-label " >Product Type:</label>
                                         <select id="inputState" class="form-select" name="productType">
                                             <option value="">Choose category from the list</option>
-                                            <option value="0">Product Of People</option>
-                                            <option value="1">Product Of Motor</option>
+                                            <option value="1">Product Of People</option>
+                                            <option value="2">Product Of Motor</option>
 
                                         </select>
                                     </div>

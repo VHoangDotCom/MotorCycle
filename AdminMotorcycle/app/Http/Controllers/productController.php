@@ -19,7 +19,7 @@ class productController extends Controller
 
     public function index()
     {
-        $products=product::latest()->where('productType','0')->paginate(80);
+        $products=product::latest()->where('productType','1')->paginate(80);
         return view('product.productPeople.index',compact('products'))->with('i',(request()->input('page',1)-1)*5);
     }
 

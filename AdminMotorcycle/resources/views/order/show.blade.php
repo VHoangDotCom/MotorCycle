@@ -132,11 +132,7 @@
 
 
 
-{{--            <div class="row " style="float:left;">--}}
-{{--                <div class="col-lg-12 text-center" style="margin-bottom: 10px;margin-top: 10px;float: right">--}}
-{{--                    <a href="{{route('productPeople.index')}}" class="btn btn-primary"><i class="bi bi-chevron-double-left"></i> Back</a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+
 
         </div>
 

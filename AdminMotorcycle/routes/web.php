@@ -20,7 +20,17 @@ Route::prefix('')->group(function () {
 
     Route::get('/', [\App\Http\Controllers\homeController::class,'index'])->name('/');
     Route::get('/news', [\App\Http\Controllers\homeController::class,'news'])->name('news');
-    Route::get('/products', [\App\Http\Controllers\homeController::class,'Products'])->name('products');
+    Route::get('/blog/{id}',[\App\Http\Controllers\homeController::class,'blog_detail'])->name('blog_detail');
+    //About Us page
+    Route::get('/about_us', [\App\Http\Controllers\homeController::class,'about_us'])->name('about_us');
+
+    Route::get('/products', [\App\Http\Controllers\homeController::class,'ProductPeople'])->name('products');
+
+    Route::get('/product/{id}',[\App\Http\Controllers\homeController::class,'detail'])->name('detail');
+    Route::get('profile',[\App\Http\Controllers\profileController::class,'index'])->name('profile');
+    Route::get('my-order/{id}',[\App\Http\Controllers\profileController::class,'showOrder'])->name('showOrder');
+    Route::get('profile/edit/{id}',[\App\Http\Controllers\profileController::class,'edit'])->name('profile.edit');
+    Route::post('profile/update/{id}',[\App\Http\Controllers\profileController::class,'update'])->name('profile.update');
     Route::get('checkout success',function (){
         return view('order.checkout_success');
     })->name('checkout_success');
@@ -84,11 +94,7 @@ Route::prefix('')->middleware('checkAdmin')->group(function () {
     Route::resource('blogs', \App\Http\Controllers\BlogController::class);
 });
 
-// Redirect to Profile
-Route::prefix('admin')->middleware('checkAdmin')->group(function () {
-    Route::get('profile',[\App\Http\Controllers\profileController::class,'index'])->name('admin.profile');
-    Route::post('profile/{id}',[\App\Http\Controllers\profileController::class,'update'])->name('profile.update');
-});
+
 //admin user
 Route::prefix('')->middleware('checkAdmin')->group(function () {
     Route::resource('users', \App\Http\Controllers\adminUserController::class);

@@ -12,7 +12,7 @@ class Order extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'checks_id',
-        'pro_id',
+        'pro_name',
         'quantity',
         'total_price',
     ];
@@ -25,5 +25,9 @@ class Order extends Model
     public function product()
     {
         return $this->belongsTo(product::class, 'pro_id');
+    }
+    public function topProducts()
+    {
+        return $this->hasMany(Order::class);
     }
 }

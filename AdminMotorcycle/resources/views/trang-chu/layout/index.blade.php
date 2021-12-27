@@ -41,6 +41,8 @@
 
 <!-- =========== Header ====== -->
 @include('trang-chu.layout.header')
+
+
 <div class="wapper">
   @yield('content')
 </div>
@@ -80,6 +82,9 @@
     <script src="{{asset('niceadmin/trang-chu/js/plugins.js')}}"></script>
     <!-- main js -->
     <script src="{{asset('niceadmin/trang-chu/js/main.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css">
 <script>
       function updateCart(event){
             event.preventDefault();
@@ -89,57 +94,149 @@
 
 
            $.ajax({
-            type:"GET",
-             url:urlUpdateCart,
-             data:{pro_id:id,quantity:quantity},
+               type:"GET",
+               url:urlUpdateCart,
+               data:{pro_id:id,quantity:quantity},
 
-               success:function (data){
-                 if (data.code ===200){
-              $('.page-wrapper').html(data.cart_update);
-              window.location.reload();
+                success:function (data){
+                   if (data.code ===200){
 
-                    }
+                     $('.page-wrapper').html(data.cart_update);
+                        window.location.reload();
 
-                  },
-             error:function (){
+                   }
+
+                },
+                 error:function (data) {
+
+                         $.toast({
+                             heading: 'Thất bại',
+                             text: 'số lượng update nhiều hơn số lượng trong kho',
+                             position: 'top-center',
+                             showHideTransition: 'slide',
+                             hideAfter: 5000,
+                             icon: 'error',
+                             stack: 5
+                         })
+
+                 }
 
 
-             }
 
-            });
+           });
+
       }
 
-          function deleteCart(event){
-              event.preventDefault();
-              let urlDelete=$('.delete_cart').data('url');
-              let id=$(this).data('id');
-              $.ajax({
+
+      function deleteCart(event) {
+          event.preventDefault();
+          let urlDelete = $('.delete_cart').data('url');
+          let id = $(this).data('id');
+          $.ajax({
+              type: "GET",
+              url: urlDelete,
+              data: {pro_id: id},
+
+
+              success: function (data) {
+                  if (data.code === 200) {
+                      $('.page-wrapper').html(data.cart_delete);
+                      window.location.reload();
+                  }
+              },
+              error: function (event) {
+
+
+              }
+          });
+      }
+
+      function addCart(event){
+          event.preventDefault();
+          let urlAdd=$(this).data('url');
+          let name=this.getAttribute('data-name');
+          let quantity=$('input[name=quantity]').val();
+          $.ajax({
               type:"GET",
-              url:urlDelete,
-             data:{pro_id:id},
-
-
+              url:urlAdd,
+              data:{quantity:quantity},
+              dataType:'json',
               success:function (data){
-                if (data.code ===200){
-               $('.page-wrapper').html(data.cart_delete);
-               window.location.reload();
+               if(data.code===200){
+                   $.toast({
+                       heading: 'Thành công',
+                       text: 'Sản phẩm ' + name + ' đã được thêm vào giỏ hàng',
+                       position: 'bottom-left',
+                       showHideTransition: 'slide',
+                       hideAfter: 5000,
+                       icon: 'success',
+                       stack: 5
+                   })
+                   $('#lblCartCount').html(data.dem);
 
-         }
+                  }
+              },
+              error:function (data) {
 
-      },
-          error:function (event){
+                      $.toast({
+                          heading: 'Thất bại',
+                          text: 'số lượng update nhiều hơn số lượng trong kho',
+                          position: 'top-center',
+                          showHideTransition: 'slide',
+                          hideAfter: 5000,
+                          icon: 'error',
+                          stack: 5
+                      })
 
+              }
+          })
 
-          }
-
-      });
       }
+
+
+
+
+
+
+
 
 $(function (){
+    $('.add-to-cart-button').on('click',addCart);
 $(document).on('click','.update_cart',updateCart);
 $(document).on('click','.delete_cart',deleteCart);
+
 })
 </script>
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sort').on('change',function () {
+            var url = $(this).val();
+            if (url){
+                window.location = url ;
+            }
+            return false ;
+        })
+    })
+    $("document").ready(function() {
+        $('input[name=filter_range_price]').click(function(e) {
+            e.preventDefault();
+            let priceFrom = $(this).data('price_from');
+            let priceTo = $(this).data('price_to');
+            const searchParams = new URLSearchParams(window.location.search);
+            if(searchParams.has('priceFrom') && searchParams.has('priceTo')) {
+                searchParams.set('priceFrom', priceFrom);
+                searchParams.set('priceTo', priceTo);
+                window.location.replace(window.location.origin  + '/products' + `?${searchParams.toString()}`)
+            }else {
+                window.location.replace(window.location.href + `?priceFrom=${priceFrom}&&priceTo=${priceTo}`)
+            }
+        });
+    });
+</script>
+
+
+
 </body>
 
 </html>

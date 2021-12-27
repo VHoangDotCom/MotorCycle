@@ -14,16 +14,16 @@ class product extends Model
 {
     protected $primaryKey = 'pro_id';
     public $fillable=([
+        'cate_id',
         'productName',
         'title',
         'description',
-        'quantity',
        'pro_old_price',
         'pro_new_price',
         'pro_sale',
-        'cate_id',
-        'productType',
+        'quantity',
         'status',
+        'productType',
         'image'
     ]);
 
@@ -69,6 +69,35 @@ class product extends Model
     public function scopeSearch($query, $search)
     {
         return $query->where('productName', 'LIKE', '%' . $search . '%');
+    }
+    public function scopeFilterProduct($query, $sortBy) {
+        if($sortBy == null || $sortBy == '') {
+            return $query;
+        }
+        switch ($sortBy) {
+            case 'newest':
+                return $query->orderBy('created_at', 'DESC');
+                break;
+            case 'price_asc':
+                return $query->orderBy('pro_new_price', 'ASC');
+                break;
+            case 'price_desc':
+                return $query->orderBy('pro_new_price', 'DESC');
+                break;
+        }
+    }
+
+    public function scopeFilterPrice($query, $priceFrom, $priceTo) {
+        if($priceFrom == null && $priceTo == null) {
+            return $query;
+        }
+        else if($priceTo == '' && $priceTo == null) {
+            return $query->where('pro_new_price', '>=', $priceFrom);
+        }else if($priceFrom == '' && $priceFrom == null) {
+            return $query->where('pro_new_price', '<=', $priceTo);
+        }else {
+            return $query->where('pro_new_price', '>=', $priceFrom)->where('pro_new_price', '<=', $priceTo);
+        }
     }
 
 }

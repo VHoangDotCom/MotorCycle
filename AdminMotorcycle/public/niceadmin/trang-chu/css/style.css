@@ -1552,9 +1552,10 @@ a#scrollUp:hover {
 /*  14. shop
 /*----------------------------------------*/
 .breadcrumbs-area {
-  background: #f6f6f6 url("../images/banner/9.jpg") no-repeat scroll center top;
+  background: #f6f6f6 url("../images/banner/banner-ducati-full-opt.jpg") no-repeat scroll center top;
   margin: 0;
   padding: 120px 0 200px;
+
 }
 .breadcrumb-content h2 {
   color: #333;
